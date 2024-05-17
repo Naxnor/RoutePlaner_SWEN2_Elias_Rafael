@@ -129,7 +129,6 @@
             </TabItem>
         </TabControl>
 
-        
         <DockPanel Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2">
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
                 <Button Content="New Log" Command="{Binding AddLogCommand}" CommandParameter="{Binding SelectedTour}" IsEnabled="{Binding SelectedTour}" Height="30" Margin="5"/>

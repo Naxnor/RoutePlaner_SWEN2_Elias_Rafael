@@ -1,10 +1,9 @@
-
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Moq;
 using RoutePlaner_Rafael_elias.ViewModels;  
 using RoutePlaner_Rafael_elias.Models;    
-
+using Xunit;
 
 public class UnitTest1
 {
@@ -14,10 +13,8 @@ public class UnitTest1
         void DeleteLog(Log log);
         Log GetLogById(int id);
         IEnumerable<Log> GetAllLogs();
-        
     }
     
-  
     [Fact]
     public void UpdateLogCommand_CanExecute_ReturnsTrueWhenLogIsSelected()
     {
@@ -25,7 +22,7 @@ public class UnitTest1
         var mockRepository = new Mock<ITourRepository>();
         var viewModel = new MainViewModel();
         var log = new Log { Id = 1, TourId = 1 }; // Ensure log details are sufficient
-        viewModel.LogSelection = log; // Correct property set
+        viewModel.SelectedLog = log; // Correct property set
 
         // Act
         bool canExecute = viewModel.UpdateLogCommand.CanExecute(null);
@@ -33,7 +30,6 @@ public class UnitTest1
         // Assert
         Assert.True(canExecute); // Verifies that the command can execute
     }
-
 
     [Fact]
     public void UpdateLogCommand_CanExecute_ReturnsFalseWhenNoLogIsSelected()
@@ -48,9 +44,6 @@ public class UnitTest1
         // Assert
         Assert.False(canExecute);
     }
-
-
-   
 
     [Fact]
     public void Test_DeleteLogCommand_CanExecute()

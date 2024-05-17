@@ -6,6 +6,7 @@ using RoutePlaner_Rafael_elias.Repository;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.IO;
 using System.Windows;
 using System.Windows.Input;
 
@@ -13,13 +14,13 @@ namespace RoutePlaner_Rafael_elias.ViewModels
 {
     public class MainViewModel : ObservableObject
     {
+        
         private readonly TourRepository _repository;
         private Tour _selectedTour;
         private Log _selectedLog;
         private ObservableCollection<Log> _dataGridLogList;
         private string _selectedTourDescription;
-        private string _imagePath = @"F:\GIT\SWEN\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\Data\Images\image.png";
-
+        private string _imagePath = @"F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\Data\Images\image.png";
         public ObservableCollection<Tour> Tours { get; private set; }
         public ObservableCollection<Log> DataGridLogList
         {
