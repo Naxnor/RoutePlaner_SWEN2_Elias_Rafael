@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "dgSpecHash": "OJoZSHwG4SX/jK9zhchoB6uCk3bETsSKW8TveYShR+QeN2zjZth9gJVbLCefl0Xvd50DijZd/NdVekQBF/hbyg==",
+  "success": true,
+  "projectFilePath": "F:\\GIT\\SWEN\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\naxno\\.nuget\\packages\\microsoft.entityframeworkcore\\9.0.0-preview.3.24172.4\\microsoft.entityframeworkcore.9.0.0-preview.3.24172.4.nupkg.sha512",
+    "C:\\Users\\naxno\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\9.0.0-preview.3.24172.4\\microsoft.entityframeworkcore.abstractions.9.0.0-preview.3.24172.4.nupkg.sha512",
+    "C:\\Users\\naxno\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\9.0.0-preview.3.24172.4\\microsoft.entityframeworkcore.analyzers.9.0.0-preview.3.24172.4.nupkg.sha512",
+    "C:\\Users\\naxno\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\9.0.0-preview.3.24172.4\\microsoft.entityframeworkcore.relational.9.0.0-preview.3.24172.4.nupkg.sha512",
+    "C:\\Users\\naxno\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\9.0.0-preview.3.24172.9\\microsoft.extensions.caching.abstractions.9.0.0-preview.3.24172.9.nupkg.sha512",
+    "C:\\Users\\naxno\\.nuget\\packages\\microsoft.extensions.caching.memory\\9.0.0-preview.3.24172.9\\microsoft.extensions.caching.memory.9.0.0-preview.3.24172.9.nupkg.sha512",
+    "C:\\Users\\naxno\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\9.0.0-preview.3.24172.9\\microsoft.extensions.configuration.abstractions.9.0.0-preview.3.24172.9.nupkg.sha512",
+    "C:\\Users\\naxno\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\9.0.0-preview.3.24172.9\\microsoft.extensions.dependencyinjection.9.0.0-preview.3.24172.9.nupkg.sha512",
+    "C:\\Users\\naxno\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.0-preview.3.24172.9\\microsoft.extensions.dependencyinjection.abstractions.9.0.0-preview.3.24172.9.nupkg.sha512",
+    "C:\\Users\\naxno\\.nuget\\packages\\microsoft.extensions.logging\\9.0.0-preview.3.24172.9\\microsoft.extensions.logging.9.0.0-preview.3.24172.9.nupkg.sha512",
+    "C:\\Users\\naxno\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\9.0.0-preview.3.24172.9\\microsoft.extensions.logging.abstractions.9.0.0-preview.3.24172.9.nupkg.sha512",
+    "C:\\Users\\naxno\\.nuget\\packages\\microsoft.extensions.options\\9.0.0-preview.3.24172.9\\microsoft.extensions.options.9.0.0-preview.3.24172.9.nupkg.sha512",
+    "C:\\Users\\naxno\\.nuget\\packages\\microsoft.extensions.primitives\\9.0.0-preview.3.24172.9\\microsoft.extensions.primitives.9.0.0-preview.3.24172.9.nupkg.sha512",
+    "C:\\Users\\naxno\\.nuget\\packages\\microsoft.toolkit.mvvm\\7.1.2\\microsoft.toolkit.mvvm.7.1.2.nupkg.sha512",
+    "C:\\Users\\naxno\\.nuget\\packages\\npgsql\\8.0.3\\npgsql.8.0.3.nupkg.sha512",
+    "C:\\Users\\naxno\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\9.0.0-preview.3\\npgsql.entityframeworkcore.postgresql.9.0.0-preview.3.nupkg.sha512"
+  ],
+  "logs": []
+}
