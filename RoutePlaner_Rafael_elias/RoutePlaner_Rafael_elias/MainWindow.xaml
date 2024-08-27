@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RoutePlaner_Rafael_elias"
         xmlns:viewModels="clr-namespace:RoutePlaner_Rafael_elias.ViewModels"
+        xmlns:windowsPresentation="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
         mc:Ignorable="d"
         Title="RoutePlaner_ER" 
         Height="600" Width="750"
@@ -117,7 +118,11 @@
 
         <TabControl Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2">
             <TabItem Header="Route">
-                <Image Name="ImageViewer" Margin="5" Source="{Binding ImagePath}" Stretch="Uniform"/>
+                <!-- Map Control hier hinzufügen -->
+                <Grid>
+                    <windowsPresentation:GMapControl x:Name="MapControl" />
+                    <Button Content="Show Route" HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" Margin="10" Click="OnShowRouteClick"/>
+                </Grid>
             </TabItem>
 
             <TabItem Header="Description">
