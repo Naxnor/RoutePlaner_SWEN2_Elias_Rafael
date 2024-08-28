@@ -5,60 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RoutePlaner_Rafael_elias"
         xmlns:viewModels="clr-namespace:RoutePlaner_Rafael_elias.ViewModels"
+        xmlns:gm="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
         mc:Ignorable="d"
         Title="RoutePlaner_ER" 
         Height="600" Width="750"
         MinHeight="600" MinWidth="750">
+    
     <Window.DataContext>
         <viewModels:MainViewModel/>
     </Window.DataContext>
 
     <Window.Resources>
-        <Style TargetType="Button">
-            <Setter Property="Background" Value="#2E7D32"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="BorderBrush" Value="#1B5E20"/>
-            <Setter Property="BorderThickness" Value="2"/>
-            <Setter Property="Padding" Value="10,5"/>
-            <Setter Property="Margin" Value="10"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="FontSize" Value="14"/>
-        </Style>
-        <Style TargetType="Menu">
-            <Setter Property="Background" Value="#37474F"/>
-            <Setter Property="Foreground" Value="White"/>
-        </Style>
-        <Style TargetType="MenuItem">
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontSize" Value="12"/>
-        </Style>
-        <Style TargetType="TabControl">
-            <Setter Property="Padding" Value="5"/>
-        </Style>
-        <Style TargetType="TabItem">
-            <Setter Property="Background" Value="LightGray"/>
-            <Setter Property="Padding" Value="10"/>
-            <Setter Property="Margin" Value="2"/>
-        </Style>
-        <Style TargetType="DockPanel">
-            <Setter Property="Background" Value="#EEE"/>
-        </Style>
-        <Style TargetType="Label">
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="Foreground" Value="#37474F"/>
-            <Setter Property="Margin" Value="5"/>
-            <Setter Property="FontSize" Value="12"/>
-        </Style>
-        <Style TargetType="TextBox">
-            <Setter Property="VerticalAlignment" Value="Stretch"/>
-            <Setter Property="HorizontalAlignment" Value="Stretch"/>
-            <Setter Property="Margin" Value="5,10"/>
-            <Setter Property="BorderBrush" Value="#B0BEC5"/>
-            <Setter Property="BorderThickness" Value="2"/>
-            <Setter Property="Padding" Value="5"/>
-            <Setter Property="FontSize" Value="12"/>
-        </Style>
+        <!-- Your styles here -->
     </Window.Resources>
     
     <Grid RenderTransformOrigin="0.0,0.0">
@@ -74,6 +32,7 @@
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
 
+        <!-- Top menu -->
         <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" VerticalAlignment="Top">
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="_File">
@@ -88,10 +47,12 @@
             </Menu>
         </DockPanel>
 
+        <!-- Search and buttons -->
         <TextBox TextWrapping="Wrap" Grid.Row="1" Grid.Column="1" Text="{Binding Input, UpdateSourceTrigger=PropertyChanged}" />
         <Label Grid.Row="1" Grid.Column="0" Content="Search"/>
         <Button Grid.Row="1" Grid.Column="2" Content="Go!" Command="{Binding ExecuteSearch}" />
 
+        <!-- Side panel for tour actions -->
         <DockPanel Grid.Column="0" Grid.Row="2" Grid.RowSpan="2">
             <Menu DockPanel.Dock="Top" VerticalAlignment="Top">
                 <MenuItem Header="Tours" IsEnabled="False"/>
@@ -115,11 +76,24 @@
             </ListBox>
         </DockPanel>
 
+        <!-- Tabs for map and description -->
         <TabControl Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2">
+            <!-- Route tab with GMap control -->
             <TabItem Header="Route">
-                <Image Name="ImageViewer" Margin="5" Source="{Binding ImagePath}" Stretch="Uniform"/>
+                <StackPanel>
+                    <Button Content="Fetch Route" Command="{Binding FetchRouteCommand}" />
+                    <gm:GMapControl x:Name="MapControl" 
+                                    MinZoom="2"
+                                    MaxZoom="17"
+                                    Zoom="5"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch"
+                                    Width="Auto"
+                                    Height="400" />
+                </StackPanel>
             </TabItem>
 
+            <!-- Description tab -->
             <TabItem Header="Description">
                 <StackPanel>
                     <TextBlock Text="{Binding SelectedTour.Description, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Margin="5"/>
@@ -129,6 +103,7 @@
             </TabItem>
         </TabControl>
 
+        <!-- Log management section -->
         <DockPanel Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2">
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
                 <Button Content="New Log" Command="{Binding AddLogCommand}" CommandParameter="{Binding SelectedTour}" IsEnabled="{Binding SelectedTour}" Height="30" Margin="5"/>

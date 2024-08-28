@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\GIT\\SWEN\\RoutePlaner_SWEN2_Elias_Rafael\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias.csproj": {}
+    "F:\\GIT\\SWEN\\WorkingSWEN\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias.csproj": {}
   },
   "projects": {
-    "F:\\GIT\\SWEN\\RoutePlaner_SWEN2_Elias_Rafael\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias.csproj": {
+    "F:\\GIT\\SWEN\\WorkingSWEN\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\GIT\\SWEN\\RoutePlaner_SWEN2_Elias_Rafael\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias.csproj",
+        "projectUniqueName": "F:\\GIT\\SWEN\\WorkingSWEN\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias.csproj",
         "projectName": "RoutePlaner_Rafael_elias",
-        "projectPath": "F:\\GIT\\SWEN\\RoutePlaner_SWEN2_Elias_Rafael\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias.csproj",
+        "projectPath": "F:\\GIT\\SWEN\\WorkingSWEN\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias.csproj",
         "packagesPath": "C:\\Users\\naxno\\.nuget\\packages\\",
-        "outputPath": "F:\\GIT\\SWEN\\RoutePlaner_SWEN2_Elias_Rafael\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias\\obj\\",
+        "outputPath": "F:\\GIT\\SWEN\\WorkingSWEN\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -44,13 +45,41 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
+            "GMap.NET.Core": {
+              "target": "Package",
+              "version": "[2.1.7, )"
+            },
+            "GMap.NET.Presentation": {
+              "target": "Package",
+              "version": "[1.7.5, )"
+            },
+            "GMap.NET.WinPresentation": {
+              "target": "Package",
+              "version": "[2.1.7, )"
+            },
+            "GMap.Net": {
+              "target": "Package",
+              "version": "[1.0.1, )"
+            },
+            "GMap.Net.WPF": {
+              "target": "Package",
+              "version": "[1.0.0.1, )"
+            },
+            "Hermes.Vendors.MapControl": {
+              "target": "Package",
+              "version": "[1.0.0.1, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[9.0.0-preview.3.24172.4, )"
+              "version": "[9.0.0-preview.7.24405.3, )"
             },
             "Microsoft.Toolkit.Mvvm": {
               "target": "Package",
               "version": "[7.1.2, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
             },
             "Npgsql": {
               "target": "Package",
@@ -59,6 +88,10 @@
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[9.0.0-preview.3, )"
+            },
+            "RestSharp": {
+              "target": "Package",
+              "version": "[111.4.1, )"
             }
           },
           "imports": [
@@ -80,7 +113,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\naxno\\.dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.304/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

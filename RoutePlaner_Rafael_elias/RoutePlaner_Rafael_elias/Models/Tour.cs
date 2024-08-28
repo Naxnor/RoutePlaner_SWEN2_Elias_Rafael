@@ -18,10 +18,13 @@ namespace RoutePlaner_Rafael_elias.Models
             public string? RouteType { get; set; }
             public double Distance { get; set; }
             public TimeSpan EstimatedTime { get; set; }
-        
-        public string MapImagePath { get; set; }
-    
-        public virtual ICollection<TourLog> Logs { get; set; } 
-        public ObservableCollection<Log> LogList { get; set; }
+            public double StartLatitude { get; set; }
+            public double StartLongitude { get; set; }
+            public double EndLatitude { get; set; }
+            public double EndLongitude { get; set; }
+            public string EncodedRoute { get; set; }
+            
+            public List<Log>? Logs { get; set; } = new List<Log>(); // Initialized to avoid null
+            public List<Log>? LogList { get; set; } = new List<Log>(); // Initialized to avoid null
     }
 }

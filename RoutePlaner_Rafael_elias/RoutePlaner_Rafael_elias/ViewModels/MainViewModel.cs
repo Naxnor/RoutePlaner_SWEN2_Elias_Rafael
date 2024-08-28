@@ -6,21 +6,47 @@ using RoutePlaner_Rafael_elias.Repository;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.IO;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
+using RoutePlaner_Rafael_elias.Services;
 
 namespace RoutePlaner_Rafael_elias.ViewModels
 {
     public class MainViewModel : ObservableObject
     {
-        
         private readonly TourRepository _repository;
         private Tour _selectedTour;
         private Log _selectedLog;
+        private RouteService _routeService;
+        private WebBrowser _mapBrowser;
         private ObservableCollection<Log> _dataGridLogList;
         private string _selectedTourDescription;
-        private string _imagePath = @"F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\Data\Images\image.png";
+        private string _imagePath = @"F:\GIT\SWEN\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\Data\Images\image.png";
+        private string _routeData;
+
+        public ICommand FetchRouteCommand { get; }
+        public ICommand ShowMapCommand { get; }
+
+        public MainViewModel()
+        {
+            _repository = new TourRepository();
+            _routeService = new RouteService();
+
+            FetchRouteCommand = new RelayCommand(async () => await FetchRouteData());
+            ShowMapCommand = new RelayCommand(ShowMap);
+
+            Tours = new ObservableCollection<Tour>();
+            LoadTours();
+            InitializeCommands();
+
+            WeakReferenceMessenger.Default.Register<LogUpdatedMessage>(this, (r, m) =>
+            {
+                LoadLogs();
+            });
+        }
+
         public ObservableCollection<Tour> Tours { get; private set; }
         public ObservableCollection<Log> DataGridLogList
         {
@@ -32,6 +58,85 @@ namespace RoutePlaner_Rafael_elias.ViewModels
         {
             get => _imagePath;
             set => SetProperty(ref _imagePath, value);
+        }
+
+        public WebBrowser MapBrowser
+        {
+            get => _mapBrowser;
+            set => SetProperty(ref _mapBrowser, value);
+        }
+
+
+        public async Task FetchRouteData()
+        {
+            try
+            {
+                if (SelectedTour == null)
+                {
+                    MessageBox.Show("Please select a tour first.");
+                    return;
+                }
+
+                // Ensure we pass four separate coordinates
+                var routeData = await _routeService.GetDirectionsAsync(
+                    SelectedTour.StartLatitude, 
+                    SelectedTour.StartLongitude, 
+                    SelectedTour.EndLatitude, 
+                    SelectedTour.EndLongitude
+                );
+
+                // Store fetched route data in the tour model
+                SelectedTour.Distance = routeData.Distance;
+                SelectedTour.EstimatedTime = TimeSpan.FromSeconds(routeData.Duration);
+                SelectedTour.EncodedRoute = routeData.EncodedPolyline;
+
+                // Save updated tour data to the database
+                _repository.UpdateTour(SelectedTour);
+
+                // Display the map with the fetched route data
+                ShowMap();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error fetching route data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        public void ShowMap()
+        {
+            if (MapBrowser == null || string.IsNullOrEmpty(_routeData)) return;
+
+            string htmlString = GenerateMapHtml(_routeData);
+            MapBrowser.NavigateToString(htmlString);
+        }
+
+        private string GenerateMapHtml(string routeData)
+        {
+            return $@"
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Map</title>
+            <link rel='stylesheet' href='https://unpkg.com/leaflet/dist/leaflet.css' />
+            <script src='https://unpkg.com/leaflet/dist/leaflet.js'></script>
+        </head>
+        <body>
+            <div id='map' style='width: 100%; height: 400px;'></div>
+            <script>
+                var map = L.map('map').setView([49.41461, 8.681495], 13);
+                L.tileLayer('https://{{s}}.tile.openstreetmap.org/{{z}}/{{x}}/{{y}}.png', {{
+                    maxZoom: 19,
+                }}).addTo(map);
+
+                // Add route polyline using routeData
+                var route = L.polyline({routeData}, {{color: 'blue'}}).addTo(map);
+
+                // Add markers for start and end points
+                L.marker([49.41461, 8.681495]).addTo(map);
+                L.marker([49.420318, 8.687872]).addTo(map);
+            </script>
+        </body>
+        </html>";
         }
 
         public string SelectedTourDescription
@@ -75,18 +180,6 @@ namespace RoutePlaner_Rafael_elias.ViewModels
         public ICommand AddLogCommand { get; private set; }
         public ICommand UpdateLogCommand { get; private set; }
         public ICommand DeleteLogCommand { get; private set; }
-
-        public MainViewModel()
-        {
-            _repository = new TourRepository();
-            Tours = new ObservableCollection<Tour>();
-            LoadTours();
-            InitializeCommands();
-
-            WeakReferenceMessenger.Default.Register<LogUpdatedMessage>(this, (r, m) => {
-                LoadLogs();
-            });
-        }
 
         private void InitializeCommands()
         {
@@ -196,7 +289,6 @@ namespace RoutePlaner_Rafael_elias.ViewModels
                 }
             }
         }
-
         private void LoadTours()
         {
             try
