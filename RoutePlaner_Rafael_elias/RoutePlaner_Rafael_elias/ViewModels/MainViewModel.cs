@@ -8,19 +8,37 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+using iText.Layout.Properties;
+using log4net;
+using TextAlignment = iText.Layout.Properties.TextAlignment;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+using System.Linq;
+using Microsoft.Win32;
+using Newtonsoft.Json;
 
 namespace RoutePlaner_Rafael_elias.ViewModels
 {
     public class MainViewModel : ObservableObject
     {
+        private static readonly ILog log = LogManager.GetLogger(typeof(MainViewModel));
+
         private readonly TourRepository _repository;
         private readonly RouteService _routeService;
-
+        public ICommand ExportTourDataCommand { get; }
+        public ICommand ImportTourDataCommand { get; }
+        public ICommand GenerateSummarizedReportCommand { get; }
+        public ICommand GenerateTourReportCommand { get; }
         private Tour _selectedTour;
         private Log _selectedLog;
         private WebBrowser _mapBrowser;
@@ -36,15 +54,21 @@ namespace RoutePlaner_Rafael_elias.ViewModels
         public ICommand AddLogCommand { get; private set; }
         public ICommand UpdateLogCommand { get; private set; }
         public ICommand DeleteLogCommand { get; private set; }
+        public ICommand GenerateReportCommand { get; private set; }
+        public ICommand GenerateLogReportCommand { get; private set; }
 
         public MainViewModel()
         {
             _repository = new TourRepository();
             _routeService = new RouteService();
-
+            GenerateTourReportCommand = new RelayCommand<Tour>(GenerateSingleTourReport);
+            GenerateSummarizedReportCommand = new RelayCommand(GenerateSummarizedReport);
             FetchRouteCommand = new AsyncRelayCommand(FetchRouteData);
             ShowMapCommand = new RelayCommand(ShowMap);
-
+            GenerateReportCommand = new RelayCommand(GenerateTourReport);
+            GenerateLogReportCommand = new RelayCommand(GenerateLogReport);
+            ExportTourDataCommand = new RelayCommand(ExportTourData);
+            ImportTourDataCommand = new RelayCommand(ImportTourData);
             Tours = new ObservableCollection<Tour>();
             DataGridLogList = new ObservableCollection<Log>();
 
@@ -64,7 +88,137 @@ namespace RoutePlaner_Rafael_elias.ViewModels
             get => _dataGridLogList;
             set => SetProperty(ref _dataGridLogList, value);
         }
+        public void GenerateSummarizedReport()
+        {
+            try
+            {
+                var allTours = _repository.GetAllToursWithLogs();
 
+                string pdfPath = "SummarizedReport_AllTours.pdf";
+
+                using (PdfWriter writer = new PdfWriter(pdfPath))
+                {
+                    using (PdfDocument pdfDoc = new PdfDocument(writer))
+                    {
+                        Document document = new Document(pdfDoc);
+
+                        document.Add(new Paragraph("Summarized Tour Report"));
+                        document.Add(new Paragraph(""));
+
+                        foreach (var tour in allTours)
+                        {
+                            // Add Tour Details
+                            document.Add(new Paragraph($"Tour: {tour.Name}"));
+                            document.Add(new Paragraph($"From: {tour.From} To: {tour.To}"));
+                            document.Add(new Paragraph($"Description: {tour.Description}"));
+                            document.Add(new Paragraph($"Route Type: {tour.RouteType}"));
+                            document.Add(new Paragraph($"Distance: {tour.Distance:F3} km")); // Display up to 3 decimal places
+                            document.Add(new Paragraph($"Estimated Time: {tour.EstimatedTime}"));
+                            document.Add(new Paragraph(""));
+
+                            // Add Logs
+                            document.Add(new Paragraph("Logs:"));
+                            if (tour.Logs != null && tour.Logs.Any())
+                            {
+                                foreach (var log in tour.Logs)
+                                {
+                                    document.Add(new Paragraph($"Log ID: {log.Id}"));
+                                    document.Add(new Paragraph($"Date: {log.Date:yyyy-MM-dd HH:mm:ss}"));
+                                    document.Add(new Paragraph($"Distance: {log.Distance} km"));
+                                    document.Add(new Paragraph($"Difficulty: {log.Difficulty}"));
+                                    document.Add(new Paragraph($"Duration: {log.Duration} hrs"));
+                                    document.Add(new Paragraph($"Steps: {log.Steps}"));
+                                    document.Add(new Paragraph($"Weather: {log.Weather}"));
+                                    document.Add(new Paragraph($"Comment: {log.Comment}"));
+                                    document.Add(new Paragraph($"Rating: {log.Rating}"));
+                                    document.Add(new Paragraph(""));
+                                }
+                            }
+                            else
+                            {
+                                document.Add(new Paragraph("No logs available for this tour."));
+                            }
+
+                            document.Add(new Paragraph("\n--------------------------------------------------\n"));
+                        }
+
+                        document.Close();
+                    }
+                }
+
+                MessageBox.Show($"Summarized report generated successfully at {pdfPath}!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error generating summarized PDF report: {ex.Message}");
+                MessageBox.Show($"Error generating summarized PDF report: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+public void GenerateSingleTourReport(Tour tour)
+        {
+            if (tour == null)
+            {
+                MessageBox.Show("Please select a tour to generate the report.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            try
+            {
+                // Fetch the most recent tour details from the database
+                var updatedTour = _repository.GetTourById(tour.Id);
+                if (updatedTour == null)
+                {
+                    MessageBox.Show("Tour not found.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+                // Fetch logs for the updated tour
+                var logs = _repository.GetLogsForTour(updatedTour).ToList();
+
+                string pdfPath = $"TourReport_{updatedTour.Name.Replace(" ", "_")}.pdf";
+
+                using (PdfWriter writer = new PdfWriter(pdfPath))
+                {
+                    using (PdfDocument pdfDoc = new PdfDocument(writer))
+                    {
+                        Document document = new Document(pdfDoc);
+
+                        // Add Tour Details from the database
+                        document.Add(new Paragraph($"Tour Report: {updatedTour.Name}"));
+                        document.Add(new Paragraph($"From: {updatedTour.From} To: {updatedTour.To}"));
+                        document.Add(new Paragraph($"Description: {updatedTour.Description}"));
+                        document.Add(new Paragraph($"Route Type: {updatedTour.RouteType}"));
+                        document.Add(new Paragraph($"Distance: {updatedTour.Distance:F3} km"));  // Display up to 3 decimal places
+                        document.Add(new Paragraph($"Estimated Time: {updatedTour.EstimatedTime}"));
+
+                        // Add Logs
+                        document.Add(new Paragraph("\nLogs:"));
+                        foreach (var log in logs)
+                        {
+                            document.Add(new Paragraph($"Log ID: {log.Id}"));
+                            document.Add(new Paragraph($"Date: {log.Date:yyyy-MM-dd HH:mm:ss}"));
+                            document.Add(new Paragraph($"Distance: {log.Distance} km"));
+                            document.Add(new Paragraph($"Difficulty: {log.Difficulty}"));
+                            document.Add(new Paragraph($"Duration: {log.Duration} hrs"));
+                            document.Add(new Paragraph($"Steps: {log.Steps}"));
+                            document.Add(new Paragraph($"Weather: {log.Weather}"));
+                            document.Add(new Paragraph($"Comment: {log.Comment}"));
+                            document.Add(new Paragraph($"Rating: {log.Rating}"));
+                            document.Add(new Paragraph("\n"));
+                        }
+
+                        document.Close();
+                    }
+                }
+
+                MessageBox.Show($"Tour report generated successfully at {pdfPath}!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error generating PDF report: {ex.Message}");
+                MessageBox.Show($"Error generating PDF report: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
         public string ImagePath
         {
             get => _imagePath;
@@ -112,38 +266,70 @@ namespace RoutePlaner_Rafael_elias.ViewModels
             }
         }
 
-        private async Task FetchRouteData()
+      private async Task FetchRouteData()
+{
+    try
+    {
+        if (SelectedTour == null)
         {
-            try
-            {
-                if (SelectedTour == null)
-                {
-                    MessageBox.Show("Please select a tour first.");
-                    return;
-                }
-
-                var routeData = await _routeService.GetDirectionsAsync(
-                    SelectedTour.StartLatitude,
-                    SelectedTour.StartLongitude,
-                    SelectedTour.EndLatitude,
-                    SelectedTour.EndLongitude
-                );
-
-                SelectedTour.Distance = routeData.Distance;
-                SelectedTour.EstimatedTime = TimeSpan.FromSeconds(routeData.Duration);
-                SelectedTour.EncodedRoute = routeData.EncodedPolyline;
-
-                Debug.WriteLine($"Encoded Route: {SelectedTour.EncodedRoute}");
-
-                _repository.UpdateTour(SelectedTour);
-                ShowMap(); // Attempt to display the map
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"Error fetching route data: {ex.Message}");
-                MessageBox.Show($"Error fetching route data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            MessageBox.Show("Please select a tour first.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+            return;
         }
+
+        // Fetch route data using the route service
+        var routeData = await _routeService.GetDirectionsAsync(
+            SelectedTour.StartLatitude,
+            SelectedTour.StartLongitude,
+            SelectedTour.EndLatitude,
+            SelectedTour.EndLongitude,
+            SelectedTour.RouteType
+        );
+
+        if (routeData == null)
+        {
+            MessageBox.Show("Failed to fetch route data. Please try again.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            log.Error("Failed to fetch route data: routeData is null.");
+            return;
+        }
+
+        Debug.WriteLine($"Received route data: Distance = {routeData.Distance}, Duration = {routeData.Duration}, EncodedPolyline = {routeData.EncodedPolyline}");
+
+        // Convert distance from meters to kilometers and round to 3 decimal places
+        SelectedTour.Distance = Math.Round(routeData.Distance / 1000.0, 3);
+
+        // Convert duration from seconds to TimeSpan
+        SelectedTour.EstimatedTime = TimeSpan.FromSeconds(routeData.Duration);
+
+        // Store encoded route
+        SelectedTour.EncodedRoute = routeData.EncodedPolyline;
+
+        Debug.WriteLine($"Encoded Route: {SelectedTour.EncodedRoute}");
+
+        // Update the tour in the database
+        try
+        {
+            _repository.UpdateTour(SelectedTour);  // Ensure your repository method correctly updates the Tour
+            log.Info("Tour updated successfully in the database.");
+        }
+        catch (Exception ex)
+        {
+            log.Error($"Error updating tour in database: {ex.Message}", ex);
+            MessageBox.Show($"Error updating tour in database: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            return;
+        }
+
+        ShowMap(); // Attempt to display the map
+        log.Info("Route data fetched and tour updated successfully.");
+        MessageBox.Show("Route data fetched and updated successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+    }
+    catch (Exception ex)
+    {
+        log.Error($"Error fetching route data: {ex.Message}", ex);
+        MessageBox.Show($"Error fetching route data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+    }
+}
+
+
 
         public void ShowMap()
         {
@@ -179,14 +365,14 @@ namespace RoutePlaner_Rafael_elias.ViewModels
             try
             {
                 MapBrowser.Navigate(url);
+                log.Info("Map displayed successfully.");
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"Error navigating to URL: {ex.Message}");
+                log.Error($"Error navigating to URL: {ex.Message}", ex);
                 MessageBox.Show($"Error navigating to URL: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
 
         private void InitializeCommands()
         {
@@ -226,6 +412,73 @@ namespace RoutePlaner_Rafael_elias.ViewModels
             }
         }
 
+        public void ExportTourData()
+        {
+            try
+            {
+                // Fetch all tours with logs
+                var allTours = _repository.GetAllToursWithLogs();
+
+                // Serialize to JSON
+                string json = JsonConvert.SerializeObject(allTours, Formatting.Indented);
+
+                // Define file path
+                string filePath = "ToursDataExport.json";
+
+                // Write to file
+                File.WriteAllText(filePath, json);
+
+                MessageBox.Show($"Tour data exported successfully to {filePath}!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error exporting tour data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        public void ImportTourData()
+        {
+            try
+            {
+                // Open file dialog to choose a .json file
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
+                if (openFileDialog.ShowDialog() != true)
+                {
+                    return; // User cancelled the file dialog
+                }
+
+                string filePath = openFileDialog.FileName;
+
+                // Read from the selected file
+                string json = File.ReadAllText(filePath);
+
+                // Deserialize JSON to tour objects
+                var importedTours = JsonConvert.DeserializeObject<List<Tour>>(json);
+
+                // Import each tour and its logs
+                foreach (var tour in importedTours)
+                {
+                    // Insert tour and get new ID
+                    int newTourId = _repository.AddTourAndGetId(tour);
+
+                    // Update TourId for each log and insert it
+                    foreach (var log in tour.Logs)
+                    {
+                        log.TourId = newTourId; // Ensure correct TourId
+                        _repository.AddLog(log);
+                    }
+                }
+
+                MessageBox.Show($"Tour data imported successfully from {filePath}!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error importing tour data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        
         private void OpenAddLogWindow()
         {
             var addLogWindow = new AddLogWindow();
@@ -265,10 +518,11 @@ namespace RoutePlaner_Rafael_elias.ViewModels
                         Tours.Remove(SelectedTour);
                         SelectedTour = null;
                         MessageBox.Show("Tour deleted successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                        log.Info($"Tour '{SelectedTour.Name}' deleted successfully.");
                     }
                     catch (Exception ex)
                     {
-                        Debug.WriteLine($"Error deleting tour: {ex.Message}");
+                        log.Error($"Error deleting tour: {ex.Message}", ex);
                         MessageBox.Show($"Error deleting tour: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
@@ -292,9 +546,11 @@ namespace RoutePlaner_Rafael_elias.ViewModels
                     DataGridLogList.Remove(SelectedLog);
                     SelectedLog = null; // Clear the selection
                     MessageBox.Show("Log deleted successfully.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                    log.Info("Log deleted successfully.");
                 }
                 catch (Exception ex)
                 {
+                    log.Error($"Error deleting log: {ex.Message}", ex);
                     MessageBox.Show($"Error deleting log: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
@@ -310,9 +566,11 @@ namespace RoutePlaner_Rafael_elias.ViewModels
                 {
                     Tours.Add(tour);
                 }
+                log.Info("Tours loaded successfully.");
             }
             catch (Exception ex)
             {
+                log.Error($"Failed to load tours: {ex.Message}", ex);
                 Debug.WriteLine("Failed to load tours: " + ex.Message);
             }
         }
@@ -325,13 +583,119 @@ namespace RoutePlaner_Rafael_elias.ViewModels
                 {
                     DataGridLogList = new ObservableCollection<Log>(_repository.GetLogsForTour(SelectedTour));
                     Debug.WriteLine($"Number of logs loaded for tour {SelectedTour.Name}: {DataGridLogList.Count}");
+                    log.Info($"Logs loaded for tour {SelectedTour.Name}.");
                 }
             }
             catch (Exception ex)
             {
+                log.Error($"Failed to load logs: {ex.Message}", ex);
                 Debug.WriteLine("Failed to load logs: " + ex.Message);
             }
         }
+
+        public void GenerateTourReport()
+        {
+            try
+            {
+                string filePath = "TourReport.pdf";
+                using (PdfWriter writer = new PdfWriter(filePath))
+                {
+                    using (PdfDocument pdf = new PdfDocument(writer))
+                    {
+                        Document document = new Document(pdf);
+                        document.Add(new Paragraph("Tour Report").SetTextAlignment(TextAlignment.CENTER).SetFontSize(20));
+
+                        foreach (var tour in Tours)
+                        {
+                            document.Add(new Paragraph($"Tour Name: {tour.Name}"));
+                            document.Add(new Paragraph($"Description: {tour.Description}"));
+                            document.Add(new Paragraph($"From: {tour.From} To: {tour.To}"));
+                            document.Add(new Paragraph($"Route Type: {tour.RouteType}"));
+                            document.Add(new Paragraph($"Distance: {tour.Distance} km"));
+                            document.Add(new Paragraph($"Estimated Time: {tour.EstimatedTime}"));
+                            document.Add(new Paragraph(new Text("\n")));
+                        }
+
+                        document.Close();
+                    }
+                }
+                MessageBox.Show("PDF report generated successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                log.Info("PDF report generated successfully.");
+            }
+            catch (Exception ex)
+            {
+                log.Error($"Error generating PDF report: {ex.Message}", ex);
+                MessageBox.Show($"Error generating PDF report: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+     public void GenerateLogReport()
+{
+    try
+    {
+        string logFilePath = "log-file.txt";
+        string pdfFilePath = "LogReport.pdf";
+
+        // Check if log file exists
+        if (!File.Exists(logFilePath))
+        {
+            MessageBox.Show("Log file does not exist.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            return;
+        }
+
+        // Check if log file is empty
+        if (new FileInfo(logFilePath).Length == 0)
+        {
+            MessageBox.Show("Log file is empty. No content to generate a report.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            return;
+        }
+
+        using (FileStream fs = new FileStream(logFilePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+        using (StreamReader reader = new StreamReader(fs))
+        {
+            using (PdfWriter writer = new PdfWriter(pdfFilePath))
+            {
+                using (PdfDocument pdf = new PdfDocument(writer))
+                {
+                    Document document = new Document(pdf);
+                    document.Add(new Paragraph("Log Report").SetFontSize(20).SetTextAlignment(TextAlignment.CENTER));
+
+                    string line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        // Sanitize each line to avoid invalid characters
+                        string sanitizedLine = SanitizeLogLine(line);
+                        document.Add(new Paragraph(sanitizedLine));
+                    }
+
+                    document.Close();
+                }
+            }
+        }
+
+        MessageBox.Show("Log report generated successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+        log.Info("Log report generated successfully.");
+    }
+    catch (IOException ex)
+    {
+        log.Error($"File access error: {ex.Message}", ex);
+        MessageBox.Show($"File access error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+    }
+    catch (Exception ex)
+    {
+        log.Error($"Error generating log report: {ex.Message}", ex);
+        MessageBox.Show($"Error generating log report: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+    }
+}
+
+private string SanitizeLogLine(string line)
+{
+    // Replace any invalid or unsupported characters that might cause issues in PDF generation
+    return line.Replace("\0", "").Replace("\r", "").Replace("\n", "").Replace("\t", " ");
+}
+
+
+
 
         public static class PolylineDecoder
         {

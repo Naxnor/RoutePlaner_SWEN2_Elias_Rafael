@@ -1,4 +1,5 @@
 ﻿-- Create the Tour table
+-- Create the Tour table
 CREATE TABLE "Tour" (
                         "Tour_ID" SERIAL PRIMARY KEY,
                         "Name" VARCHAR(50) UNIQUE NOT NULL,
@@ -12,6 +13,13 @@ CREATE TABLE "Tour" (
                         "EndLongitude" DOUBLE PRECISION,
                         "EncodedRoute" TEXT
 );
+
+-- Add columns to the Tour table
+ALTER TABLE "Tour"
+    ADD COLUMN "Distance" double precision,  -- Adds the Distance column with type double precision
+    ADD COLUMN "EstimatedTime" interval;    -- Adds the EstimatedTime column with type interval
+
+
 
 -- Create the TourLog table
 CREATE TABLE "TourLog" (

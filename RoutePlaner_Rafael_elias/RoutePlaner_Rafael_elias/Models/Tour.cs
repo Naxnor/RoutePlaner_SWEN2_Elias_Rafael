@@ -17,7 +17,7 @@ namespace RoutePlaner_Rafael_elias.Models
             public string To { get; set; }
             public string? RouteType { get; set; }
             public double Distance { get; set; }
-            public TimeSpan EstimatedTime { get; set; }
+            public TimeSpan EstimatedTime { get; set; }  // Ensure this property is present
             public double StartLatitude { get; set; }
             public double StartLongitude { get; set; }
             public double EndLatitude { get; set; }

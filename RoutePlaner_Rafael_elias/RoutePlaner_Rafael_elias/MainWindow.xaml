@@ -36,21 +36,25 @@
         <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" VerticalAlignment="Top">
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="_File">
-                    <MenuItem Header="Import Tour From File" Command="{Binding ImportTour}"/>
-                    <MenuItem Header="Export Tour To File" Command="{Binding ExportTour}"/>
+                    <MenuItem Header="Import Tour Data" Command="{Binding ImportTourDataCommand}"/>
+                    <MenuItem Header="Export Tour Data" Command="{Binding ExportTourDataCommand}"/>
                 </MenuItem>
-                <MenuItem Header="_Print">
-                    <MenuItem Header="Print Tour Information" Command="{Binding PrintTour}"/>
-                    <MenuItem Header="Print Full Tour" Command="{Binding PrintFullTour}"/>
-                    <MenuItem Header="Print Summary" Command="{Binding PrintSummary}"/>
+                
+                <MenuItem Header="_Report">
+                    <MenuItem Header="Generate PDF Report" Command="{Binding GenerateReportCommand}"/>
+                    <MenuItem Header="Generate Log Report" Command="{Binding GenerateLogReportCommand}"/>
+                    <MenuItem Header="Generate Tour Report" Command="{Binding GenerateTourReportCommand}" CommandParameter="{Binding SelectedTour}"/>
+                    <MenuItem Header="Generate Summarized Report" Command="{Binding GenerateSummarizedReportCommand}"/>
                 </MenuItem>
             </Menu>
         </DockPanel>
 
         <!-- Search and buttons -->
-        <TextBox TextWrapping="Wrap" Grid.Row="1" Grid.Column="1" Text="{Binding Input, UpdateSourceTrigger=PropertyChanged}" />
-        <Label Grid.Row="1" Grid.Column="0" Content="Search"/>
-        <Button Grid.Row="1" Grid.Column="2" Content="Go!" Command="{Binding ExecuteSearch}" />
+        <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" VerticalAlignment="Top">
+            <Label Content="Search:" VerticalAlignment="Center" Margin="5"/>
+            <TextBox Width="200" Text="{Binding SearchQuery, UpdateSourceTrigger=PropertyChanged}" Margin="5"/>
+            <Button Content="Go!" Command="{Binding ExecuteSearchCommand}" Margin="5"/>
+        </DockPanel>
 
         <!-- Side panel for tour actions -->
         <DockPanel Grid.Column="0" Grid.Row="2" Grid.RowSpan="2">
@@ -115,7 +119,7 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Log ID" Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="Tour ID" Binding="{Binding TourId}"/>
-                    <DataGridTextColumn Header="Date" Binding="{Binding Date, StringFormat=\{0:dd/MM/yyyy HH:mm\}}"/>
+                    <DataGridTextColumn Header="Date" Binding="{Binding Date, StringFormat={}{0:dd/MM/yyyy HH:mm}}"/>
                     <DataGridTextColumn Header="Distance (km)" Binding="{Binding Distance}"/>
                     <DataGridTextColumn Header="Difficulty" Binding="{Binding Difficulty}"/>
                     <DataGridTextColumn Header="Duration (hrs)" Binding="{Binding Duration}"/>

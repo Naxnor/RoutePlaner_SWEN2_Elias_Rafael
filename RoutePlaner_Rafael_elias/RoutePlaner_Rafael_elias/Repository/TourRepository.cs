@@ -54,57 +54,42 @@ namespace RoutePlaner_Rafael_elias.Repository
 }
 
         public void AddTour(Tour tour)
-{
-    string checkQuery = "SELECT COUNT(*) FROM \"Tour\" WHERE \"Name\" = @name";
-    string commandText = "INSERT INTO \"Tour\" (\"Name\", \"Description\", \"From\", \"To\", \"RouteType\", \"StartLatitude\", \"StartLongitude\", \"EndLatitude\", \"EndLongitude\", \"EncodedRoute\") " +
-                         "VALUES (@name, @description, @from, @to, @routeType, @startLat, @startLng, @endLat, @endLng, @encodedRoute)";
-
-    try
-    {
-        using (var conn = DbManager.GetConnection())
         {
-            conn.Open();
-            
-            // Check for duplicate tour name
-            var checkCmd = new NpgsqlCommand(checkQuery, conn);
-            checkCmd.Parameters.AddWithValue("name", tour.Name);
-            int count = Convert.ToInt32(checkCmd.ExecuteScalar());
+            string commandText = "INSERT INTO \"Tour\" (\"Name\", \"Description\", \"From\", \"To\", \"RouteType\", \"StartLatitude\", \"StartLongitude\", \"EndLatitude\", \"EndLongitude\") " +
+                                 "VALUES (@name, @description, @from, @to, @routeType, @startLat, @startLng, @endLat, @endLng)";
 
-            if (count > 0)
+            try
             {
-                MessageBox.Show("A tour with this name already exists. Please choose a different name.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
+                using (var conn = DbManager.GetConnection())
+                {
+                    conn.Open();
+                    var cmd = new NpgsqlCommand(commandText, conn);
+                    cmd.Parameters.AddWithValue("name", tour.Name);
+                    cmd.Parameters.AddWithValue("description", (object)tour.Description ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("from", tour.From);
+                    cmd.Parameters.AddWithValue("to", tour.To);
+                    cmd.Parameters.AddWithValue("routeType", tour.RouteType);
+                    cmd.Parameters.AddWithValue("startLat", tour.StartLatitude);
+                    cmd.Parameters.AddWithValue("startLng", tour.StartLongitude);
+                    cmd.Parameters.AddWithValue("endLat", tour.EndLatitude);
+                    cmd.Parameters.AddWithValue("endLng", tour.EndLongitude);
+                    cmd.ExecuteNonQuery();
+                }
             }
-
-            // Insert new tour
-            var cmd = new NpgsqlCommand(commandText, conn);
-            cmd.Parameters.AddWithValue("name", tour.Name);
-            cmd.Parameters.AddWithValue("description", (object)tour.Description ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("from", tour.From);
-            cmd.Parameters.AddWithValue("to", tour.To);
-            cmd.Parameters.AddWithValue("routeType", (object)tour.RouteType ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("startLat", (object)tour.StartLatitude ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("startLng", (object)tour.StartLongitude ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("endLat", (object)tour.EndLatitude ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("endLng", (object)tour.EndLongitude ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("encodedRoute", (object)tour.EncodedRoute ?? DBNull.Value);
-            cmd.ExecuteNonQuery();
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error adding tour: {ex.Message}");
+                throw;
+            }
         }
-    }
-    catch (Exception ex)
-    {
-        Debug.WriteLine($"Error adding tour: {ex.Message}");
-        MessageBox.Show($"An error occurred while adding the tour: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-        throw;
-    }
-}
 
 
 
         public void UpdateTour(Tour tour)
         {
             string commandText = "UPDATE \"Tour\" SET \"Name\" = @name, \"Description\" = @description, \"From\" = @from, \"To\" = @to, \"RouteType\" = @routeType, " +
-                                 "\"StartLatitude\" = @startLat, \"StartLongitude\" = @startLng, \"EndLatitude\" = @endLat, \"EndLongitude\" = @endLng, \"EncodedRoute\" = @encodedRoute " +
+                                 "\"StartLatitude\" = @startLat, \"StartLongitude\" = @startLng, \"EndLatitude\" = @endLat, \"EndLongitude\" = @endLng, \"EncodedRoute\" = @encodedRoute, " +
+                                 "\"Distance\" = @distance, \"EstimatedTime\" = @estimatedTime " +
                                  "WHERE \"Tour_ID\" = @id";
 
             try
@@ -117,12 +102,14 @@ namespace RoutePlaner_Rafael_elias.Repository
                     cmd.Parameters.AddWithValue("description", (object)tour.Description ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("from", tour.From);
                     cmd.Parameters.AddWithValue("to", tour.To);
-                    cmd.Parameters.AddWithValue("routeType", (object)tour.RouteType ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("routeType", tour.RouteType);
                     cmd.Parameters.AddWithValue("startLat", tour.StartLatitude);
                     cmd.Parameters.AddWithValue("startLng", tour.StartLongitude);
                     cmd.Parameters.AddWithValue("endLat", tour.EndLatitude);
                     cmd.Parameters.AddWithValue("endLng", tour.EndLongitude);
                     cmd.Parameters.AddWithValue("encodedRoute", (object)tour.EncodedRoute ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("distance", tour.Distance);
+                    cmd.Parameters.AddWithValue("estimatedTime", tour.EstimatedTime);
                     cmd.Parameters.AddWithValue("id", tour.Id);
                     cmd.ExecuteNonQuery();
                 }
@@ -133,6 +120,167 @@ namespace RoutePlaner_Rafael_elias.Repository
                 throw;
             }
         }
+        public ObservableCollection<Tour> SearchTours(string searchQuery)
+{
+    ObservableCollection<Tour> tours = new ObservableCollection<Tour>();
+    string query = @"
+        SELECT t.*, l.*
+        FROM ""Tour"" t
+        LEFT JOIN ""TourLog"" l ON t.""Tour_ID"" = l.""Tour_ID""
+        WHERE 
+            t.""Name"" ILIKE @query OR 
+            t.""Description"" ILIKE @query OR
+            l.""Comment"" ILIKE @query OR
+            CAST(l.""Distance"" AS TEXT) ILIKE @query OR
+            CAST(l.""Duration"" AS TEXT) ILIKE @query";
+
+    try
+    {
+        using (var conn = DbManager.GetConnection())
+        {
+            conn.Open();
+            var cmd = new NpgsqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("query", $"%{searchQuery}%");
+
+            using (var reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    // Check if tour is already in the collection
+                    var tour = tours.FirstOrDefault(t => t.Id == reader.GetInt32(reader.GetOrdinal("Tour_ID")));
+                    if (tour == null)
+                    {
+                        // Add new tour if not present
+                        tour = new Tour
+                        {
+                            Id = reader.GetInt32(reader.GetOrdinal("Tour_ID")),
+                            Name = reader.GetString(reader.GetOrdinal("Name")),
+                            Description = reader.IsDBNull(reader.GetOrdinal("Description")) ? null : reader.GetString(reader.GetOrdinal("Description")),
+                            From = reader.GetString(reader.GetOrdinal("From")),
+                            To = reader.GetString(reader.GetOrdinal("To")),
+                            RouteType = reader.IsDBNull(reader.GetOrdinal("RouteType")) ? null : reader.GetString(reader.GetOrdinal("RouteType")),
+                            StartLatitude = reader.IsDBNull(reader.GetOrdinal("StartLatitude")) ? 0 : reader.GetDouble(reader.GetOrdinal("StartLatitude")),
+                            StartLongitude = reader.IsDBNull(reader.GetOrdinal("StartLongitude")) ? 0 : reader.GetDouble(reader.GetOrdinal("StartLongitude")),
+                            EndLatitude = reader.IsDBNull(reader.GetOrdinal("EndLatitude")) ? 0 : reader.GetDouble(reader.GetOrdinal("EndLatitude")),
+                            EndLongitude = reader.IsDBNull(reader.GetOrdinal("EndLongitude")) ? 0 : reader.GetDouble(reader.GetOrdinal("EndLongitude")),
+                            EncodedRoute = reader.IsDBNull(reader.GetOrdinal("EncodedRoute")) ? null : reader.GetString(reader.GetOrdinal("EncodedRoute"))
+                        };
+                        tours.Add(tour);
+                    }
+
+                    // Add log to the existing tour
+                    if (!reader.IsDBNull(reader.GetOrdinal("TourLog_ID")))
+                    {
+                        tour.Logs.Add(new Log
+                        {
+                            Id = reader.GetInt32(reader.GetOrdinal("TourLog_ID")),
+                            TourId = reader.GetInt32(reader.GetOrdinal("Tour_ID")),
+                            Date = reader.GetDateTime(reader.GetOrdinal("TourDate")),
+                            Distance = reader.GetDecimal(reader.GetOrdinal("Distance")),
+                            Difficulty = reader.GetDecimal(reader.GetOrdinal("Difficulty")),
+                            Duration = reader.GetDecimal(reader.GetOrdinal("Duration")),
+                            Steps = reader.GetDecimal(reader.GetOrdinal("Steps")),
+                            Weather = reader.IsDBNull(reader.GetOrdinal("Weather")) ? null : reader.GetString(reader.GetOrdinal("Weather")),
+                            Comment = reader.IsDBNull(reader.GetOrdinal("Comment")) ? null : reader.GetString(reader.GetOrdinal("Comment")),
+                            Rating = reader.GetInt32(reader.GetOrdinal("Rating")),
+                            TotalTime = reader.GetDecimal(reader.GetOrdinal("TotalTime"))
+                        });
+                    }
+                }
+            }
+        }
+    }
+    catch (Exception ex)
+    {
+        Debug.WriteLine($"Error during search: {ex.Message}");
+        throw;
+    }
+
+    return tours;
+}
+        public int AddTourAndGetId(Tour tour)
+        {
+            string commandText = "INSERT INTO \"Tour\" (\"Name\", \"Description\", \"From\", \"To\", \"RouteType\", \"StartLatitude\", \"StartLongitude\", \"EndLatitude\", \"EndLongitude\", \"Distance\", \"EstimatedTime\") " +
+                                 "VALUES (@name, @description, @from, @to, @routeType, @startLat, @startLng, @endLat, @endLng, @distance, @estimatedTime) RETURNING \"Tour_ID\"";
+
+            try
+            {
+                using (var conn = DbManager.GetConnection())
+                {
+                    conn.Open();
+                    var cmd = new NpgsqlCommand(commandText, conn);
+                    cmd.Parameters.AddWithValue("name", tour.Name);
+                    cmd.Parameters.AddWithValue("description", (object)tour.Description ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("from", tour.From);
+                    cmd.Parameters.AddWithValue("to", tour.To);
+                    cmd.Parameters.AddWithValue("routeType", tour.RouteType);
+                    cmd.Parameters.AddWithValue("startLat", tour.StartLatitude);
+                    cmd.Parameters.AddWithValue("startLng", tour.StartLongitude);
+                    cmd.Parameters.AddWithValue("endLat", tour.EndLatitude);
+                    cmd.Parameters.AddWithValue("endLng", tour.EndLongitude);
+                    cmd.Parameters.AddWithValue("distance", tour.Distance);
+                    cmd.Parameters.AddWithValue("estimatedTime", tour.EstimatedTime);
+
+                    // Execute and get the newly inserted Tour_ID
+                    return (int)cmd.ExecuteScalar();
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error adding tour and getting ID: {ex.Message}");
+                throw;
+            }
+        }
+public List<Tour> GetAllToursWithLogs()
+{
+    var tours = new List<Tour>();
+    string query = "SELECT * FROM \"Tour\"";
+
+    try
+    {
+        using (var conn = DbManager.GetConnection())
+        {
+            conn.Open();
+            var cmd = new NpgsqlCommand(query, conn);
+
+            using (var reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    var tour = new Tour
+                    {
+                        Id = reader.GetInt32(reader.GetOrdinal("Tour_ID")),
+                        Name = reader.GetString(reader.GetOrdinal("Name")),
+                        Description = reader.IsDBNull(reader.GetOrdinal("Description")) ? null : reader.GetString(reader.GetOrdinal("Description")),
+                        From = reader.GetString(reader.GetOrdinal("From")),
+                        To = reader.GetString(reader.GetOrdinal("To")),
+                        RouteType = reader.IsDBNull(reader.GetOrdinal("RouteType")) ? null : reader.GetString(reader.GetOrdinal("RouteType")),
+                        StartLatitude = reader.IsDBNull(reader.GetOrdinal("StartLatitude")) ? 0 : reader.GetDouble(reader.GetOrdinal("StartLatitude")),
+                        StartLongitude = reader.IsDBNull(reader.GetOrdinal("StartLongitude")) ? 0 : reader.GetDouble(reader.GetOrdinal("StartLongitude")),
+                        EndLatitude = reader.IsDBNull(reader.GetOrdinal("EndLatitude")) ? 0 : reader.GetDouble(reader.GetOrdinal("EndLatitude")),
+                        EndLongitude = reader.IsDBNull(reader.GetOrdinal("EndLongitude")) ? 0 : reader.GetDouble(reader.GetOrdinal("EndLongitude")),
+                        EncodedRoute = reader.IsDBNull(reader.GetOrdinal("EncodedRoute")) ? null : reader.GetString(reader.GetOrdinal("EncodedRoute")),
+                        Distance = reader.IsDBNull(reader.GetOrdinal("Distance")) ? 0 : reader.GetDouble(reader.GetOrdinal("Distance")),
+                        EstimatedTime = reader.IsDBNull(reader.GetOrdinal("EstimatedTime")) ? TimeSpan.Zero : reader.GetTimeSpan(reader.GetOrdinal("EstimatedTime"))
+                    };
+
+                    // Fetch logs for each tour
+                    tour.Logs = GetLogsForTour(tour).ToList();
+                    tours.Add(tour);
+                }
+            }
+        }
+    }
+    catch (Exception ex)
+    {
+        Debug.WriteLine($"Failed to load tours with logs: {ex.Message}");
+        throw;
+    }
+
+    return tours;
+}
+
+
 
         public void DeleteTour(Tour tour)
         {
@@ -178,7 +326,51 @@ namespace RoutePlaner_Rafael_elias.Repository
 
             return routeType;
         }
+public Tour GetTourById(int tourId)
+        {
+            Tour tour = null;
+            string query = "SELECT * FROM \"Tour\" WHERE \"Tour_ID\" = @tourId";
 
+            try
+            {
+                using (var conn = DbManager.GetConnection())
+                {
+                    conn.Open();
+                    var cmd = new NpgsqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("tourId", tourId);
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            tour = new Tour
+                            {
+                                Id = reader.GetInt32(reader.GetOrdinal("Tour_ID")),
+                                Name = reader.GetString(reader.GetOrdinal("Name")),
+                                Description = reader.IsDBNull(reader.GetOrdinal("Description")) ? null : reader.GetString(reader.GetOrdinal("Description")),
+                                From = reader.GetString(reader.GetOrdinal("From")),
+                                To = reader.GetString(reader.GetOrdinal("To")),
+                                RouteType = reader.IsDBNull(reader.GetOrdinal("RouteType")) ? null : reader.GetString(reader.GetOrdinal("RouteType")),
+                                StartLatitude = reader.IsDBNull(reader.GetOrdinal("StartLatitude")) ? 0 : reader.GetDouble(reader.GetOrdinal("StartLatitude")),
+                                StartLongitude = reader.IsDBNull(reader.GetOrdinal("StartLongitude")) ? 0 : reader.GetDouble(reader.GetOrdinal("StartLongitude")),
+                                EndLatitude = reader.IsDBNull(reader.GetOrdinal("EndLatitude")) ? 0 : reader.GetDouble(reader.GetOrdinal("EndLatitude")),
+                                EndLongitude = reader.IsDBNull(reader.GetOrdinal("EndLongitude")) ? 0 : reader.GetDouble(reader.GetOrdinal("EndLongitude")),
+                                EncodedRoute = reader.IsDBNull(reader.GetOrdinal("EncodedRoute")) ? null : reader.GetString(reader.GetOrdinal("EncodedRoute")),
+                                Distance = reader.IsDBNull(reader.GetOrdinal("Distance")) ? 0 : reader.GetDouble(reader.GetOrdinal("Distance")),
+                                EstimatedTime = reader.IsDBNull(reader.GetOrdinal("EstimatedTime")) ? TimeSpan.Zero : reader.GetTimeSpan(reader.GetOrdinal("EstimatedTime"))
+                            };
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error fetching tour details: {ex.Message}");
+                throw;
+            }
+
+            return tour;
+        }
         public IEnumerable<Log> GetLogsForTour(Tour tour)
         {
             var logs = new List<Log>();

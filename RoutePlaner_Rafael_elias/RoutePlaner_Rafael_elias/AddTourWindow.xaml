@@ -9,10 +9,6 @@
         Title="AddTourWindow" Height="600" Width="800"
         DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
-    <Window.Resources>
-        <!-- Styles are unchanged -->
-    </Window.Resources>
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -46,8 +42,9 @@
         <Label Grid.Row="3" Grid.Column="0" Content="Description"/>
         <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}" Width="300"/>
 
+        <!-- Updated: ComboBox for RouteType -->
         <Label Grid.Row="4" Grid.Column="0" Content="RouteType"/>
-        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding RouteType, UpdateSourceTrigger=PropertyChanged}" Width="300"/>
+        <ComboBox Grid.Row="4" Grid.Column="1" ItemsSource="{Binding RouteTypes}" SelectedItem="{Binding RouteType, UpdateSourceTrigger=PropertyChanged}" Width="300"/>
 
         <!-- Map Control for Selecting Points -->
         <gm:GMapControl x:Name="MapControl"

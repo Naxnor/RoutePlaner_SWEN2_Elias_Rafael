@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Input;
@@ -17,7 +18,20 @@ namespace RoutePlaner_Rafael_elias.ViewModels
         public Tour Tour
         {
             get => _tour;
-            set => SetProperty(ref _tour, value);
+            set
+            {
+                SetProperty(ref _tour, value);
+                SelectedRouteType = _tour.RouteType;  // Ensure the selected route type is set
+            }
+        }
+
+        public ObservableCollection<string> RouteTypes { get; }
+
+        private string _selectedRouteType;
+        public string SelectedRouteType
+        {
+            get => _selectedRouteType;
+            set => SetProperty(ref _selectedRouteType, value);
         }
 
         public ICommand UpdateTourCommand { get; }
@@ -25,6 +39,7 @@ namespace RoutePlaner_Rafael_elias.ViewModels
         public UpdateTourViewModel(Tour existingTour)
         {
             _repository = new TourRepository();
+            RouteTypes = new ObservableCollection<string> { "bike", "walking", "driving-car" }; // Initialize RouteTypes
             Tour = existingTour;
             UpdateTourCommand = new RelayCommand(UpdateTour);
         }
@@ -33,6 +48,13 @@ namespace RoutePlaner_Rafael_elias.ViewModels
         {
             try
             {
+                if (string.IsNullOrWhiteSpace(Tour.Name))
+                {
+                    MessageBox.Show("Please enter a name for the tour.", "Input Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+                Tour.RouteType = SelectedRouteType;  // Ensure the selected route type is set before updating
                 _repository.UpdateTour(Tour);
                 MessageBox.Show("Tour updated successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 CloseWindow();
@@ -40,7 +62,7 @@ namespace RoutePlaner_Rafael_elias.ViewModels
             catch (Exception ex)
             {
                 Debug.WriteLine($"Error updating tour: {ex.Message}");
-             
+                MessageBox.Show($"Error updating tour: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -55,6 +77,5 @@ namespace RoutePlaner_Rafael_elias.ViewModels
                 }
             }
         }
-
     }
 }

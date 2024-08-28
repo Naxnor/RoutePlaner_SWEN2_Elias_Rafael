@@ -1,10 +1,14 @@
 using System.Windows;
 
+// ThemeInfo attribute remains unchanged
 [assembly: ThemeInfo(
-    ResourceDictionaryLocation.None, //where theme specific resource dictionaries are located
-    //(used if a resource is not found in the page,
+    ResourceDictionaryLocation.None, // where theme-specific resource dictionaries are located
+    // (used if a resource is not found in the page,
     // or application resource dictionaries)
-    ResourceDictionaryLocation.SourceAssembly //where the generic resource dictionary is located
-    //(used if a resource is not found in the page,
-    // app, or any theme specific resource dictionaries)
+    ResourceDictionaryLocation.SourceAssembly // where the generic resource dictionary is located
+    // (used if a resource is not found in the page,
+    // app, or any theme-specific resource dictionaries)
 )]
+
+// Add the log4net configuration attribute
+[assembly: log4net.Config.XmlConfigurator(ConfigFile = "log4net.config", Watch = true)]

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
@@ -25,6 +26,7 @@ namespace RoutePlaner_Rafael_elias.ViewModels
         {
             _repository = new TourRepository();
             AddTourCommand = new RelayCommand(AddTour);
+            RouteTypes = new ObservableCollection<string> { "bike", "walking", "driving-car" }; // Initialize RouteTypes
         }
 
         public string Name
@@ -80,6 +82,8 @@ namespace RoutePlaner_Rafael_elias.ViewModels
             get => _endLongitude;
             set => SetProperty(ref _endLongitude, value);
         }
+
+        public ObservableCollection<string> RouteTypes { get; } // Collection of route types for ComboBox
 
         public ICommand AddTourCommand { get; }
 

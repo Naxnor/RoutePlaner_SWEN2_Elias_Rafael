@@ -1,0 +1,557 @@
+2024-08-28 19:35:22,548 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 19:35:24,865 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour luxemparis.
+2024-08-28 19:35:28,089 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Error generating PDF report: Unknown PdfException.
+iText.Kernel.Exceptions.PdfException: Unknown PdfException.
+ ---> System.NotSupportedException: Either com.itextpdf:bouncy-castle-adapter or com.itextpdf:bouncy-castle-fips-adapter dependency must be added in order to use BouncyCastleFactoryCreator
+   at iText.Bouncycastleconnector.BouncyCastleDefaultFactory.CreateIDigest(String hashAlgorithm)
+   at iText.Kernel.Pdf.SmartModePdfObjectsSerializer..ctor()
+   --- End of inner exception stack trace ---
+   at iText.Kernel.Pdf.SmartModePdfObjectsSerializer..ctor()
+   at iText.Kernel.Pdf.PdfWriter..ctor(Stream os, WriterProperties properties)
+   at iText.Kernel.Pdf.PdfWriter..ctor(String filename, WriterProperties properties)
+   at iText.Kernel.Pdf.PdfWriter..ctor(String filename)
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.GenerateTourReport() in F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 359
+2024-08-28 19:36:24,373 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 19:36:38,829 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour luxemparis.
+2024-08-28 19:36:41,386 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched successfully.
+2024-08-28 19:38:15,870 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 19:44:26,343 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 19:44:32,401 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Error generating log report: Unknown PdfException.
+iText.Kernel.Exceptions.PdfException: Unknown PdfException.
+ ---> System.NotSupportedException: Either com.itextpdf:bouncy-castle-adapter or com.itextpdf:bouncy-castle-fips-adapter dependency must be added in order to use BouncyCastleFactoryCreator
+   at iText.Bouncycastleconnector.BouncyCastleDefaultFactory.CreateIDigest(String hashAlgorithm)
+   at iText.Kernel.Pdf.SmartModePdfObjectsSerializer..ctor()
+   --- End of inner exception stack trace ---
+   at iText.Kernel.Pdf.SmartModePdfObjectsSerializer..ctor()
+   at iText.Kernel.Pdf.PdfWriter..ctor(Stream os, WriterProperties properties)
+   at iText.Kernel.Pdf.PdfWriter..ctor(String filename, WriterProperties properties)
+   at iText.Kernel.Pdf.PdfWriter..ctor(String filename)
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.GenerateLogReport() in F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 406
+2024-08-28 19:44:35,674 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Error generating PDF report: Unknown PdfException.
+iText.Kernel.Exceptions.PdfException: Unknown PdfException.
+ ---> System.NotSupportedException: Either com.itextpdf:bouncy-castle-adapter or com.itextpdf:bouncy-castle-fips-adapter dependency must be added in order to use BouncyCastleFactoryCreator
+   at iText.Bouncycastleconnector.BouncyCastleDefaultFactory.CreateIDigest(String hashAlgorithm)
+   at iText.Kernel.Pdf.SmartModePdfObjectsSerializer..ctor()
+   --- End of inner exception stack trace ---
+   at iText.Kernel.Pdf.SmartModePdfObjectsSerializer..ctor()
+   at iText.Kernel.Pdf.PdfWriter..ctor(Stream os, WriterProperties properties)
+   at iText.Kernel.Pdf.PdfWriter..ctor(String filename, WriterProperties properties)
+   at iText.Kernel.Pdf.PdfWriter..ctor(String filename)
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.GenerateTourReport() in F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 362
+2024-08-28 19:47:26,371 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 19:47:28,181 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour New Tour.
+2024-08-28 19:47:34,224 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 19:47:36,073 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour New Tour.
+2024-08-28 19:47:38,295 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 19:47:39,398 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour New Tour.
+2024-08-28 19:47:40,958 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Error deleting tour: 23503: update or delete on table "Tour" violates foreign key constraint "TourLog_Tour_ID_fkey" on table "TourLog"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+Npgsql.PostgresException (0x80004005): 23503: update or delete on table "Tour" violates foreign key constraint "TourLog_Tour_ID_fkey" on table "TourLog"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery()
+   at RoutePlaner_Rafael_elias.Repository.TourRepository.DeleteTour(Tour tour) in F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\Repository\TourRepository.cs:line 148
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.DeleteTour() in F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 278
+  Exception data:
+    Severity: ERROR
+    SqlState: 23503
+    MessageText: update or delete on table "Tour" violates foreign key constraint "TourLog_Tour_ID_fkey" on table "TourLog"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: TourLog
+    ConstraintName: TourLog_Tour_ID_fkey
+    File: ri_triggers.c
+    Line: 2621
+    Routine: ri_ReportViolation
+2024-08-28 19:47:49,340 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Urban Exploration.
+2024-08-28 19:47:51,228 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Error deleting tour: 23503: update or delete on table "Tour" violates foreign key constraint "TourLog_Tour_ID_fkey" on table "TourLog"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+Npgsql.PostgresException (0x80004005): 23503: update or delete on table "Tour" violates foreign key constraint "TourLog_Tour_ID_fkey" on table "TourLog"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery()
+   at RoutePlaner_Rafael_elias.Repository.TourRepository.DeleteTour(Tour tour) in F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\Repository\TourRepository.cs:line 148
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.DeleteTour() in F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 278
+  Exception data:
+    Severity: ERROR
+    SqlState: 23503
+    MessageText: update or delete on table "Tour" violates foreign key constraint "TourLog_Tour_ID_fkey" on table "TourLog"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: TourLog
+    ConstraintName: TourLog_Tour_ID_fkey
+    File: ri_triggers.c
+    Line: 2621
+    Routine: ri_ReportViolation
+2024-08-28 19:47:55,074 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour luxemparis.
+2024-08-28 19:47:55,407 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour New Tour.
+2024-08-28 19:47:58,382 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Log deleted successfully.
+2024-08-28 19:48:01,701 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Error deleting tour: Object reference not set to an instance of an object.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.DeleteTour() in F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 282
+2024-08-28 19:48:08,381 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - File access error: The process cannot access the file 'F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\bin\Debug\net8.0-windows\log-file.txt' because it is being used by another process.
+System.IO.IOException: The process cannot access the file 'F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\bin\Debug\net8.0-windows\log-file.txt' because it is being used by another process.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Encoding encoding, Int32 bufferSize)
+   at System.IO.File.ReadAllLines(String path, Encoding encoding)
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.GenerateLogReport() in F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 415
+2024-08-28 19:48:13,670 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Error generating PDF report: Unknown PdfException.
+iText.Kernel.Exceptions.PdfException: Unknown PdfException.
+ ---> System.NotSupportedException: Either com.itextpdf:bouncy-castle-adapter or com.itextpdf:bouncy-castle-fips-adapter dependency must be added in order to use BouncyCastleFactoryCreator
+   at iText.Bouncycastleconnector.BouncyCastleDefaultFactory.CreateIDigest(String hashAlgorithm)
+   at iText.Kernel.Pdf.SmartModePdfObjectsSerializer..ctor()
+   --- End of inner exception stack trace ---
+   at iText.Kernel.Pdf.SmartModePdfObjectsSerializer..ctor()
+   at iText.Kernel.Pdf.PdfWriter..ctor(Stream os, WriterProperties properties)
+   at iText.Kernel.Pdf.PdfWriter..ctor(String filename, WriterProperties properties)
+   at iText.Kernel.Pdf.PdfWriter..ctor(String filename)
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.GenerateTourReport() in F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 362
+2024-08-28 19:48:16,314 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - File access error: The process cannot access the file 'F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\bin\Debug\net8.0-windows\log-file.txt' because it is being used by another process.
+System.IO.IOException: The process cannot access the file 'F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\bin\Debug\net8.0-windows\log-file.txt' because it is being used by another process.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Encoding encoding, Int32 bufferSize)
+   at System.IO.File.ReadAllLines(String path, Encoding encoding)
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.GenerateLogReport() in F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 415
+2024-08-28 19:48:59,296 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 19:49:02,289 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Forest Trek.
+2024-08-28 19:49:03,078 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Urban Exploration.
+2024-08-28 19:49:03,445 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour luxemparis.
+2024-08-28 19:49:33,083 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 19:49:34,234 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour milano to münchen.
+2024-08-28 19:50:01,733 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour milano to münchen.
+2024-08-28 19:50:01,735 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour milano to münchen.
+2024-08-28 19:50:06,791 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Log deleted successfully.
+2024-08-28 19:50:09,747 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Error deleting tour: Object reference not set to an instance of an object.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.DeleteTour() in F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 282
+2024-08-28 19:50:45,966 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Error generating PDF report: Unknown PdfException.
+iText.Kernel.Exceptions.PdfException: Unknown PdfException.
+ ---> System.NotSupportedException: Either com.itextpdf:bouncy-castle-adapter or com.itextpdf:bouncy-castle-fips-adapter dependency must be added in order to use BouncyCastleFactoryCreator
+   at iText.Bouncycastleconnector.BouncyCastleDefaultFactory.CreateIDigest(String hashAlgorithm)
+   at iText.Kernel.Pdf.SmartModePdfObjectsSerializer..ctor()
+   --- End of inner exception stack trace ---
+   at iText.Kernel.Pdf.SmartModePdfObjectsSerializer..ctor()
+   at iText.Kernel.Pdf.PdfWriter..ctor(Stream os, WriterProperties properties)
+   at iText.Kernel.Pdf.PdfWriter..ctor(String filename, WriterProperties properties)
+   at iText.Kernel.Pdf.PdfWriter..ctor(String filename)
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.GenerateTourReport() in F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 362
+2024-08-28 19:50:48,260 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - File access error: The process cannot access the file 'F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\bin\Debug\net8.0-windows\log-file.txt' because it is being used by another process.
+System.IO.IOException: The process cannot access the file 'F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\bin\Debug\net8.0-windows\log-file.txt' because it is being used by another process.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Encoding encoding, Int32 bufferSize)
+   at System.IO.File.ReadAllLines(String path, Encoding encoding)
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.GenerateLogReport() in F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 415
+2024-08-28 19:51:14,830 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 19:51:17,012 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - File access error: The process cannot access the file 'F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\bin\Debug\net8.0-windows\log-file.txt' because it is being used by another process.
+System.IO.IOException: The process cannot access the file 'F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\bin\Debug\net8.0-windows\log-file.txt' because it is being used by another process.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Encoding encoding, Int32 bufferSize)
+   at System.IO.File.ReadAllLines(String path, Encoding encoding)
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.GenerateLogReport() in F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 415
+2024-08-28 19:53:15,114 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 19:53:17,866 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Error generating log report: Unknown PdfException.
+iText.Kernel.Exceptions.PdfException: Unknown PdfException.
+ ---> System.NotSupportedException: Either com.itextpdf:bouncy-castle-adapter or com.itextpdf:bouncy-castle-fips-adapter dependency must be added in order to use BouncyCastleFactoryCreator
+   at iText.Bouncycastleconnector.BouncyCastleDefaultFactory.CreateIDigest(String hashAlgorithm)
+   at iText.Kernel.Pdf.SmartModePdfObjectsSerializer..ctor()
+   --- End of inner exception stack trace ---
+   at iText.Kernel.Pdf.SmartModePdfObjectsSerializer..ctor()
+   at iText.Kernel.Pdf.PdfWriter..ctor(Stream os, WriterProperties properties)
+   at iText.Kernel.Pdf.PdfWriter..ctor(String filename, WriterProperties properties)
+   at iText.Kernel.Pdf.PdfWriter..ctor(String filename)
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.GenerateLogReport() in F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 417
+2024-08-28 19:53:20,698 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Error generating PDF report: Unknown PdfException.
+iText.Kernel.Exceptions.PdfException: Unknown PdfException.
+ ---> System.NotSupportedException: Either com.itextpdf:bouncy-castle-adapter or com.itextpdf:bouncy-castle-fips-adapter dependency must be added in order to use BouncyCastleFactoryCreator
+   at iText.Bouncycastleconnector.BouncyCastleDefaultFactory.CreateIDigest(String hashAlgorithm)
+   at iText.Kernel.Pdf.SmartModePdfObjectsSerializer..ctor()
+   --- End of inner exception stack trace ---
+   at iText.Kernel.Pdf.SmartModePdfObjectsSerializer..ctor()
+   at iText.Kernel.Pdf.PdfWriter..ctor(Stream os, WriterProperties properties)
+   at iText.Kernel.Pdf.PdfWriter..ctor(String filename, WriterProperties properties)
+   at iText.Kernel.Pdf.PdfWriter..ctor(String filename)
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.GenerateTourReport() in F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 362
+2024-08-28 19:56:16,816 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 19:56:19,411 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Error generating log report: Unknown PdfException.
+iText.Kernel.Exceptions.PdfException: Unknown PdfException.
+ ---> System.NotSupportedException: Either com.itextpdf:bouncy-castle-adapter or com.itextpdf:bouncy-castle-fips-adapter dependency must be added in order to use BouncyCastleFactoryCreator
+   at iText.Bouncycastleconnector.BouncyCastleDefaultFactory.CreateIDigest(String hashAlgorithm)
+   at iText.Kernel.Pdf.SmartModePdfObjectsSerializer..ctor()
+   --- End of inner exception stack trace ---
+   at iText.Kernel.Pdf.SmartModePdfObjectsSerializer..ctor()
+   at iText.Kernel.Pdf.PdfWriter..ctor(Stream os, WriterProperties properties)
+   at iText.Kernel.Pdf.PdfWriter..ctor(String filename, WriterProperties properties)
+   at iText.Kernel.Pdf.PdfWriter..ctor(String filename)
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.GenerateLogReport() in F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 417
+2024-08-28 19:56:21,391 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Error generating PDF report: Unknown PdfException.
+iText.Kernel.Exceptions.PdfException: Unknown PdfException.
+ ---> System.NotSupportedException: Either com.itextpdf:bouncy-castle-adapter or com.itextpdf:bouncy-castle-fips-adapter dependency must be added in order to use BouncyCastleFactoryCreator
+   at iText.Bouncycastleconnector.BouncyCastleDefaultFactory.CreateIDigest(String hashAlgorithm)
+   at iText.Kernel.Pdf.SmartModePdfObjectsSerializer..ctor()
+   --- End of inner exception stack trace ---
+   at iText.Kernel.Pdf.SmartModePdfObjectsSerializer..ctor()
+   at iText.Kernel.Pdf.PdfWriter..ctor(Stream os, WriterProperties properties)
+   at iText.Kernel.Pdf.PdfWriter..ctor(String filename, WriterProperties properties)
+   at iText.Kernel.Pdf.PdfWriter..ctor(String filename)
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.GenerateTourReport() in F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 362
+2024-08-28 19:58:02,466 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 19:58:06,246 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - PDF report generated successfully.
+2024-08-28 19:58:08,534 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Log report generated successfully.
+2024-08-28 19:59:26,106 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 19:59:29,075 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour luxemparis.
+2024-08-28 19:59:31,367 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched successfully.
+2024-08-28 20:04:13,202 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:04:16,594 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour luxemparis.
+2024-08-28 20:04:18,960 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched successfully.
+2024-08-28 20:04:28,699 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Log report generated successfully.
+2024-08-28 20:04:37,020 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - PDF report generated successfully.
+2024-08-28 20:05:09,156 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:05:11,109 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour luxemparis.
+2024-08-28 20:05:16,011 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Log report generated successfully.
+2024-08-28 20:05:57,168 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Urban Exploration.
+2024-08-28 20:06:03,666 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched successfully.
+2024-08-28 20:06:07,832 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Log report generated successfully.
+2024-08-28 20:06:09,605 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - PDF report generated successfully.
+2024-08-28 20:10:49,792 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:10:51,961 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Urban Exploration.
+2024-08-28 20:10:52,314 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour luxemparis.
+2024-08-28 20:10:55,162 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched and tour updated successfully.
+2024-08-28 20:12:01,582 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:12:05,498 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Coastal Walk.
+2024-08-28 20:12:07,660 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Error fetching route data: 42703: column "Distance" of relation "Tour" does not exist
+
+POSITION: 202
+Npgsql.PostgresException (0x80004005): 42703: column "Distance" of relation "Tour" does not exist
+
+POSITION: 202
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery()
+   at RoutePlaner_Rafael_elias.Repository.TourRepository.UpdateTour(Tour tour) in F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\Repository\TourRepository.cs:line 131
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.FetchRouteData() in F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 153
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column "Distance" of relation "Tour" does not exist
+    Position: 202
+    File: analyze.c
+    Line: 2527
+    Routine: transformUpdateTargetList
+2024-08-28 20:12:34,752 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:12:37,642 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Coastal Walk.
+2024-08-28 20:12:39,568 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Error fetching route data: 42703: column "Distance" of relation "Tour" does not exist
+
+POSITION: 202
+Npgsql.PostgresException (0x80004005): 42703: column "Distance" of relation "Tour" does not exist
+
+POSITION: 202
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery()
+   at RoutePlaner_Rafael_elias.Repository.TourRepository.UpdateTour(Tour tour) in F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\Repository\TourRepository.cs:line 131
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.FetchRouteData() in F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 153
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column "Distance" of relation "Tour" does not exist
+    Position: 202
+    File: analyze.c
+    Line: 2527
+    Routine: transformUpdateTargetList
+2024-08-28 20:12:49,127 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Urban Exploration.
+2024-08-28 20:12:52,286 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Error fetching route data: 42703: column "Distance" of relation "Tour" does not exist
+
+POSITION: 202
+Npgsql.PostgresException (0x80004005): 42703: column "Distance" of relation "Tour" does not exist
+
+POSITION: 202
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery()
+   at RoutePlaner_Rafael_elias.Repository.TourRepository.UpdateTour(Tour tour) in F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\Repository\TourRepository.cs:line 131
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.FetchRouteData() in F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 153
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column "Distance" of relation "Tour" does not exist
+    Position: 202
+    File: analyze.c
+    Line: 2527
+    Routine: transformUpdateTargetList
+2024-08-28 20:14:47,469 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:14:49,858 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour luxemparis.
+2024-08-28 20:14:50,948 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Error updating tour in database: 42703: column "Distance" of relation "Tour" does not exist
+
+POSITION: 202
+Npgsql.PostgresException (0x80004005): 42703: column "Distance" of relation "Tour" does not exist
+
+POSITION: 202
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery()
+   at RoutePlaner_Rafael_elias.Repository.TourRepository.UpdateTour(Tour tour) in F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\Repository\TourRepository.cs:line 131
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.FetchRouteData() in F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 165
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column "Distance" of relation "Tour" does not exist
+    Position: 202
+    File: analyze.c
+    Line: 2527
+    Routine: transformUpdateTargetList
+2024-08-28 20:16:30,284 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:16:33,421 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Urban Exploration.
+2024-08-28 20:16:35,082 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tour updated successfully in the database.
+2024-08-28 20:16:36,388 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched and tour updated successfully.
+2024-08-28 20:20:40,884 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:20:43,107 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Urban Exploration.
+2024-08-28 20:20:45,116 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Error updating tour in database: 42703: column "id" does not exist
+
+POSITION: 261
+Npgsql.PostgresException (0x80004005): 42703: column "id" does not exist
+
+POSITION: 261
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery()
+   at RoutePlaner_Rafael_elias.Repository.TourRepository.UpdateTour(Tour tour) in F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\Repository\TourRepository.cs:line 129
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.FetchRouteData() in F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 165
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column "id" does not exist
+    Position: 261
+    File: parse_relation.c
+    Line: 3722
+    Routine: errorMissingColumn
+2024-08-28 20:21:50,740 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:21:52,830 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Urban Exploration.
+2024-08-28 20:21:53,809 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tour updated successfully in the database.
+2024-08-28 20:21:55,037 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched and tour updated successfully.
+2024-08-28 20:21:57,893 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Coastal Walk.
+2024-08-28 20:22:00,131 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Urban Exploration.
+2024-08-28 20:22:01,731 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour luxemparis.
+2024-08-28 20:22:02,654 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tour updated successfully in the database.
+2024-08-28 20:22:05,444 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched and tour updated successfully.
+2024-08-28 20:22:46,554 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:22:51,477 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour luxemparis.
+2024-08-28 20:22:52,738 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tour updated successfully in the database.
+2024-08-28 20:22:53,619 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched and tour updated successfully.
+2024-08-28 20:24:14,644 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:24:15,705 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour testtour.
+2024-08-28 20:24:16,877 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tour updated successfully in the database.
+2024-08-28 20:24:18,330 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched and tour updated successfully.
+2024-08-28 20:27:32,985 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:27:35,759 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour testtour.
+2024-08-28 20:27:37,993 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tour updated successfully in the database.
+2024-08-28 20:27:39,039 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched and tour updated successfully.
+2024-08-28 20:29:02,009 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:29:04,875 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour testtour.
+2024-08-28 20:29:06,110 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tour updated successfully in the database.
+2024-08-28 20:29:07,169 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched and tour updated successfully.
+2024-08-28 20:29:18,262 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - PDF report generated successfully.
+2024-08-28 20:29:37,258 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Urban Exploration.
+2024-08-28 20:29:40,148 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tour updated successfully in the database.
+2024-08-28 20:29:41,250 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched and tour updated successfully.
+2024-08-28 20:29:42,418 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour luxemparis.
+2024-08-28 20:29:43,741 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tour updated successfully in the database.
+2024-08-28 20:29:44,757 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched and tour updated successfully.
+2024-08-28 20:29:48,211 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - PDF report generated successfully.
+2024-08-28 20:31:49,494 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:36:05,968 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:36:13,458 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:36:43,574 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:36:48,659 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Coastal Walk.
+2024-08-28 20:36:52,730 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:37:06,766 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:42:23,545 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:43:07,909 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:43:09,665 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Milano drive Vienna.
+2024-08-28 20:43:15,980 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:47:10,903 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:47:13,554 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour testtour.
+2024-08-28 20:47:14,053 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Milano drive Vienna.
+2024-08-28 20:47:19,090 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:47:20,132 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour luxemparis.
+2024-08-28 20:47:25,596 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:47:28,414 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Milano drive Vienna.
+2024-08-28 20:47:29,017 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour luxemparis.
+2024-08-28 20:47:55,288 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:47:59,395 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Urban Exploration.
+2024-08-28 20:48:00,184 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour testtour.
+2024-08-28 20:48:00,495 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Milano drive Vienna.
+2024-08-28 20:48:02,842 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:48:03,528 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Milano drive Vienna.
+2024-08-28 20:48:07,931 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:50:40,647 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:50:44,096 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Urban Exploration.
+2024-08-28 20:50:46,773 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Milano drive Vienna.
+2024-08-28 20:50:54,489 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:51:00,570 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Milano drive Vienna.
+2024-08-28 20:51:07,266 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:51:11,068 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Milano drive Vienna.
+2024-08-28 20:51:12,712 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tour updated successfully in the database.
+2024-08-28 20:51:14,374 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched and tour updated successfully.
+2024-08-28 20:51:35,741 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:51:37,058 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Milano drive Vienna.
+2024-08-28 20:51:38,036 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tour updated successfully in the database.
+2024-08-28 20:51:39,140 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched and tour updated successfully.
+2024-08-28 20:54:10,031 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:54:13,296 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour luxemparis.
+2024-08-28 20:54:17,352 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Milano drive Vienna.
+2024-08-28 20:54:18,614 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tour updated successfully in the database.
+2024-08-28 20:54:19,584 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched and tour updated successfully.
+2024-08-28 20:54:34,424 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:55:23,786 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Milano drive Vienna.
+2024-08-28 20:55:28,181 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:56:18,662 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:56:20,776 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Milano drive Vienna.
+2024-08-28 20:56:22,916 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tour updated successfully in the database.
+2024-08-28 20:56:24,135 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched and tour updated successfully.
+2024-08-28 20:56:46,375 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:57:52,822 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:58:11,838 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 20:58:17,439 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour france.
+2024-08-28 20:58:19,661 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tour updated successfully in the database.
+2024-08-28 20:58:20,701 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched and tour updated successfully.
+2024-08-28 21:17:19,020 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Failed to load tours: Column 'Distance' is null.
+System.InvalidCastException: Column 'Distance' is null.
+   at Npgsql.ThrowHelper.ThrowInvalidCastException_NoValue(FieldDescription field)
+   at Npgsql.NpgsqlDataReader.DbNullValueOrThrow[T](Int32 ordinal)
+   at Npgsql.NpgsqlDataReader.GetFieldValueCore[T](Int32 ordinal)
+   at Npgsql.NpgsqlDataReader.GetDouble(Int32 ordinal)
+   at RoutePlaner_Rafael_elias.Repository.TourRepository.GetAllTours() in F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\Repository\TourRepository.cs:line 30
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.LoadTours() in F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 356
+2024-08-28 21:19:05,565 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Failed to load tours: Column 'Distance' is null.
+System.InvalidCastException: Column 'Distance' is null.
+   at Npgsql.ThrowHelper.ThrowInvalidCastException_NoValue(FieldDescription field)
+   at Npgsql.NpgsqlDataReader.DbNullValueOrThrow[T](Int32 ordinal)
+   at Npgsql.NpgsqlDataReader.GetFieldValueCore[T](Int32 ordinal)
+   at Npgsql.NpgsqlDataReader.GetDouble(Int32 ordinal)
+   at RoutePlaner_Rafael_elias.Repository.TourRepository.GetAllTours() in F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\Repository\TourRepository.cs:line 30
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.LoadTours() in F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 356
+2024-08-28 21:22:25,309 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 21:22:29,274 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour luxemparis.
+2024-08-28 21:22:37,950 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 21:22:58,515 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour luxemparis.
+2024-08-28 21:23:00,655 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tour updated successfully in the database.
+2024-08-28 21:23:01,663 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched and tour updated successfully.
+2024-08-28 21:23:18,312 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour testtour.
+2024-08-28 21:23:19,065 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour luxemparis.
+2024-08-28 21:23:23,412 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 21:23:29,279 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour france.
+2024-08-28 21:23:29,985 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Urban Exploration.
+2024-08-28 21:23:30,346 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour testtour.
+2024-08-28 21:23:30,676 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour luxemparis.
+2024-08-28 21:23:31,816 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tour updated successfully in the database.
+2024-08-28 21:23:32,888 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched and tour updated successfully.
+2024-08-28 21:41:50,162 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 21:41:52,741 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour luxemparis.
+2024-08-28 21:42:40,344 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 21:42:45,794 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour france.
+2024-08-28 21:42:51,006 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Milano drive Vienna.
+2024-08-28 21:42:51,436 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Urban Exploration.
+2024-08-28 21:42:52,979 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour testtour.
+2024-08-28 21:42:53,920 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour luxemparis.
+2024-08-28 21:46:40,480 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 21:46:44,175 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour luxemparis.
+2024-08-28 21:47:03,927 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 21:47:08,071 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Urban Exploration.
+2024-08-28 21:47:08,493 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour luxemparis.
+2024-08-28 21:47:12,883 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tour updated successfully in the database.
+2024-08-28 21:47:14,299 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched and tour updated successfully.
+2024-08-28 21:52:16,832 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 21:52:25,070 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Urban Exploration.
+2024-08-28 21:52:25,362 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Milano drive Vienna.
+2024-08-28 21:56:15,442 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 22:01:02,120 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 22:02:17,375 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Hike.
+2024-08-28 22:02:19,854 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 22:02:21,437 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Adventure.
+2024-08-28 22:03:45,079 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Log report generated successfully.
+2024-08-28 22:06:21,178 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 22:06:46,865 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Milano drive Vienna.
+2024-08-28 22:06:48,602 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 22:06:51,878 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Adventure 222.
+2024-08-28 22:06:53,032 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour City Exploration 343.
+2024-08-28 22:06:53,752 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Adventure 222.
+2024-08-28 22:06:54,047 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Adventure 22.
+2024-08-28 22:06:54,384 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Adventure 2.
+2024-08-28 22:06:54,772 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Adventure 222.
+2024-08-28 22:06:56,317 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour City Exploration 343.
+2024-08-28 22:06:57,226 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Adventure 222.
+2024-08-28 22:21:45,046 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 22:21:56,938 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Coastal Walk.
+2024-08-28 22:22:18,417 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 22:22:28,182 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Hike.
+2024-08-28 22:26:08,392 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 22:26:43,679 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 22:42:33,669 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 22:42:42,561 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour City Exploration 343.
+2024-08-28 22:42:49,041 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-28 22:42:52,101 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour City Exploration 343.
+2024-08-28 22:42:59,082 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour City Exploration 343.
+2024-08-28 22:42:59,084 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour City Exploration 343.
+2024-08-28 22:43:06,465 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tour updated successfully in the database.
+2024-08-28 22:43:07,634 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched and tour updated successfully.
+2024-08-28 22:46:15,104 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -11,7 +12,7 @@ namespace RoutePlaner_Rafael_elias.Services
         private static readonly string ApiKey = "5b3ce3597851110001cf6248e3c0136fc77342a6b464e761bebb9a25"; // Replace with your actual API key
         private static readonly string BaseUrl = "https://api.openrouteservice.org";
 
-        public async Task<RouteData> GetDirectionsAsync(double startLat, double startLng, double endLat, double endLng)
+        public async Task<RouteData> GetDirectionsAsync(double startLat, double startLng, double endLat, double endLng, string routeType)
         {
             using (var client = new HttpClient())
             {
@@ -21,8 +22,17 @@ namespace RoutePlaner_Rafael_elias.Services
                 string formattedEndLng = FormatCoordinate(endLng);
                 string formattedEndLat = FormatCoordinate(endLat);
 
+                // Determine the correct route profile based on routeType
+                string routeProfile = routeType switch
+                {
+                    "bike" => "cycling-regular",
+                    "walking" => "foot-walking",
+                    "driving-car" => "driving-car",
+                    _ => "driving-car" // Default to driving-car if no match
+                };
+
                 // Construct the request URL with the API key and formatted coordinates
-                var requestUrl = $"{BaseUrl}/v2/directions/driving-car?api_key={ApiKey}&start={formattedStartLng},{formattedStartLat}&end={formattedEndLng},{formattedEndLat}";
+                var requestUrl = $"{BaseUrl}/v2/directions/{routeProfile}?api_key={ApiKey}&start={formattedStartLng},{formattedStartLat}&end={formattedEndLng},{formattedEndLat}";
 
                 // Log the request URL
                 Console.WriteLine($"Request URL: {requestUrl}");
@@ -50,7 +60,7 @@ namespace RoutePlaner_Rafael_elias.Services
         private string FormatCoordinate(double coordinate)
         {
             // Format the coordinate to six decimal places with dots
-            return coordinate.ToString("F6", System.Globalization.CultureInfo.InvariantCulture);
+            return coordinate.ToString("F6", CultureInfo.InvariantCulture);
         }
 
         private RouteData ParseRouteData(string jsonString)

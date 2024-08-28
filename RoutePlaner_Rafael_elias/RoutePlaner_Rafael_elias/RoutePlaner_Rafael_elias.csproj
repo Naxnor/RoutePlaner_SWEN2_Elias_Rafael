@@ -9,48 +9,22 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="BouncyCastle" Version="1.8.9" />
       <PackageReference Include="GMap.Net" Version="1.0.1" />
       <PackageReference Include="GMap.NET.Core" Version="2.1.7" />
       <PackageReference Include="GMap.NET.Presentation" Version="1.7.5" />
       <PackageReference Include="GMap.NET.WinPresentation" Version="2.1.7" />
       <PackageReference Include="GMap.Net.WPF" Version="1.0.0.1" />
       <PackageReference Include="Hermes.Vendors.MapControl" Version="1.0.0.1" />
+      <PackageReference Include="itext7" Version="8.0.5" />
+      <PackageReference Include="itext7.bouncy-castle-adapter" Version="8.0.5" />
+      <PackageReference Include="log4net" Version="3.0.0-preview.2" />
       <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0-preview.7.24405.3" />
       <PackageReference Include="Microsoft.Toolkit.Mvvm" Version="7.1.2" />
       <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
       <PackageReference Include="Npgsql" Version="8.0.3" />
       <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.0-preview.3" />
       <PackageReference Include="RestSharp" Version="111.4.1" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Content Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_2iuekpsk_wpftmp.AssemblyInfoInputs.cache" />
-      <Content Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_2iuekpsk_wpftmp.assets.cache" />
-      <Content Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_2iuekpsk_wpftmp.GeneratedMSBuildEditorConfig.editorconfig" />
-      <Content Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_2iuekpsk_wpftmp.sourcelink.json" />
-      <Content Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_fraq2jjq_wpftmp.AssemblyInfoInputs.cache" />
-      <Content Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_fraq2jjq_wpftmp.assets.cache" />
-      <Content Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_fraq2jjq_wpftmp.GeneratedMSBuildEditorConfig.editorconfig" />
-      <Content Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_fraq2jjq_wpftmp.sourcelink.json" />
-      <Content Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_jqkmwvv3_wpftmp.AssemblyInfoInputs.cache" />
-      <Content Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_jqkmwvv3_wpftmp.assets.cache" />
-      <Content Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_jqkmwvv3_wpftmp.GeneratedMSBuildEditorConfig.editorconfig" />
-      <Content Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_jqkmwvv3_wpftmp.sourcelink.json" />
-      <Content Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_kgtve1ua_wpftmp.AssemblyInfoInputs.cache" />
-      <Content Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_kgtve1ua_wpftmp.assets.cache" />
-      <Content Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_kgtve1ua_wpftmp.GeneratedMSBuildEditorConfig.editorconfig" />
-      <Content Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_kgtve1ua_wpftmp.sourcelink.json" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Compile Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_2iuekpsk_wpftmp.AssemblyInfo.cs" />
-      <Compile Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_2iuekpsk_wpftmp.GlobalUsings.g.cs" />
-      <Compile Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_fraq2jjq_wpftmp.AssemblyInfo.cs" />
-      <Compile Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_fraq2jjq_wpftmp.GlobalUsings.g.cs" />
-      <Compile Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_jqkmwvv3_wpftmp.AssemblyInfo.cs" />
-      <Compile Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_jqkmwvv3_wpftmp.GlobalUsings.g.cs" />
-      <Compile Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_kgtve1ua_wpftmp.AssemblyInfo.cs" />
-      <Compile Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_kgtve1ua_wpftmp.GlobalUsings.g.cs" />
     </ItemGroup>
 
 </Project>

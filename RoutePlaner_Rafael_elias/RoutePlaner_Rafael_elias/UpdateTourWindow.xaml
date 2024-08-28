@@ -7,39 +7,7 @@
         mc:Ignorable="d"
         Title="UpdateTourWindow" Height="350" Width="400">
     
- 
-    
-    <Window.Resources>
-        <Style TargetType="Button">
-            <Setter Property="Background" Value="#2E7D32"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="BorderBrush" Value="#1B5E20"/>
-            <Setter Property="BorderThickness" Value="2"/>
-            <Setter Property="Padding" Value="10,5"/>
-            <Setter Property="Margin" Value="10"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="FontSize" Value="14"/>
-        </Style>
-        <Style TargetType="Label">
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="Foreground" Value="#37474F"/>
-            <Setter Property="Margin" Value="5"/>
-            <Setter Property="FontSize" Value="12"/>
-        </Style>
-        <Style TargetType="TextBox">
-            <Setter Property="VerticalAlignment" Value="Stretch"/>
-            <Setter Property="HorizontalAlignment" Value="Stretch"/>
-            <Setter Property="Margin" Value="5,10"/>
-            <Setter Property="BorderBrush" Value="#B0BEC5"/>
-            <Setter Property="BorderThickness" Value="2"/>
-            <Setter Property="Padding" Value="5"/>
-            <Setter Property="FontSize" Value="12"/>
-        </Style>
-    </Window.Resources>
-
-    <Grid RenderTransformOrigin="0.0,0.0">
-        <!-- Definitions -->
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -65,8 +33,9 @@
         <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Tour.From, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Tour.To, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Tour.Description, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Tour.RouteType, UpdateSourceTrigger=PropertyChanged}"/>
-        
+
+        <!-- Updated ComboBox for RouteType -->
+        <ComboBox Grid.Row="4" Grid.Column="1" ItemsSource="{Binding RouteTypes}" SelectedItem="{Binding SelectedRouteType, UpdateSourceTrigger=PropertyChanged}" Width="300"/>
 
         <Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Command="{Binding UpdateTourCommand}">Update Tour</Button>
     </Grid>
