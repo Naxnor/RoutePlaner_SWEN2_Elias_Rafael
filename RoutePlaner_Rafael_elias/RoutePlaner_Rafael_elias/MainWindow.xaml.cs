@@ -19,15 +19,14 @@ namespace RoutePlaner_Rafael_elias
         // Methode zur Initialisierung der Karte
         public void InitializeMap()
         {
-            GMapControl map = new GMapControl();
-            map.MapProvider = GMapProviders.OpenStreetMap;
-            map.Position = new GMap.NET.PointLatLng(48.8589507, 2.2770208); // Beispielkoordinaten (Paris, Frankreich)
-            map.MinZoom = 2;
-            map.MaxZoom = 17;
-            map.Zoom = 5;
-
-            this.Content = map; // Setzt die Karte als Inhalt des Fensters
+            MapControl.MapProvider = GMapProviders.OpenStreetMap;
+            MapControl.Position = new GMap.NET.PointLatLng(48.8589507, 2.2770208); // Beispielkoordinaten (Paris, Frankreich)
+            MapControl.MinZoom = 2;
+            MapControl.MaxZoom = 17;
+            MapControl.Zoom = 5;
+            MapControl.ShowCenter = false; // Optional: zentriert das Kartensymbol ausblenden
         }
+
 
         // Methode zur Anzeige der Route auf der Karte
         public async void DisplayRouteOnMap(string startLocation, string endLocation)

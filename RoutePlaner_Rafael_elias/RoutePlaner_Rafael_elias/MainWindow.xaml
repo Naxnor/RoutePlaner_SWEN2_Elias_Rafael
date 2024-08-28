@@ -102,6 +102,8 @@
                 <Button Content="Add Tour" Command="{Binding OpenAddTourWindowCommand}" Height="30" Margin="5"/>
                 <Button Content="Update Tour" Command="{Binding OpenUpdateTourWindowCommand}" CommandParameter="{Binding SelectedTour}" IsEnabled="{Binding SelectedTour}" Height="30" Margin="5"/>
                 <Button Content="Delete Tour" Command="{Binding DeleteTourCommand}" CommandParameter="{Binding SelectedTour}" IsEnabled="{Binding SelectedTour}" Height="30" Margin="5"/>
+                <Button Content="Import Tour" Command="{Binding DeleteTourCommand}" CommandParameter="{Binding SelectedTour}" IsEnabled="{Binding SelectedTour}" Height="30" Margin="5"/>
+                <Button Content="Export Tour" Command="{Binding DeleteTourCommand}" CommandParameter="{Binding SelectedTour}" IsEnabled="{Binding SelectedTour}" Height="30" Margin="5"/>
             </StackPanel>
         </DockPanel>
 
