@@ -8,34 +8,49 @@ namespace RoutePlaner_Rafael_elias.Services
 {
     public class RouteService
     {
-        private static readonly string ApiKey = "5b3ce3597851110001cf6248e3c0136fc77342a6b464e761bebb9a25"; 
+        private static readonly string ApiKey = "5b3ce3597851110001cf6248e3c0136fc77342a6b464e761bebb9a25"; // Replace with your actual API key
         private static readonly string BaseUrl = "https://api.openrouteservice.org";
 
         public async Task<RouteData> GetDirectionsAsync(double startLat, double startLng, double endLat, double endLng)
         {
             using (var client = new HttpClient())
             {
-                // Set authorization header with the API key
-                client.DefaultRequestHeaders.Add("Authorization", ApiKey);
+                // Format coordinates to six decimal places using dots
+                string formattedStartLng = FormatCoordinate(startLng);
+                string formattedStartLat = FormatCoordinate(startLat);
+                string formattedEndLng = FormatCoordinate(endLng);
+                string formattedEndLat = FormatCoordinate(endLat);
 
-                // Construct the request URL
-                var requestUrl = $"{BaseUrl}/v2/directions/driving-car?start={startLng},{startLat}&end={endLng},{endLat}";
+                // Construct the request URL with the API key and formatted coordinates
+                var requestUrl = $"{BaseUrl}/v2/directions/driving-car?api_key={ApiKey}&start={formattedStartLng},{formattedStartLat}&end={formattedEndLng},{formattedEndLat}";
+
+                // Log the request URL
+                Console.WriteLine($"Request URL: {requestUrl}");
 
                 // Send the GET request to the API
                 var response = await client.GetAsync(requestUrl);
 
+                // Log the response status code and content
+                Console.WriteLine($"Response Status Code: {response.StatusCode}");
+                var responseContent = await response.Content.ReadAsStringAsync();
+                Console.WriteLine($"Response JSON: {responseContent}");
+
                 if (response.IsSuccessStatusCode)
                 {
-                    // Read and parse the JSON response
-                    var jsonString = await response.Content.ReadAsStringAsync();
-                    var routeData = ParseRouteData(jsonString);
+                    var routeData = ParseRouteData(responseContent);
                     return routeData;
                 }
                 else
                 {
-                    throw new Exception("Error fetching route data: " + response.ReasonPhrase);
+                    throw new Exception($"Error fetching route data: {response.ReasonPhrase}. Response: {responseContent}");
                 }
             }
+        }
+
+        private string FormatCoordinate(double coordinate)
+        {
+            // Format the coordinate to six decimal places with dots
+            return coordinate.ToString("F6", System.Globalization.CultureInfo.InvariantCulture);
         }
 
         private RouteData ParseRouteData(string jsonString)
@@ -44,12 +59,14 @@ namespace RoutePlaner_Rafael_elias.Services
             {
                 // Parse the JSON to extract relevant data
                 var json = JObject.Parse(jsonString);
-                var routes = json["routes"]?[0];
+                var routes = json["features"]?[0];
                 if (routes != null)
                 {
-                    var geometry = routes["geometry"]?.ToString();
-                    var distance = routes["summary"]?["distance"]?.ToObject<double>() ?? 0.0;
-                    var duration = routes["summary"]?["duration"]?.ToObject<double>() ?? 0.0;
+                    var geometry = routes["geometry"]?["coordinates"]?.ToString();
+                    var properties = routes["properties"];
+                    var segments = properties?["segments"]?[0];
+                    var distance = segments?["distance"]?.ToObject<double>() ?? 0.0;
+                    var duration = segments?["duration"]?.ToObject<double>() ?? 0.0;
 
                     return new RouteData
                     {
@@ -59,7 +76,7 @@ namespace RoutePlaner_Rafael_elias.Services
                     };
                 }
 
-                throw new Exception("Invalid route data");
+                throw new Exception("Invalid route data: No route features found");
             }
             catch (JsonException ex)
             {

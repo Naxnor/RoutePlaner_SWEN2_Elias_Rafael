@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UeG026hBuyTXT5uWPRi0gLe3VhMX1qB/Np+jj9OdgbRBYOB64X2fu2RJIu28f64UTocGbPRM+w1xatMSmXUAxA==",
+  "dgSpecHash": "0zd4Yw4LyZsCdUO+SUDYar83z4TWUO4bwyJ8LUgSABalh9uXsUIx9pS+kDyBu1UWEsOG9N6UygyQefoC+yAsPg==",
   "success": true,
-  "projectFilePath": "F:\\GIT\\SWEN\\WorkingSWEN\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias.csproj",
+  "projectFilePath": "F:\\GIT\\SWEN\\RoutePlaner_SWEN2_Elias_Rafael\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\naxno\\.nuget\\packages\\ajaxmin\\5.14.5506.26202\\ajaxmin.5.14.5506.26202.nupkg.sha512",
     "C:\\Users\\naxno\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",

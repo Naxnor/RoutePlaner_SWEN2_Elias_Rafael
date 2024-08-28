@@ -23,4 +23,34 @@
       <PackageReference Include="RestSharp" Version="111.4.1" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Content Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_2iuekpsk_wpftmp.AssemblyInfoInputs.cache" />
+      <Content Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_2iuekpsk_wpftmp.assets.cache" />
+      <Content Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_2iuekpsk_wpftmp.GeneratedMSBuildEditorConfig.editorconfig" />
+      <Content Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_2iuekpsk_wpftmp.sourcelink.json" />
+      <Content Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_fraq2jjq_wpftmp.AssemblyInfoInputs.cache" />
+      <Content Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_fraq2jjq_wpftmp.assets.cache" />
+      <Content Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_fraq2jjq_wpftmp.GeneratedMSBuildEditorConfig.editorconfig" />
+      <Content Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_fraq2jjq_wpftmp.sourcelink.json" />
+      <Content Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_jqkmwvv3_wpftmp.AssemblyInfoInputs.cache" />
+      <Content Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_jqkmwvv3_wpftmp.assets.cache" />
+      <Content Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_jqkmwvv3_wpftmp.GeneratedMSBuildEditorConfig.editorconfig" />
+      <Content Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_jqkmwvv3_wpftmp.sourcelink.json" />
+      <Content Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_kgtve1ua_wpftmp.AssemblyInfoInputs.cache" />
+      <Content Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_kgtve1ua_wpftmp.assets.cache" />
+      <Content Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_kgtve1ua_wpftmp.GeneratedMSBuildEditorConfig.editorconfig" />
+      <Content Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_kgtve1ua_wpftmp.sourcelink.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_2iuekpsk_wpftmp.AssemblyInfo.cs" />
+      <Compile Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_2iuekpsk_wpftmp.GlobalUsings.g.cs" />
+      <Compile Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_fraq2jjq_wpftmp.AssemblyInfo.cs" />
+      <Compile Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_fraq2jjq_wpftmp.GlobalUsings.g.cs" />
+      <Compile Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_jqkmwvv3_wpftmp.AssemblyInfo.cs" />
+      <Compile Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_jqkmwvv3_wpftmp.GlobalUsings.g.cs" />
+      <Compile Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_kgtve1ua_wpftmp.AssemblyInfo.cs" />
+      <Compile Include="obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias_kgtve1ua_wpftmp.GlobalUsings.g.cs" />
+    </ItemGroup>
+
 </Project>

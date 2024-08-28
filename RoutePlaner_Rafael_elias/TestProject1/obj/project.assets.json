@@ -3267,11 +3267,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\GIT\\SWEN\\WorkingSWEN\\RoutePlaner_Rafael_elias\\TestProject1\\TestProject1.csproj",
+      "projectUniqueName": "F:\\GIT\\SWEN\\RoutePlaner_SWEN2_Elias_Rafael\\RoutePlaner_Rafael_elias\\TestProject1\\TestProject1.csproj",
       "projectName": "TestProject1",
-      "projectPath": "F:\\GIT\\SWEN\\WorkingSWEN\\RoutePlaner_Rafael_elias\\TestProject1\\TestProject1.csproj",
+      "projectPath": "F:\\GIT\\SWEN\\RoutePlaner_SWEN2_Elias_Rafael\\RoutePlaner_Rafael_elias\\TestProject1\\TestProject1.csproj",
       "packagesPath": "C:\\Users\\naxno\\.nuget\\packages\\",
-      "outputPath": "F:\\GIT\\SWEN\\WorkingSWEN\\RoutePlaner_Rafael_elias\\TestProject1\\obj\\",
+      "outputPath": "F:\\GIT\\SWEN\\RoutePlaner_SWEN2_Elias_Rafael\\RoutePlaner_Rafael_elias\\TestProject1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3293,8 +3293,8 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "F:\\GIT\\SWEN\\WorkingSWEN\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias.csproj": {
-              "projectPath": "F:\\GIT\\SWEN\\WorkingSWEN\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias.csproj"
+            "F:\\GIT\\SWEN\\RoutePlaner_SWEN2_Elias_Rafael\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias.csproj": {
+              "projectPath": "F:\\GIT\\SWEN\\RoutePlaner_SWEN2_Elias_Rafael\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias.csproj"
             }
           }
         }

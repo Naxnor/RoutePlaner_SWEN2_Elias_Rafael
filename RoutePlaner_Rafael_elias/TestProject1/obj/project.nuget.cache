@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QAeTORiMCXIfbXsWWlu7fjkOEjaTvGESUvvbiXAECRoB600hRlfoIN3HvuE9vkWzui/UV77IObb5O5HoF0cXng==",
+  "dgSpecHash": "rOP+VE+z97Ot7zEIJOFJkl/o6nY83xq358y0bUh28CLsxOVq7KNGENlhDBRk/xmGfgyFzb/ZviwYacuYqxT55w==",
   "success": true,
-  "projectFilePath": "F:\\GIT\\SWEN\\WorkingSWEN\\RoutePlaner_Rafael_elias\\TestProject1\\TestProject1.csproj",
+  "projectFilePath": "F:\\GIT\\SWEN\\RoutePlaner_SWEN2_Elias_Rafael\\RoutePlaner_Rafael_elias\\TestProject1\\TestProject1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\naxno\\.nuget\\packages\\ajaxmin\\5.14.5506.26202\\ajaxmin.5.14.5506.26202.nupkg.sha512",
     "C:\\Users\\naxno\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
