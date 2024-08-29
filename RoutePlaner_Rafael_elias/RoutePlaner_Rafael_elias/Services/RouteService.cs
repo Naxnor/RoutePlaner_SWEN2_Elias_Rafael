@@ -57,7 +57,7 @@ namespace RoutePlaner_Rafael_elias.Services
             }
         }
 
-        private string FormatCoordinate(double coordinate)
+        public string FormatCoordinate(double coordinate)
         {
             // Format the coordinate to six decimal places with dots
             return coordinate.ToString("F6", CultureInfo.InvariantCulture);

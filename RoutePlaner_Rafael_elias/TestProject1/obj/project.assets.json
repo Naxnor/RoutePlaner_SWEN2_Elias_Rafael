@@ -1027,34 +1027,6 @@
           }
         }
       },
-      "NUnit/4.2.1": {
-        "type": "package",
-        "compile": {
-          "lib/net6.0/nunit.framework.dll": {
-            "related": ".legacy.xml;.xml"
-          },
-          "lib/net6.0/nunit.framework.legacy.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/nunit.framework.dll": {
-            "related": ".legacy.xml;.xml"
-          },
-          "lib/net6.0/nunit.framework.legacy.dll": {
-            "related": ".xml"
-          }
-        },
-        "build": {
-          "build/NUnit.props": {}
-        }
-      },
-      "NUnit3TestAdapter/4.6.0": {
-        "type": "package",
-        "build": {
-          "build/netcoreapp3.1/NUnit3TestAdapter.props": {}
-        }
-      },
       "RestSharp/111.4.1": {
         "type": "package",
         "compile": {
@@ -3952,58 +3924,6 @@
         "npgsql.entityframeworkcore.postgresql.9.0.0-preview.3.nupkg.sha512",
         "npgsql.entityframeworkcore.postgresql.nuspec",
         "postgresql.png"
-      ]
-    },
-    "NUnit/4.2.1": {
-      "sha512": "B+IKGRrYN+DKdJMecO6aocA4v+46bV5/klsyovIV4TF3k8WPU2W5WvEWLJxSg1dx62qTBvysfXLWWenfAB8slg==",
-      "type": "package",
-      "path": "nunit/4.2.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.txt",
-        "NOTICES.md",
-        "README.md",
-        "THIRD_PARTY_NOTICES.md",
-        "build/NUnit.props",
-        "icon.png",
-        "lib/net462/nunit.framework.dll",
-        "lib/net462/nunit.framework.legacy.dll",
-        "lib/net462/nunit.framework.legacy.xml",
-        "lib/net462/nunit.framework.xml",
-        "lib/net6.0/nunit.framework.dll",
-        "lib/net6.0/nunit.framework.legacy.dll",
-        "lib/net6.0/nunit.framework.legacy.xml",
-        "lib/net6.0/nunit.framework.xml",
-        "nunit.4.2.1.nupkg.sha512",
-        "nunit.nuspec"
-      ]
-    },
-    "NUnit3TestAdapter/4.6.0": {
-      "sha512": "R7e1+a4vuV/YS+ItfL7f//rG+JBvVeVLX4mHzFEZo4W1qEKl8Zz27AqvQSAqo+BtIzUCo4aAJMYa56VXS4hudw==",
-      "type": "package",
-      "path": "nunit3testadapter/4.6.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "build/net462/NUnit3.TestAdapter.dll",
-        "build/net462/NUnit3.TestAdapter.pdb",
-        "build/net462/NUnit3TestAdapter.props",
-        "build/net462/nunit.engine.api.dll",
-        "build/net462/nunit.engine.core.dll",
-        "build/net462/nunit.engine.dll",
-        "build/net462/testcentric.engine.metadata.dll",
-        "build/netcoreapp3.1/NUnit3.TestAdapter.dll",
-        "build/netcoreapp3.1/NUnit3.TestAdapter.pdb",
-        "build/netcoreapp3.1/NUnit3TestAdapter.props",
-        "build/netcoreapp3.1/nunit.engine.api.dll",
-        "build/netcoreapp3.1/nunit.engine.core.dll",
-        "build/netcoreapp3.1/nunit.engine.dll",
-        "build/netcoreapp3.1/testcentric.engine.metadata.dll",
-        "docs/README.md",
-        "nunit3testadapter.4.6.0.nupkg.sha512",
-        "nunit3testadapter.nuspec",
-        "nunit_256.png"
       ]
     },
     "RestSharp/111.4.1": {
@@ -7739,8 +7659,6 @@
       "Hermes.Vendors.MapControl >= 1.0.0.1",
       "Microsoft.NET.Test.Sdk >= 17.11.0",
       "Moq >= 4.20.70",
-      "NUnit >= 4.2.1",
-      "NUnit3TestAdapter >= 4.6.0",
       "Newtonsoft.Json >= 13.0.3",
       "RestSharp >= 111.4.1",
       "RoutePlaner_Rafael_elias >= 1.0.0",
@@ -7820,14 +7738,6 @@
           "Moq": {
             "target": "Package",
             "version": "[4.20.70, )"
-          },
-          "NUnit": {
-            "target": "Package",
-            "version": "[4.2.1, )"
-          },
-          "NUnit3TestAdapter": {
-            "target": "Package",
-            "version": "[4.6.0, )"
           },
           "Newtonsoft.Json": {
             "target": "Package",

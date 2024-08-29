@@ -57,3 +57,21 @@ VALUES
     (3, '2024-05-05 14:00:00', 8.7, 3.0, 1.5, 6000, 'Sunny', 2.0, 'Saw dolphins along the way!', 5),
     (4, '2024-05-07 09:00:00', 12.3, 6.8, 4.0, 10000, 'Rainy', 5.0, 'Trails were slippery after the rain.', 3),
     (5, '2024-05-10 11:00:00', 9.8, 4.5, 2.5, 7000, 'Sunny', 3.0, 'Discovered a cozy cafe in an alleyway.', 4);
+
+
+TRUNCATE TABLE "TourLog" RESTART IDENTITY CASCADE;
+TRUNCATE TABLE "Tour" RESTART IDENTITY CASCADE;
+
+DELETE FROM "Tour" WHERE "Name" = 'Test Tour';
+DELETE FROM "Tour" WHERE "Name" = 'Tour to Delete';
+DELETE FROM "Tour" WHERE "Name" = 'Old Tour' OR "Name" = 'Updated Tour';
+DELETE FROM "Tour" WHERE "Name" IN ('Tour Name 1', 'Tour Name 2');
+DELETE FROM "Tour" WHERE "Name" = 'Specific Tour';
+DELETE FROM "TourLog" WHERE "TourLog_ID" = 1;
+DELETE FROM "TourLog" WHERE "Tour_ID" IN (SELECT "Tour_ID" FROM "Tour" WHERE "Name" IN ('Tour Name 1', 'Tour Name 2'));
+
+
+DROP TABLE "TourLog";
+DROP TABLE "Tour";
+
+
