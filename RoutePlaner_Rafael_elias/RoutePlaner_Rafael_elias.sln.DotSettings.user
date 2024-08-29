@@ -1,15 +1,7 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=AF6E69B4_002DB66D_002D4CC7_002D93BB_002D54DB4997D1A7_002Ff_003AUnitTest1_002Ecs/@EntryIndexedValue">ExplicitlyExcluded</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=1c5a4ad9_002Df5f4_002D49dd_002Db454_002D85cb3b5d2c8b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GetDirectionsAsync_ValidInput_ReturnsValidRouteData" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;xUnit::AF6E69B4-B66D-4CC7-93BB-54DB4997D1A7::net8.0-windows::TestProject1.RouteServiceTests.GetDirectionsAsync_ValidInput_ReturnsValidRouteData&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b0425905_002Dc6cc_002D4785_002Db0cc_002D83a0d565f384/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GetDirectionsAsync_ValidInput_ReturnsValidRouteData #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;xUnit::AF6E69B4-B66D-4CC7-93BB-54DB4997D1A7::net8.0-windows::TestProject1.RouteServiceTests.GetDirectionsAsync_ValidInput_ReturnsValidRouteData&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
+	
+	
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b49270d4_002Df642_002D4984_002Da8d9_002D2d3c15f6b85c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="GetDirectionsAsync_ValidInput_ReturnsValidRouteData #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Solution /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>

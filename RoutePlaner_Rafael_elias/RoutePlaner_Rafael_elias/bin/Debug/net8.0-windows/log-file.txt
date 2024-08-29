@@ -562,3 +562,58 @@ System.InvalidCastException: Column 'Distance' is null.
 2024-08-29 15:19:01,160 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
 2024-08-29 15:19:02,779 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Testlauf.
 2024-08-29 15:19:19,147 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Testlauf.
+2024-08-29 20:01:16,485 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-29 20:01:27,799 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour TourWithLogs.
+2024-08-29 20:01:31,560 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour TourWithLogToDelete.
+2024-08-29 20:01:35,346 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Hike.
+2024-08-29 20:01:35,890 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour City Bike Tour.
+2024-08-29 20:02:05,570 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Hike.
+2024-08-29 20:02:06,312 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Coastal Walk.
+2024-08-29 20:02:06,950 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Forest Trek.
+2024-08-29 20:02:51,838 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-29 20:02:53,341 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour cxycx.
+2024-08-29 20:02:57,893 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Error deleting tour: Object reference not set to an instance of an object.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.DeleteTour() in C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 521
+2024-08-29 20:03:09,005 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Hike.
+2024-08-29 20:03:13,724 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tour updated successfully in the database.
+2024-08-29 20:03:40,927 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched and tour updated successfully.
+2024-08-29 20:07:39,049 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Coastal Walk.
+2024-08-29 20:07:46,693 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Error deleting tour: 23503: update or delete on table "Tour" violates foreign key constraint "TourLog_Tour_ID_fkey" on table "TourLog"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+Npgsql.PostgresException (0x80004005): 23503: update or delete on table "Tour" violates foreign key constraint "TourLog_Tour_ID_fkey" on table "TourLog"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery()
+   at RoutePlaner_Rafael_elias.Repository.TourRepository.DeleteTour(Tour tour) in C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\Repository\TourRepository.cs:line 301
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.DeleteTour() in C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 517
+  Exception data:
+    Severity: ERROR
+    SqlState: 23503
+    MessageText: update or delete on table "Tour" violates foreign key constraint "TourLog_Tour_ID_fkey" on table "TourLog"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: TourLog
+    ConstraintName: TourLog_Tour_ID_fkey
+    File: ri_triggers.c
+    Line: 2621
+    Routine: ri_ReportViolation
+2024-08-29 20:08:17,563 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Log deleted successfully.
+2024-08-29 20:08:20,971 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Error deleting tour: Object reference not set to an instance of an object.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.DeleteTour() in C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 521
+2024-08-29 20:17:42,812 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Hike.
+2024-08-29 20:17:44,482 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tour updated successfully in the database.
+2024-08-29 20:17:45,588 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched and tour updated successfully.
+2024-08-29 20:17:46,702 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour City Bike Tour.
+2024-08-29 20:17:47,748 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tour updated successfully in the database.
+2024-08-29 20:17:48,793 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched and tour updated successfully.

@@ -55,4 +55,44 @@ public class RouteServiceTests
         // Assert
         Assert.Equal("49.414614", result);
     }
+    
+    [Fact]
+    public void ParseRouteData_ValidJson_ReturnsRouteData()
+    {
+        // Arrange
+        string validJson = @"{
+        'features': [{
+            'geometry': {
+                'coordinates': 'encodedPolylineString'
+            },
+            'properties': {
+                'segments': [{
+                    'distance': 1200.0,
+                    'duration': 300.0
+                }]
+            }
+        }]
+        }";
+    
+        // Act
+        var routeData = _routeService.ParseRouteData(validJson);
+
+        // Assert
+        Assert.NotNull(routeData);
+        Assert.Equal("encodedPolylineString", routeData.EncodedPolyline);
+        Assert.Equal(1200.0, routeData.Distance);
+        Assert.Equal(300.0, routeData.Duration);
+    }
+
+    [Fact]
+    public void ParseRouteData_InvalidJson_ThrowsJsonException()
+    {
+        // Arrange
+        string invalidJson = @"{ 'invalid': 'json'";
+
+        // Act & Assert
+        Assert.Throws<Exception>(() => _routeService.ParseRouteData(invalidJson));
+    }
+
+    
 }

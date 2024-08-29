@@ -63,7 +63,7 @@ namespace RoutePlaner_Rafael_elias.Services
             return coordinate.ToString("F6", CultureInfo.InvariantCulture);
         }
 
-        private RouteData ParseRouteData(string jsonString)
+        public RouteData ParseRouteData(string jsonString)
         {
             try
             {

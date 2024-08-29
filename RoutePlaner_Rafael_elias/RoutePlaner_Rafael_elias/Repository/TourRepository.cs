@@ -56,7 +56,7 @@ namespace RoutePlaner_Rafael_elias.Repository
         public void AddTour(Tour tour)
         {
             string commandText = "INSERT INTO \"Tour\" (\"Name\", \"Description\", \"From\", \"To\", \"RouteType\", \"StartLatitude\", \"StartLongitude\", \"EndLatitude\", \"EndLongitude\") " +
-                                 "VALUES (@name, @description, @from, @to, @routeType, @startLat, @startLng, @endLat, @endLng)";
+                                 "VALUES (@name, @description, @from, @to, @routeType, @startLat, @startLng, @endLat, @endLng) RETURNING \"Tour_ID\"";
 
             try
             {
@@ -73,7 +73,9 @@ namespace RoutePlaner_Rafael_elias.Repository
                     cmd.Parameters.AddWithValue("startLng", tour.StartLongitude);
                     cmd.Parameters.AddWithValue("endLat", tour.EndLatitude);
                     cmd.Parameters.AddWithValue("endLng", tour.EndLongitude);
-                    cmd.ExecuteNonQuery();
+
+                    // Tour_ID nach dem Einfügen zurückgeben und dem Tour-Objekt zuweisen
+                    tour.Id = (int)cmd.ExecuteScalar();
                 }
             }
             catch (Exception ex)
@@ -82,6 +84,7 @@ namespace RoutePlaner_Rafael_elias.Repository
                 throw;
             }
         }
+
 
 
 
@@ -282,26 +285,33 @@ public List<Tour> GetAllToursWithLogs()
 
 
 
-        public void DeleteTour(Tour tour)
-        {
-            string commandText = "DELETE FROM \"Tour\" WHERE \"Tour_ID\" = @id";
+public void DeleteTour(Tour tour)
+{
+    string commandText = "DELETE FROM \"Tour\" WHERE \"Tour_ID\" = @id";
 
-            try
+    try
+    {
+        using (var conn = DbManager.GetConnection())
+        {
+            conn.Open();
+            var cmd = new NpgsqlCommand(commandText, conn);
+            cmd.Parameters.AddWithValue("id", tour.Id);
+
+            // Überprüfen, ob eine Zeile gelöscht wurde
+            int rowsAffected = cmd.ExecuteNonQuery();
+            if (rowsAffected == 0)
             {
-                using (var conn = DbManager.GetConnection())
-                {
-                    conn.Open();
-                    var cmd = new NpgsqlCommand(commandText, conn);
-                    cmd.Parameters.AddWithValue("id", tour.Id);
-                    cmd.ExecuteNonQuery();
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"Error deleting tour: {ex.Message}");
-                throw;
+                throw new Exception("Tour not deleted. Tour ID not found.");
             }
         }
+    }
+    catch (Exception ex)
+    {
+        Debug.WriteLine($"Error deleting tour: {ex.Message}");
+        throw;
+    }
+}
+
 
         public string GetRouteTypeForTour(int tourId)
         {
