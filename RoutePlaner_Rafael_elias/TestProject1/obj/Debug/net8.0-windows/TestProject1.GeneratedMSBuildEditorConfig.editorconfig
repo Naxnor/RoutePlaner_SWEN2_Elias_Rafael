@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = TestProject1
-build_property.ProjectDir = F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\TestProject1\
+build_property.ProjectDir = C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\TestProject1\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

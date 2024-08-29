@@ -555,3 +555,10 @@ System.InvalidCastException: Column 'Distance' is null.
 2024-08-28 22:43:06,465 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tour updated successfully in the database.
 2024-08-28 22:43:07,634 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched and tour updated successfully.
 2024-08-28 22:46:15,104 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-29 15:17:59,342 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-29 15:18:05,673 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Hike.
+2024-08-29 15:18:08,351 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tour updated successfully in the database.
+2024-08-29 15:18:13,432 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched and tour updated successfully.
+2024-08-29 15:19:01,160 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-29 15:19:02,779 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Testlauf.
+2024-08-29 15:19:19,147 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Testlauf.

@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\obj\Debug\net8.0-windows\
+C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\obj\Debug\net8.0-windows\
 RoutePlaner_Rafael_elias
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-F:\GIT\SWEN\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\App.xaml
+C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\App.xaml
 685806141
 
 211253440485
-242-1005263207
+242-224644215
 AddLogWindow.xaml;AddTourWindow.xaml;GMapControl.xaml;MainWindow.xaml;UpdateLogWindow.xaml;UpdateTourWindow.xaml;
 
 False

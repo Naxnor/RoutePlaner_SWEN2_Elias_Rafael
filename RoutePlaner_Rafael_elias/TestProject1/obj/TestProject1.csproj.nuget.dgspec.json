@@ -1,32 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "F:\\GIT\\SWEN\\RoutePlaner_SWEN2_Elias_Rafael\\RoutePlaner_Rafael_elias\\TestProject1\\TestProject1.csproj": {}
+    "C:\\Users\\Elias\\Documents\\GitHub\\RoutePlaner_SWEN2_Elias_Rafael\\RoutePlaner_Rafael_elias\\TestProject1\\TestProject1.csproj": {}
   },
   "projects": {
-    "F:\\GIT\\SWEN\\RoutePlaner_SWEN2_Elias_Rafael\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias.csproj": {
+    "C:\\Users\\Elias\\Documents\\GitHub\\RoutePlaner_SWEN2_Elias_Rafael\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\GIT\\SWEN\\RoutePlaner_SWEN2_Elias_Rafael\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias.csproj",
+        "projectUniqueName": "C:\\Users\\Elias\\Documents\\GitHub\\RoutePlaner_SWEN2_Elias_Rafael\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias.csproj",
         "projectName": "RoutePlaner_Rafael_elias",
-        "projectPath": "F:\\GIT\\SWEN\\RoutePlaner_SWEN2_Elias_Rafael\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias.csproj",
-        "packagesPath": "C:\\Users\\naxno\\.nuget\\packages\\",
-        "outputPath": "F:\\GIT\\SWEN\\RoutePlaner_SWEN2_Elias_Rafael\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias\\obj\\",
+        "projectPath": "C:\\Users\\Elias\\Documents\\GitHub\\RoutePlaner_SWEN2_Elias_Rafael\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias.csproj",
+        "packagesPath": "C:\\Users\\Elias\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Elias\\Documents\\GitHub\\RoutePlaner_SWEN2_Elias_Rafael\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\naxno\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Elias\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0-windows"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,6 +32,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -129,41 +127,34 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\Elias\\.dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\GIT\\SWEN\\RoutePlaner_SWEN2_Elias_Rafael\\RoutePlaner_Rafael_elias\\TestProject1\\TestProject1.csproj": {
+    "C:\\Users\\Elias\\Documents\\GitHub\\RoutePlaner_SWEN2_Elias_Rafael\\RoutePlaner_Rafael_elias\\TestProject1\\TestProject1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\GIT\\SWEN\\RoutePlaner_SWEN2_Elias_Rafael\\RoutePlaner_Rafael_elias\\TestProject1\\TestProject1.csproj",
+        "projectUniqueName": "C:\\Users\\Elias\\Documents\\GitHub\\RoutePlaner_SWEN2_Elias_Rafael\\RoutePlaner_Rafael_elias\\TestProject1\\TestProject1.csproj",
         "projectName": "TestProject1",
-        "projectPath": "F:\\GIT\\SWEN\\RoutePlaner_SWEN2_Elias_Rafael\\RoutePlaner_Rafael_elias\\TestProject1\\TestProject1.csproj",
-        "packagesPath": "C:\\Users\\naxno\\.nuget\\packages\\",
-        "outputPath": "F:\\GIT\\SWEN\\RoutePlaner_SWEN2_Elias_Rafael\\RoutePlaner_Rafael_elias\\TestProject1\\obj\\",
+        "projectPath": "C:\\Users\\Elias\\Documents\\GitHub\\RoutePlaner_SWEN2_Elias_Rafael\\RoutePlaner_Rafael_elias\\TestProject1\\TestProject1.csproj",
+        "packagesPath": "C:\\Users\\Elias\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Elias\\Documents\\GitHub\\RoutePlaner_SWEN2_Elias_Rafael\\RoutePlaner_Rafael_elias\\TestProject1\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\naxno\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Elias\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0-windows"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0-windows7.0": {
             "targetAlias": "net8.0-windows",
             "projectReferences": {
-              "F:\\GIT\\SWEN\\RoutePlaner_SWEN2_Elias_Rafael\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias.csproj": {
-                "projectPath": "F:\\GIT\\SWEN\\RoutePlaner_SWEN2_Elias_Rafael\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias.csproj"
+              "C:\\Users\\Elias\\Documents\\GitHub\\RoutePlaner_SWEN2_Elias_Rafael\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias.csproj": {
+                "projectPath": "C:\\Users\\Elias\\Documents\\GitHub\\RoutePlaner_SWEN2_Elias_Rafael\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias.csproj"
               }
             }
           }
@@ -172,6 +163,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -201,6 +197,14 @@
             "Moq": {
               "target": "Package",
               "version": "[4.20.70, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[4.2.1, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[4.6.0, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
@@ -249,7 +253,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\Elias\\.dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
