@@ -86,7 +86,6 @@ namespace RoutePlaner_Rafael_elias.Migrations
                         .HasColumnType("double precision");
 
                     b.Property<string>("EncodedRoute")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<double>("EndLatitude")
@@ -127,6 +126,24 @@ namespace RoutePlaner_Rafael_elias.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Tour", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Dies ist eine Test-Tour.",
+                            Distance = 80.0,
+                            EncodedRoute = "",
+                            EndLatitude = 48.224672649565186,
+                            EndLongitude = 16.34765625,
+                            EstimatedTime = new TimeSpan(0, 1, 30, 0, 0),
+                            From = "Mank",
+                            Name = "TestTour",
+                            RouteType = "driving-car",
+                            StartLatitude = 48.136766679692691,
+                            StartLongitude = 15.64453125,
+                            To = "Wien"
+                        });
                 });
 
             modelBuilder.Entity("RoutePlaner_Rafael_elias.Models.Log", b =>

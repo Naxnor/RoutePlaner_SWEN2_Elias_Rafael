@@ -27,7 +27,7 @@ namespace RoutePlaner_Rafael_elias.Migrations
                     StartLongitude = table.Column<double>(type: "double precision", nullable: false),
                     EndLatitude = table.Column<double>(type: "double precision", nullable: false),
                     EndLongitude = table.Column<double>(type: "double precision", nullable: false),
-                    EncodedRoute = table.Column<string>(type: "text", nullable: false),
+                    EncodedRoute = table.Column<string>(type: "text", nullable: true),
                     Distance = table.Column<double>(type: "double precision", nullable: false),
                     EstimatedTime = table.Column<TimeSpan>(type: "interval", nullable: false)
                 },
@@ -63,6 +63,11 @@ namespace RoutePlaner_Rafael_elias.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Tour",
+                columns: new[] { "Id", "Description", "Distance", "EncodedRoute", "EndLatitude", "EndLongitude", "EstimatedTime", "From", "Name", "RouteType", "StartLatitude", "StartLongitude", "To" },
+                values: new object[] { 1, "Dies ist eine Test-Tour.", 80.0, "", 48.224672649565186, 16.34765625, new TimeSpan(0, 1, 30, 0, 0), "Mank", "TestTour", "driving-car", 48.136766679692691, 15.64453125, "Wien" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_TourLog_TourId",

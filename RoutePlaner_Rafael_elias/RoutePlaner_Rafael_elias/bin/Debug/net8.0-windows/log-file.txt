@@ -1187,3 +1187,36 @@ System.TypeLoadException: Could not load type 'Npgsql.Internal.TypeMapping.IUser
 2024-08-30 19:12:04,451 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
 2024-08-30 19:12:14,707 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
 2024-08-30 19:28:29,921 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 19:36:25,076 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 19:40:37,562 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 19:47:26,395 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 19:56:15,178 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 19:56:17,204 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour TestTour.
+2024-08-30 19:56:41,937 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 19:56:42,842 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour TestTour.
+2024-08-30 19:57:16,404 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour TestTour.
+2024-08-30 19:57:17,483 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Test2.
+2024-08-30 19:57:18,049 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour TestTour.
+2024-08-30 19:57:19,331 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Test2.
+2024-08-30 19:57:24,831 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Attempting to delete tour: Test2
+2024-08-30 19:57:26,045 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tour deleted successfully.
+2024-08-30 19:57:37,898 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour TestTour.
+2024-08-30 19:57:46,883 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 19:57:47,954 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour TestTour.
+2024-08-30 20:09:37,990 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 20:10:00,223 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 20:10:01,789 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Test2.
+2024-08-30 20:10:58,383 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Test2.
+2024-08-30 20:11:34,389 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour TestTour.
+2024-08-30 20:11:34,389 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
+2024-08-30 20:11:37,853 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
+2024-08-30 20:11:41,483 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 20:11:41,483 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - All tours loaded successfully.
+2024-08-30 20:11:42,487 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour TestTour.
+2024-08-30 20:12:07,369 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour TestTour.
+2024-08-30 20:12:07,370 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour TestTour.
+2024-08-30 20:12:09,884 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Test2.
+2024-08-30 20:12:28,016 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Test2.
+2024-08-30 20:12:28,017 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Test2.
+2024-08-30 20:12:29,535 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour TestTour.
+2024-08-30 20:12:29,877 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Test2.
