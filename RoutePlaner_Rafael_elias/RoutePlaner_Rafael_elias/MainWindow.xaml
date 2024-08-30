@@ -52,9 +52,15 @@
         <!-- Search and buttons -->
         <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" VerticalAlignment="Top">
             <Label Content="Search:" VerticalAlignment="Center" Margin="5"/>
-            <TextBox Width="200" Text="{Binding SearchQuery, UpdateSourceTrigger=PropertyChanged}" Margin="5"/>
+            <TextBox Width="200" Text="{Binding SearchQuery, UpdateSourceTrigger=PropertyChanged}" Margin="5">
+                <TextBox.InputBindings>
+                    <KeyBinding Key="Enter" Command="{Binding ExecuteSearchCommand}" />
+                </TextBox.InputBindings>
+            </TextBox>
+
             <Button Content="Go!" Command="{Binding ExecuteSearchCommand}" Margin="5"/>
         </DockPanel>
+
 
         <!-- Side panel for tour actions -->
         <DockPanel Grid.Column="0" Grid.Row="2" Grid.RowSpan="2">

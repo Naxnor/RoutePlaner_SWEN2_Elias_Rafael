@@ -45,7 +45,8 @@ namespace RoutePlaner_Rafael_elias.ViewModels
         private ObservableCollection<Log> _dataGridLogList;
         private string _selectedTourDescription;
         private string _imagePath = @"F:\GIT\SWEN\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\Data\Images\image.png";
-
+        public string SearchQuery { get; set; }
+        
         public ICommand FetchRouteCommand { get; }
         public ICommand ShowMapCommand { get; }
         public ICommand OpenAddTourWindowCommand { get; private set; }
@@ -56,6 +57,7 @@ namespace RoutePlaner_Rafael_elias.ViewModels
         public ICommand DeleteLogCommand { get; private set; }
         public ICommand GenerateReportCommand { get; private set; }
         public ICommand GenerateLogReportCommand { get; private set; }
+        public ICommand ExecuteSearchCommand { get; }
 
         public MainViewModel()
         {
@@ -71,6 +73,7 @@ namespace RoutePlaner_Rafael_elias.ViewModels
             ImportTourDataCommand = new RelayCommand(ImportTourData);
             Tours = new ObservableCollection<Tour>();
             DataGridLogList = new ObservableCollection<Log>();
+            ExecuteSearchCommand = new RelayCommand(ExecuteSearch);
 
             InitializeCommands();
             LoadTours();
@@ -514,11 +517,22 @@ public void GenerateSingleTourReport(Tour tour)
                 {
                     try
                     {
+                        log.Info($"Attempting to delete tour: {SelectedTour.Name}");
+                
+                        // Lösche die Tour aus der Datenbank
                         _repository.DeleteTour(SelectedTour);
+                
+                        // Entferne die Tour aus der Liste
                         Tours.Remove(SelectedTour);
+                
+                        // Leere die Log-Anzeige, da die Logs zur gelöschten Tour gehören
+                        DataGridLogList.Clear();
+                
+                        // Setze die ausgewählte Tour auf null
                         SelectedTour = null;
+                
                         MessageBox.Show("Tour deleted successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                        log.Info($"Tour '{SelectedTour.Name}' deleted successfully.");
+                        log.Info($"Tour deleted successfully.");
                     }
                     catch (Exception ex)
                     {
@@ -527,7 +541,13 @@ public void GenerateSingleTourReport(Tour tour)
                     }
                 }
             }
+            else
+            {
+                log.Warn("Delete command was triggered, but no tour was selected.");
+                MessageBox.Show("No tour selected for deletion.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
+
 
         private void DeleteLog()
         {
@@ -692,6 +712,42 @@ private string SanitizeLogLine(string line)
 {
     // Replace any invalid or unsupported characters that might cause issues in PDF generation
     return line.Replace("\0", "").Replace("\r", "").Replace("\n", "").Replace("\t", " ");
+}
+
+
+
+private void ExecuteSearch()
+{
+    try
+    {
+        if (!string.IsNullOrWhiteSpace(SearchQuery))
+        {
+            var searchResults = _repository.SearchTours(SearchQuery);
+            Tours.Clear();
+            foreach (var tour in searchResults)
+            {
+                Tours.Add(tour);
+            }
+
+            // Wenn ein Suchergebnis existiert, wähle das erste aus
+            if (Tours.Any())
+            {
+                SelectedTour = Tours.First();
+            }
+
+            log.Info("Search executed successfully.");
+        }
+        else {
+            // Wenn Suchfeld leer lade alle Touren
+            LoadTours();
+            log.Info("All tours loaded successfully.");
+        }
+    }
+    catch (Exception ex)
+    {
+        log.Error($"Search execution failed: {ex.Message}", ex);
+        MessageBox.Show($"Search execution failed: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+    }
 }
 
 

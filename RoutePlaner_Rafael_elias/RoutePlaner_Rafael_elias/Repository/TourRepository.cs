@@ -149,11 +149,11 @@ namespace RoutePlaner_Rafael_elias.Repository
             {
                 while (reader.Read())
                 {
-                    // Check if tour is already in the collection
+                    // Prüfen, ob die Tour bereits in der Sammlung ist
                     var tour = tours.FirstOrDefault(t => t.Id == reader.GetInt32(reader.GetOrdinal("Tour_ID")));
                     if (tour == null)
                     {
-                        // Add new tour if not present
+                        // Neue Tour hinzufügen, wenn noch nicht vorhanden
                         tour = new Tour
                         {
                             Id = reader.GetInt32(reader.GetOrdinal("Tour_ID")),
@@ -171,7 +171,7 @@ namespace RoutePlaner_Rafael_elias.Repository
                         tours.Add(tour);
                     }
 
-                    // Add log to the existing tour
+                    // Log zur existierenden Tour hinzufügen
                     if (!reader.IsDBNull(reader.GetOrdinal("TourLog_ID")))
                     {
                         tour.Logs.Add(new Log
@@ -179,15 +179,16 @@ namespace RoutePlaner_Rafael_elias.Repository
                             Id = reader.GetInt32(reader.GetOrdinal("TourLog_ID")),
                             TourId = reader.GetInt32(reader.GetOrdinal("Tour_ID")),
                             Date = reader.GetDateTime(reader.GetOrdinal("TourDate")),
-                            Distance = reader.GetDecimal(reader.GetOrdinal("Distance")),
-                            Difficulty = reader.GetDecimal(reader.GetOrdinal("Difficulty")),
-                            Duration = reader.GetDecimal(reader.GetOrdinal("Duration")),
-                            Steps = reader.GetDecimal(reader.GetOrdinal("Steps")),
+                            Distance = reader.IsDBNull(reader.GetOrdinal("Distance")) ? 0 : reader.GetDecimal(reader.GetOrdinal("Distance")), // Setze 0 wenn null
+                            Difficulty = reader.IsDBNull(reader.GetOrdinal("Difficulty")) ? 0 : reader.GetDecimal(reader.GetOrdinal("Difficulty")), // Setze 0 wenn null
+                            Duration = reader.IsDBNull(reader.GetOrdinal("Duration")) ? 0 : reader.GetDecimal(reader.GetOrdinal("Duration")), // Setze 0 wenn null
+                            Steps = reader.IsDBNull(reader.GetOrdinal("Steps")) ? 0 : reader.GetDecimal(reader.GetOrdinal("Steps")), // Setze 0 wenn null
                             Weather = reader.IsDBNull(reader.GetOrdinal("Weather")) ? null : reader.GetString(reader.GetOrdinal("Weather")),
                             Comment = reader.IsDBNull(reader.GetOrdinal("Comment")) ? null : reader.GetString(reader.GetOrdinal("Comment")),
                             Rating = reader.GetInt32(reader.GetOrdinal("Rating")),
-                            TotalTime = reader.GetDecimal(reader.GetOrdinal("TotalTime"))
+                            TotalTime = reader.IsDBNull(reader.GetOrdinal("TotalTime")) ? 0 : reader.GetDecimal(reader.GetOrdinal("TotalTime")) // Setze 0 wenn null
                         });
+
                     }
                 }
             }
@@ -201,6 +202,8 @@ namespace RoutePlaner_Rafael_elias.Repository
 
     return tours;
 }
+
+        
         public int AddTourAndGetId(Tour tour)
         {
             string commandText = "INSERT INTO \"Tour\" (\"Name\", \"Description\", \"From\", \"To\", \"RouteType\", \"StartLatitude\", \"StartLongitude\", \"EndLatitude\", \"EndLongitude\", \"Distance\", \"EstimatedTime\") " +

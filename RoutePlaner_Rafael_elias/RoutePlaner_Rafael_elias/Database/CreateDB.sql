@@ -38,7 +38,7 @@ CREATE TABLE "TourLog" (
 
 -- Add a foreign key constraint to TourLog
 ALTER TABLE "TourLog"
-    ADD FOREIGN KEY ("Tour_ID") REFERENCES "Tour" ("Tour_ID");
+    ADD FOREIGN KEY ("Tour_ID") REFERENCES "Tour" ("Tour_ID") ON DELETE CASCADE;
 
 -- Insert sample data into the Tour table
 INSERT INTO "Tour" ("Name", "Description", "From", "To", "RouteType", "StartLatitude", "StartLongitude", "EndLatitude", "EndLongitude", "EncodedRoute")

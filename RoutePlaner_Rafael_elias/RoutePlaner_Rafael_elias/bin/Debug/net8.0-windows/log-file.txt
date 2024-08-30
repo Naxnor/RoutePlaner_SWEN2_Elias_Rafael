@@ -617,3 +617,221 @@ System.NullReferenceException: Object reference not set to an instance of an obj
 2024-08-29 20:17:46,702 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour City Bike Tour.
 2024-08-29 20:17:47,748 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tour updated successfully in the database.
 2024-08-29 20:17:48,793 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched and tour updated successfully.
+2024-08-30 13:54:33,455 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 13:54:43,491 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Forest Trek.
+2024-08-30 13:54:45,764 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour D.
+2024-08-30 13:54:47,994 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Coastal Walk.
+2024-08-30 13:54:48,826 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Forest Trek.
+2024-08-30 13:54:49,971 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tour updated successfully in the database.
+2024-08-30 14:05:25,395 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched and tour updated successfully.
+2024-08-30 14:06:14,292 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 14:06:16,796 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour City Bike Tour.
+2024-08-30 14:06:28,639 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 14:06:29,913 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour d.
+2024-08-30 14:06:52,017 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour d.
+2024-08-30 14:06:52,018 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour d.
+2024-08-30 14:07:01,006 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Error deleting tour: Object reference not set to an instance of an object.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.DeleteTour() in C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 521
+2024-08-30 14:12:11,837 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 14:12:14,218 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Urban Exploration.
+2024-08-30 14:12:27,185 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Error deleting tour: Object reference not set to an instance of an object.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.DeleteTour() in C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 521
+2024-08-30 14:12:30,957 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Forest Trek.
+2024-08-30 14:12:55,522 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Coastal Walk.
+2024-08-30 14:12:56,085 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Forest Trek.
+2024-08-30 14:12:56,412 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Coastal Walk.
+2024-08-30 14:12:56,704 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour City Bike Tour.
+2024-08-30 14:12:57,022 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Hike.
+2024-08-30 14:12:58,106 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour City Bike Tour.
+2024-08-30 14:13:04,151 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Error deleting tour: Object reference not set to an instance of an object.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.DeleteTour() in C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 521
+2024-08-30 14:17:11,663 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 14:17:48,361 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Forest Trek.
+2024-08-30 14:17:52,334 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Attempting to delete tour: Forest Trek
+2024-08-30 14:17:53,404 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tour deleted successfully.
+2024-08-30 14:17:54,896 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Hike.
+2024-08-30 14:17:55,337 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Coastal Walk.
+2024-08-30 14:24:23,251 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 14:24:31,943 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search execution failed: Reading as 'System.Decimal' is not supported for fields having DataTypeName 'double precision'
+System.InvalidCastException: Reading as 'System.Decimal' is not supported for fields having DataTypeName 'double precision'
+   at Npgsql.Internal.AdoSerializerHelpers.<GetTypeInfoForReading>g__ThrowReadingNotSupported|0_0(Type type, String displayName, Exception inner)
+   at Npgsql.Internal.AdoSerializerHelpers.GetTypeInfoForReading(Type type, PostgresType postgresType, PgSerializerOptions options)
+   at Npgsql.BackendMessages.FieldDescription.<GetInfo>g__GetInfoSlow|50_0(Type type, ColumnInfo& lastColumnInfo)
+   at Npgsql.BackendMessages.FieldDescription.GetInfo(Type type, ColumnInfo& lastColumnInfo)
+   at Npgsql.NpgsqlDataReader.<GetInfo>g__Slow|133_0(ColumnInfo& info, PgConverter& converter, Size& bufferRequirement, Boolean& asObject, <>c__DisplayClass133_0&)
+   at Npgsql.NpgsqlDataReader.GetFieldValueCore[T](Int32 ordinal)
+   at Npgsql.NpgsqlDataReader.GetDecimal(Int32 ordinal)
+   at RoutePlaner_Rafael_elias.Repository.TourRepository.SearchTours(String searchQuery) in C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\Repository\TourRepository.cs:line 177
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.ExecuteSearch() in C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 725
+2024-08-30 14:24:41,976 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
+2024-08-30 14:24:43,722 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
+2024-08-30 14:24:51,875 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
+2024-08-30 14:25:09,244 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 14:25:15,061 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search execution failed: Reading as 'System.Decimal' is not supported for fields having DataTypeName 'double precision'
+System.InvalidCastException: Reading as 'System.Decimal' is not supported for fields having DataTypeName 'double precision'
+   at Npgsql.Internal.AdoSerializerHelpers.<GetTypeInfoForReading>g__ThrowReadingNotSupported|0_0(Type type, String displayName, Exception inner)
+   at Npgsql.Internal.AdoSerializerHelpers.GetTypeInfoForReading(Type type, PostgresType postgresType, PgSerializerOptions options)
+   at Npgsql.BackendMessages.FieldDescription.<GetInfo>g__GetInfoSlow|50_0(Type type, ColumnInfo& lastColumnInfo)
+   at Npgsql.BackendMessages.FieldDescription.GetInfo(Type type, ColumnInfo& lastColumnInfo)
+   at Npgsql.NpgsqlDataReader.<GetInfo>g__Slow|133_0(ColumnInfo& info, PgConverter& converter, Size& bufferRequirement, Boolean& asObject, <>c__DisplayClass133_0&)
+   at Npgsql.NpgsqlDataReader.GetFieldValueCore[T](Int32 ordinal)
+   at Npgsql.NpgsqlDataReader.GetDecimal(Int32 ordinal)
+   at RoutePlaner_Rafael_elias.Repository.TourRepository.SearchTours(String searchQuery) in C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\Repository\TourRepository.cs:line 177
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.ExecuteSearch() in C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 725
+2024-08-30 14:25:44,473 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
+2024-08-30 14:27:35,577 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 14:27:43,363 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search execution failed: Reading as 'System.Decimal' is not supported for fields having DataTypeName 'double precision'
+System.InvalidCastException: Reading as 'System.Decimal' is not supported for fields having DataTypeName 'double precision'
+   at Npgsql.Internal.AdoSerializerHelpers.<GetTypeInfoForReading>g__ThrowReadingNotSupported|0_0(Type type, String displayName, Exception inner)
+   at Npgsql.Internal.AdoSerializerHelpers.GetTypeInfoForReading(Type type, PostgresType postgresType, PgSerializerOptions options)
+   at Npgsql.BackendMessages.FieldDescription.<GetInfo>g__GetInfoSlow|50_0(Type type, ColumnInfo& lastColumnInfo)
+   at Npgsql.BackendMessages.FieldDescription.GetInfo(Type type, ColumnInfo& lastColumnInfo)
+   at Npgsql.NpgsqlDataReader.<GetInfo>g__Slow|133_0(ColumnInfo& info, PgConverter& converter, Size& bufferRequirement, Boolean& asObject, <>c__DisplayClass133_0&)
+   at Npgsql.NpgsqlDataReader.GetFieldValueCore[T](Int32 ordinal)
+   at Npgsql.NpgsqlDataReader.GetDecimal(Int32 ordinal)
+   at RoutePlaner_Rafael_elias.Repository.TourRepository.SearchTours(String searchQuery) in C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\Repository\TourRepository.cs:line 177
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.ExecuteSearch() in C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 725
+2024-08-30 14:37:11,179 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 14:37:22,048 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search execution failed: Column 'Distance' is null.
+System.InvalidCastException: Column 'Distance' is null.
+   at Npgsql.ThrowHelper.ThrowInvalidCastException_NoValue(FieldDescription field)
+   at Npgsql.NpgsqlDataReader.DbNullValueOrThrow[T](Int32 ordinal)
+   at Npgsql.NpgsqlDataReader.GetFieldValueCore[T](Int32 ordinal)
+   at Npgsql.NpgsqlDataReader.GetDouble(Int32 ordinal)
+   at RoutePlaner_Rafael_elias.Repository.TourRepository.SearchTours(String searchQuery) in C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\Repository\TourRepository.cs:line 177
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.ExecuteSearch() in C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 725
+2024-08-30 14:39:57,586 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 14:40:01,279 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Hike.
+2024-08-30 14:40:01,279 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
+2024-08-30 14:40:15,870 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Forest Trek.
+2024-08-30 14:40:15,870 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
+2024-08-30 14:40:37,055 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 14:40:54,702 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Hike.
+2024-08-30 14:40:54,702 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
+2024-08-30 14:41:00,666 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Hike.
+2024-08-30 14:41:00,666 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
+2024-08-30 14:44:18,881 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 14:44:25,282 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Coastal Walk.
+2024-08-30 14:44:25,282 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
+2024-08-30 14:44:28,338 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 14:44:28,338 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - All tours loaded successfully.
+2024-08-30 14:46:54,822 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 14:46:59,392 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Hike.
+2024-08-30 14:46:59,392 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
+2024-08-30 14:47:03,509 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Urban Exploration.
+2024-08-30 14:47:05,078 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Hike.
+2024-08-30 14:47:09,331 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Urban Exploration.
+2024-08-30 14:47:09,331 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
+2024-08-30 14:47:14,363 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Hike.
+2024-08-30 14:47:14,363 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
+2024-08-30 14:47:16,721 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 14:47:16,721 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - All tours loaded successfully.
+2024-08-30 14:48:19,610 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Hike.
+2024-08-30 14:48:19,610 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
+2024-08-30 14:48:29,010 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Hike.
+2024-08-30 14:48:29,010 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
+2024-08-30 14:48:30,303 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Urban Exploration.
+2024-08-30 14:48:44,793 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
+2024-08-30 14:48:49,256 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
+2024-08-30 14:48:52,864 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
+2024-08-30 14:48:53,920 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
+2024-08-30 14:48:54,288 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
+2024-08-30 14:48:54,673 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
+2024-08-30 14:48:57,320 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 14:48:57,320 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - All tours loaded successfully.
+2024-08-30 14:48:59,124 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Hike.
+2024-08-30 14:49:02,813 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour City Bike Tour.
+2024-08-30 14:49:03,394 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Hike.
+2024-08-30 14:49:06,593 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
+2024-08-30 14:49:10,946 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Hike.
+2024-08-30 14:49:10,946 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
+2024-08-30 14:51:43,908 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 14:51:48,955 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search execution failed: Reading as 'System.Decimal' is not supported for fields having DataTypeName 'double precision'
+System.InvalidCastException: Reading as 'System.Decimal' is not supported for fields having DataTypeName 'double precision'
+   at Npgsql.Internal.AdoSerializerHelpers.<GetTypeInfoForReading>g__ThrowReadingNotSupported|0_0(Type type, String displayName, Exception inner)
+   at Npgsql.Internal.AdoSerializerHelpers.GetTypeInfoForReading(Type type, PostgresType postgresType, PgSerializerOptions options)
+   at Npgsql.BackendMessages.FieldDescription.<GetInfo>g__GetInfoSlow|50_0(Type type, ColumnInfo& lastColumnInfo)
+   at Npgsql.BackendMessages.FieldDescription.GetInfo(Type type, ColumnInfo& lastColumnInfo)
+   at Npgsql.NpgsqlDataReader.<GetInfo>g__Slow|133_0(ColumnInfo& info, PgConverter& converter, Size& bufferRequirement, Boolean& asObject, <>c__DisplayClass133_0&)
+   at Npgsql.NpgsqlDataReader.GetFieldValueCore[T](Int32 ordinal)
+   at Npgsql.NpgsqlDataReader.GetDecimal(Int32 ordinal)
+   at RoutePlaner_Rafael_elias.Repository.TourRepository.SearchTours(String searchQuery) in C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\Repository\TourRepository.cs:line 178
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.ExecuteSearch() in C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 725
+2024-08-30 14:56:34,090 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 14:56:43,050 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search execution failed: Reading as 'System.Decimal' is not supported for fields having DataTypeName 'double precision'
+System.InvalidCastException: Reading as 'System.Decimal' is not supported for fields having DataTypeName 'double precision'
+   at Npgsql.Internal.AdoSerializerHelpers.<GetTypeInfoForReading>g__ThrowReadingNotSupported|0_0(Type type, String displayName, Exception inner)
+   at Npgsql.Internal.AdoSerializerHelpers.GetTypeInfoForReading(Type type, PostgresType postgresType, PgSerializerOptions options)
+   at Npgsql.BackendMessages.FieldDescription.<GetInfo>g__GetInfoSlow|50_0(Type type, ColumnInfo& lastColumnInfo)
+   at Npgsql.BackendMessages.FieldDescription.GetInfo(Type type, ColumnInfo& lastColumnInfo)
+   at Npgsql.NpgsqlDataReader.<GetInfo>g__Slow|133_0(ColumnInfo& info, PgConverter& converter, Size& bufferRequirement, Boolean& asObject, <>c__DisplayClass133_0&)
+   at Npgsql.NpgsqlDataReader.GetFieldValueCore[T](Int32 ordinal)
+   at Npgsql.NpgsqlDataReader.GetDecimal(Int32 ordinal)
+   at RoutePlaner_Rafael_elias.Repository.TourRepository.SearchTours(String searchQuery) in C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\Repository\TourRepository.cs:line 178
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.ExecuteSearch() in C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 725
+2024-08-30 14:57:08,424 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 14:57:11,939 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
+2024-08-30 14:57:15,767 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search execution failed: Reading as 'System.Decimal' is not supported for fields having DataTypeName 'double precision'
+System.InvalidCastException: Reading as 'System.Decimal' is not supported for fields having DataTypeName 'double precision'
+   at Npgsql.Internal.AdoSerializerHelpers.<GetTypeInfoForReading>g__ThrowReadingNotSupported|0_0(Type type, String displayName, Exception inner)
+   at Npgsql.Internal.AdoSerializerHelpers.GetTypeInfoForReading(Type type, PostgresType postgresType, PgSerializerOptions options)
+   at Npgsql.BackendMessages.FieldDescription.<GetInfo>g__GetInfoSlow|50_0(Type type, ColumnInfo& lastColumnInfo)
+   at Npgsql.BackendMessages.FieldDescription.GetInfo(Type type, ColumnInfo& lastColumnInfo)
+   at Npgsql.NpgsqlDataReader.<GetInfo>g__Slow|133_0(ColumnInfo& info, PgConverter& converter, Size& bufferRequirement, Boolean& asObject, <>c__DisplayClass133_0&)
+   at Npgsql.NpgsqlDataReader.GetFieldValueCore[T](Int32 ordinal)
+   at Npgsql.NpgsqlDataReader.GetDecimal(Int32 ordinal)
+   at RoutePlaner_Rafael_elias.Repository.TourRepository.SearchTours(String searchQuery) in C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\Repository\TourRepository.cs:line 178
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.ExecuteSearch() in C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 725
+2024-08-30 14:57:46,679 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 14:57:51,948 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search execution failed: Reading as 'System.Decimal' is not supported for fields having DataTypeName 'double precision'
+System.InvalidCastException: Reading as 'System.Decimal' is not supported for fields having DataTypeName 'double precision'
+   at Npgsql.Internal.AdoSerializerHelpers.<GetTypeInfoForReading>g__ThrowReadingNotSupported|0_0(Type type, String displayName, Exception inner)
+   at Npgsql.Internal.AdoSerializerHelpers.GetTypeInfoForReading(Type type, PostgresType postgresType, PgSerializerOptions options)
+   at Npgsql.BackendMessages.FieldDescription.<GetInfo>g__GetInfoSlow|50_0(Type type, ColumnInfo& lastColumnInfo)
+   at Npgsql.BackendMessages.FieldDescription.GetInfo(Type type, ColumnInfo& lastColumnInfo)
+   at Npgsql.NpgsqlDataReader.<GetInfo>g__Slow|133_0(ColumnInfo& info, PgConverter& converter, Size& bufferRequirement, Boolean& asObject, <>c__DisplayClass133_0&)
+   at Npgsql.NpgsqlDataReader.GetFieldValueCore[T](Int32 ordinal)
+   at Npgsql.NpgsqlDataReader.GetDecimal(Int32 ordinal)
+   at RoutePlaner_Rafael_elias.Repository.TourRepository.SearchTours(String searchQuery) in C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\Repository\TourRepository.cs:line 178
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.ExecuteSearch() in C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 725
+2024-08-30 14:57:58,771 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search execution failed: Reading as 'System.Decimal' is not supported for fields having DataTypeName 'double precision'
+System.InvalidCastException: Reading as 'System.Decimal' is not supported for fields having DataTypeName 'double precision'
+   at Npgsql.Internal.AdoSerializerHelpers.<GetTypeInfoForReading>g__ThrowReadingNotSupported|0_0(Type type, String displayName, Exception inner)
+   at Npgsql.Internal.AdoSerializerHelpers.GetTypeInfoForReading(Type type, PostgresType postgresType, PgSerializerOptions options)
+   at Npgsql.BackendMessages.FieldDescription.<GetInfo>g__GetInfoSlow|50_0(Type type, ColumnInfo& lastColumnInfo)
+   at Npgsql.BackendMessages.FieldDescription.GetInfo(Type type, ColumnInfo& lastColumnInfo)
+   at Npgsql.NpgsqlDataReader.<GetInfo>g__Slow|133_0(ColumnInfo& info, PgConverter& converter, Size& bufferRequirement, Boolean& asObject, <>c__DisplayClass133_0&)
+   at Npgsql.NpgsqlDataReader.GetFieldValueCore[T](Int32 ordinal)
+   at Npgsql.NpgsqlDataReader.GetDecimal(Int32 ordinal)
+   at RoutePlaner_Rafael_elias.Repository.TourRepository.SearchTours(String searchQuery) in C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\Repository\TourRepository.cs:line 178
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.ExecuteSearch() in C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 725
+2024-08-30 14:58:39,329 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 14:58:42,978 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search execution failed: Reading as 'System.Decimal' is not supported for fields having DataTypeName 'double precision'
+System.InvalidCastException: Reading as 'System.Decimal' is not supported for fields having DataTypeName 'double precision'
+   at Npgsql.Internal.AdoSerializerHelpers.<GetTypeInfoForReading>g__ThrowReadingNotSupported|0_0(Type type, String displayName, Exception inner)
+   at Npgsql.Internal.AdoSerializerHelpers.GetTypeInfoForReading(Type type, PostgresType postgresType, PgSerializerOptions options)
+   at Npgsql.BackendMessages.FieldDescription.<GetInfo>g__GetInfoSlow|50_0(Type type, ColumnInfo& lastColumnInfo)
+   at Npgsql.BackendMessages.FieldDescription.GetInfo(Type type, ColumnInfo& lastColumnInfo)
+   at Npgsql.NpgsqlDataReader.<GetInfo>g__Slow|133_0(ColumnInfo& info, PgConverter& converter, Size& bufferRequirement, Boolean& asObject, <>c__DisplayClass133_0&)
+   at Npgsql.NpgsqlDataReader.GetFieldValueCore[T](Int32 ordinal)
+   at Npgsql.NpgsqlDataReader.GetDecimal(Int32 ordinal)
+   at RoutePlaner_Rafael_elias.Repository.TourRepository.SearchTours(String searchQuery) in C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\Repository\TourRepository.cs:line 178
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.ExecuteSearch() in C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 725
+2024-08-30 14:59:02,903 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 14:59:05,839 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Hike.
+2024-08-30 14:59:05,840 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
+2024-08-30 14:59:11,720 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour City Bike Tour.
+2024-08-30 14:59:11,720 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
+2024-08-30 14:59:17,130 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour City Bike Tour.
+2024-08-30 14:59:17,130 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
+2024-08-30 14:59:18,844 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Urban Exploration.
+2024-08-30 14:59:27,698 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour City Bike Tour.
+2024-08-30 14:59:31,016 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Hike.
+2024-08-30 14:59:31,016 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
+2024-08-30 14:59:36,231 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Hike.
+2024-08-30 14:59:36,231 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
+2024-08-30 14:59:39,353 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 14:59:39,353 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - All tours loaded successfully.
