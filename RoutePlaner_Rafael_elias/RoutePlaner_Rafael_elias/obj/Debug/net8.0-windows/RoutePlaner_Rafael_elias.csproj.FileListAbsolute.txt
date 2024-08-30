@@ -304,7 +304,6 @@ C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafae
 C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\bin\Debug\net8.0-windows\System.Data.SQLite.dll
 C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
 C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\bin\Debug\net8.0-windows\System.Data.SQLite.EF6.dll
-C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\bin\Debug\net8.0-windows\System.Diagnostics.DiagnosticSource.dll
 C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
 C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
 C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
@@ -343,3 +342,6 @@ C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafae
 C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias.pdb
 C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\obj\Debug\net8.0-windows\RoutePlaner_Rafael_elias.genruntimeconfig.cache
 C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\obj\Debug\net8.0-windows\ref\RoutePlaner_Rafael_elias.dll
+C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\bin\Debug\net8.0-windows\Humanizer.dll
+C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\bin\Debug\net8.0-windows\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\bin\Debug\net8.0-windows\Mono.TextTemplating.dll
