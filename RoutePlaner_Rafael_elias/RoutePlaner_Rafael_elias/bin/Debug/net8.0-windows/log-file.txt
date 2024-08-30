@@ -1220,3 +1220,51 @@ System.TypeLoadException: Could not load type 'Npgsql.Internal.TypeMapping.IUser
 2024-08-30 20:12:28,017 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Test2.
 2024-08-30 20:12:29,535 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour TestTour.
 2024-08-30 20:12:29,877 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Test2.
+2024-08-30 20:48:29,446 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 20:48:32,498 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Test2.
+2024-08-30 20:48:52,250 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Test2.
+2024-08-30 20:48:52,251 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Test2.
+2024-08-30 20:51:01,189 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Test2.
+2024-08-30 20:55:42,963 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 20:55:50,884 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour TestTour.
+2024-08-30 20:55:51,922 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Test3.
+2024-08-30 20:56:16,342 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Test3.
+2024-08-30 20:59:42,598 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 20:59:44,033 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Test2.
+2024-08-30 21:00:09,652 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Test2.
+2024-08-30 21:00:21,608 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 21:00:23,942 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Test2.
+2024-08-30 21:00:39,506 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Test2.
+2024-08-30 21:03:58,400 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 21:04:00,065 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Test2.
+2024-08-30 21:04:38,378 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Test2.
+2024-08-30 21:04:38,380 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Test2.
+2024-08-30 21:04:41,143 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour TestTour.
+2024-08-30 21:08:57,240 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 21:09:03,602 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - PDF report generated successfully.
+2024-08-30 21:10:52,669 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour TestTour.
+2024-08-30 21:10:52,670 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
+2024-08-30 21:10:55,846 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour TestTour.
+2024-08-30 21:10:55,846 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
+2024-08-30 21:11:00,124 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour TestTour.
+2024-08-30 21:11:00,124 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
+2024-08-30 21:11:02,588 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour TestTour.
+2024-08-30 21:11:02,588 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
+2024-08-30 21:11:03,881 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 21:11:03,881 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - All tours loaded successfully.
+2024-08-30 21:11:08,187 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Test2.
+2024-08-30 21:11:11,949 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Test2.
+2024-08-30 21:11:11,949 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
+2024-08-30 21:16:07,984 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 21:19:08,775 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 21:21:18,460 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Log report generated successfully.
+2024-08-30 21:27:21,113 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 21:28:33,797 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 21:32:17,113 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 21:33:46,207 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 21:34:22,330 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 21:36:19,207 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 21:39:49,172 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 21:39:56,183 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Big.
+2024-08-30 21:39:56,995 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Big.
+2024-08-30 21:39:57,615 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Big.

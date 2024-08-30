@@ -1,0 +1,23 @@
+[
+  {
+    "Name": "Mountain Big",
+    "Description": "A scenic mountain hike.",
+    "From": "Valley",
+    "To": "Summit",
+    "RouteType": "Hiking",
+    "Distance": 15.5,
+    "EstimatedTime": "04:30:00",
+    "Logs": [
+      {
+        "Date": "2024-08-30T07:30:00Z",
+        "Distance": 15.5,
+        "Difficulty": "2",
+        "Duration": 400,
+        "Steps": 20000,
+        "Weather": "Sunny",
+        "Comment": "Great hike with fantastic views.",
+        "Rating": 5
+      }
+    ]
+  }
+]

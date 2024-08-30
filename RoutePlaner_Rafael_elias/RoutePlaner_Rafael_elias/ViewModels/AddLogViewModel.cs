@@ -33,13 +33,11 @@ namespace RoutePlaner_Rafael_elias.ViewModels
         {
             try
             {
-                _repository.AddLog(LogAddUtility); 
+                _repository.AddLog(LogAddUtility);
                 MessageBox.Show("Tour log updated successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
 
-         
                 CloseCurrentWindow();
 
-               
                 WeakReferenceMessenger.Default.Send(new LogUpdatedMessage());
             }
             catch (Exception ex)

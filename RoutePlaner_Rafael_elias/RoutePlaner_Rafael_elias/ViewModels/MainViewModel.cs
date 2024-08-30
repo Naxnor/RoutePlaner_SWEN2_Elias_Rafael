@@ -26,6 +26,7 @@ using iText.Layout.Element;
 using System.Linq;
 using Microsoft.Win32;
 using Newtonsoft.Json;
+using RoutePlaner_Rafael_elias.Database;
 
 namespace RoutePlaner_Rafael_elias.ViewModels
 {
@@ -422,8 +423,15 @@ public void GenerateSingleTourReport(Tour tour)
                 // Fetch all tours with logs
                 var allTours = _repository.GetAllToursWithLogs();
 
+                // Configure serializer settings to handle self-referencing loops
+                var settings = new JsonSerializerSettings
+                {
+                    Formatting = Formatting.Indented,
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                };
+
                 // Serialize to JSON
-                string json = JsonConvert.SerializeObject(allTours, Formatting.Indented);
+                string json = JsonConvert.SerializeObject(allTours, settings);
 
                 // Define file path
                 string filePath = "ToursDataExport.json";
@@ -439,47 +447,78 @@ public void GenerateSingleTourReport(Tour tour)
             }
         }
 
+
         public void ImportTourData()
+{
+    try
+    {
+        // Open file dialog to choose a .json file
+        OpenFileDialog openFileDialog = new OpenFileDialog();
+        openFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
+        if (openFileDialog.ShowDialog() != true)
         {
-            try
+            return; // User cancelled the file dialog
+        }
+
+        string filePath = openFileDialog.FileName;
+
+        // Read from the selected file
+        string json = File.ReadAllText(filePath);
+
+        // Deserialize JSON to tour objects
+        var importedTours = JsonConvert.DeserializeObject<List<Tour>>(json);
+
+        // Import each tour and its logs
+        foreach (var tour in importedTours)
+        {
+            using (var context = new ApplicationDbContext())
             {
-                // Open file dialog to choose a .json file
-                OpenFileDialog openFileDialog = new OpenFileDialog();
-                openFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
-                if (openFileDialog.ShowDialog() != true)
-                {
-                    return; // User cancelled the file dialog
-                }
-
-                string filePath = openFileDialog.FileName;
-
-                // Read from the selected file
-                string json = File.ReadAllText(filePath);
-
-                // Deserialize JSON to tour objects
-                var importedTours = JsonConvert.DeserializeObject<List<Tour>>(json);
-
-                // Import each tour and its logs
-                foreach (var tour in importedTours)
+                try
                 {
                     // Insert tour and get new ID
-                    int newTourId = _repository.AddTourAndGetId(tour);
+                    context.Tours.Add(tour);
+                    context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error saving tour '{tour.Name}': {ex.Message}\nDetails: {ex.InnerException?.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
 
-                    // Update TourId for each log and insert it
-                    foreach (var log in tour.Logs)
+                // Update TourId for each log and insert it
+                foreach (var log in tour.Logs)
+                {
+                    try
                     {
-                        log.TourId = newTourId; // Ensure correct TourId
-                        _repository.AddLog(log);
+                        log.TourId = tour.Id; // Ensure correct TourId
+                        context.Logs.Add(log);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error saving log for tour '{tour.Name}': {ex.Message}\nDetails: {ex.InnerException?.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
                     }
                 }
 
-                MessageBox.Show($"Tour data imported successfully from {filePath}!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error importing tour data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                try
+                {
+                    context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error saving logs for tour '{tour.Name}': {ex.Message}\nDetails: {ex.InnerException?.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
+
+        MessageBox.Show($"Tour data imported successfully from {filePath}!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+    }
+    catch (Exception ex)
+    {
+        MessageBox.Show($"Error importing tour data: {ex.Message}\nDetails: {ex.InnerException?.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+    }
+}
+
 
         
         private void OpenAddLogWindow()

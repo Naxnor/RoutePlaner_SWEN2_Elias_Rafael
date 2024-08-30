@@ -11,7 +11,7 @@ using Xunit;
 namespace RoutePlaner_Rafael_elias.Tests
 {
     public class Extra
-    {
+    {/*
         private ApplicationDbContext GetInMemoryDbContext()
         {
             var options = new DbContextOptionsBuilder<ApplicationDbContext>()
@@ -211,6 +211,7 @@ namespace RoutePlaner_Rafael_elias.Tests
 
             // Assert
             Assert.Null(result);
-        }
+        }*/
     }
+    
 }

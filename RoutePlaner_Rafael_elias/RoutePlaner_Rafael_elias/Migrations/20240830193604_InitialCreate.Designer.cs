@@ -12,7 +12,7 @@ using RoutePlaner_Rafael_elias.Database;
 namespace RoutePlaner_Rafael_elias.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240830175552_InitialCreate")]
+    [Migration("20240830193604_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
