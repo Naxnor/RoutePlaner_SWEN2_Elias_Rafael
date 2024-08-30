@@ -835,3 +835,8 @@ System.InvalidCastException: Reading as 'System.Decimal' is not supported for fi
 2024-08-30 14:59:36,231 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
 2024-08-30 14:59:39,353 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
 2024-08-30 14:59:39,353 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - All tours loaded successfully.
+2024-08-30 15:05:50,060 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 15:05:54,530 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Hike.
+2024-08-30 15:05:54,530 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
+2024-08-30 15:05:56,956 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Coastal Walk.
+2024-08-30 15:05:57,431 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Urban Exploration.

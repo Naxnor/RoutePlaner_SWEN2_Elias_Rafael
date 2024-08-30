@@ -134,6 +134,7 @@ namespace RoutePlaner_Rafael_elias.Repository
             t.""Name"" ILIKE @query OR 
             t.""Description"" ILIKE @query OR
             l.""Comment"" ILIKE @query OR
+            l.""Weather"" ILIKE @query OR
             CAST(l.""Distance"" AS TEXT) ILIKE @query OR
             CAST(l.""Duration"" AS TEXT) ILIKE @query";
 
@@ -179,16 +180,15 @@ namespace RoutePlaner_Rafael_elias.Repository
                             Id = reader.GetInt32(reader.GetOrdinal("TourLog_ID")),
                             TourId = reader.GetInt32(reader.GetOrdinal("Tour_ID")),
                             Date = reader.GetDateTime(reader.GetOrdinal("TourDate")),
-                            Distance = reader.IsDBNull(reader.GetOrdinal("Distance")) ? 0 : reader.GetDecimal(reader.GetOrdinal("Distance")), // Setze 0 wenn null
-                            Difficulty = reader.IsDBNull(reader.GetOrdinal("Difficulty")) ? 0 : reader.GetDecimal(reader.GetOrdinal("Difficulty")), // Setze 0 wenn null
-                            Duration = reader.IsDBNull(reader.GetOrdinal("Duration")) ? 0 : reader.GetDecimal(reader.GetOrdinal("Duration")), // Setze 0 wenn null
-                            Steps = reader.IsDBNull(reader.GetOrdinal("Steps")) ? 0 : reader.GetDecimal(reader.GetOrdinal("Steps")), // Setze 0 wenn null
+                            Distance = reader.IsDBNull(reader.GetOrdinal("Distance")) ? 0 : reader.GetDecimal(reader.GetOrdinal("Distance")),
+                            Difficulty = reader.IsDBNull(reader.GetOrdinal("Difficulty")) ? 0 : reader.GetDecimal(reader.GetOrdinal("Difficulty")),
+                            Duration = reader.IsDBNull(reader.GetOrdinal("Duration")) ? 0 : reader.GetDecimal(reader.GetOrdinal("Duration")),
+                            Steps = reader.IsDBNull(reader.GetOrdinal("Steps")) ? 0 : reader.GetDecimal(reader.GetOrdinal("Steps")),
                             Weather = reader.IsDBNull(reader.GetOrdinal("Weather")) ? null : reader.GetString(reader.GetOrdinal("Weather")),
                             Comment = reader.IsDBNull(reader.GetOrdinal("Comment")) ? null : reader.GetString(reader.GetOrdinal("Comment")),
                             Rating = reader.GetInt32(reader.GetOrdinal("Rating")),
-                            TotalTime = reader.IsDBNull(reader.GetOrdinal("TotalTime")) ? 0 : reader.GetDecimal(reader.GetOrdinal("TotalTime")) // Setze 0 wenn null
+                            TotalTime = reader.IsDBNull(reader.GetOrdinal("TotalTime")) ? 0 : reader.GetDecimal(reader.GetOrdinal("TotalTime"))
                         });
-
                     }
                 }
             }
@@ -202,6 +202,7 @@ namespace RoutePlaner_Rafael_elias.Repository
 
     return tours;
 }
+
 
         
         public int AddTourAndGetId(Tour tour)
