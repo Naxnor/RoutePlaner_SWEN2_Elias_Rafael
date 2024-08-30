@@ -14,6 +14,7 @@
           "Hermes.Vendors.MapControl": "1.0.0.1",
           "Microsoft.EntityFrameworkCore": "7.0.18",
           "Microsoft.EntityFrameworkCore.Design": "7.0.18",
+          "Microsoft.EntityFrameworkCore.InMemory": "7.0.18",
           "Microsoft.NET.Test.Sdk": "17.11.0",
           "Moq": "4.20.70",
           "Newtonsoft.Json": "13.0.3",
@@ -301,6 +302,17 @@
         },
         "runtime": {
           "lib/net6.0/Microsoft.EntityFrameworkCore.Design.dll": {
+            "assemblyVersion": "7.0.18.0",
+            "fileVersion": "7.0.1824.16810"
+          }
+        }
+      },
+      "Microsoft.EntityFrameworkCore.InMemory/7.0.18": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.18"
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.InMemory.dll": {
             "assemblyVersion": "7.0.18.0",
             "fileVersion": "7.0.1824.16810"
           }
@@ -1415,6 +1427,7 @@
           "GMap.Net.WPF": "1.0.0.1",
           "Hermes.Vendors.MapControl": "1.0.0.1",
           "Microsoft.EntityFrameworkCore": "7.0.18",
+          "Microsoft.EntityFrameworkCore.InMemory": "7.0.18",
           "Microsoft.Toolkit.Mvvm": "7.1.2",
           "Newtonsoft.Json": "13.0.3",
           "Npgsql": "7.0.7",
@@ -1610,6 +1623,13 @@
       "sha512": "sha512-4pYsUcvdY8V4i+ZH6xIM8LfX3YdaRp7kZ0QvgRdzGuJ/dneX8zRKLE0rlqFRb8xQqbw6TuFssgFBkh0c23R3oA==",
       "path": "microsoft.entityframeworkcore.design/7.0.18",
       "hashPath": "microsoft.entityframeworkcore.design.7.0.18.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.InMemory/7.0.18": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dgaetqAr1QIyxhT2vGWQI6gLJWljkEHi24ZpIyXL21smBcxQ7VchvOSO9xKZFw0Jz2hNf3lngd5e2KhrKiEELQ==",
+      "path": "microsoft.entityframeworkcore.inmemory/7.0.18",
+      "hashPath": "microsoft.entityframeworkcore.inmemory.7.0.18.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore.Relational/7.0.18": {
       "type": "package",

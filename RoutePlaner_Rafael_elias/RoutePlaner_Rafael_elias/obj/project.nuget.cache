@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "tt376KcHJDE=",
+  "dgSpecHash": "mwN8qRpwSqA=",
   "success": true,
   "projectFilePath": "C:\\Users\\Elias\\Documents\\GitHub\\RoutePlaner_SWEN2_Elias_Rafael\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias\\RoutePlaner_Rafael_elias.csproj",
   "expectedPackageFiles": [
@@ -27,6 +27,7 @@
     "C:\\Users\\Elias\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.18\\microsoft.entityframeworkcore.abstractions.7.0.18.nupkg.sha512",
     "C:\\Users\\Elias\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.18\\microsoft.entityframeworkcore.analyzers.7.0.18.nupkg.sha512",
     "C:\\Users\\Elias\\.nuget\\packages\\microsoft.entityframeworkcore.design\\7.0.18\\microsoft.entityframeworkcore.design.7.0.18.nupkg.sha512",
+    "C:\\Users\\Elias\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\7.0.18\\microsoft.entityframeworkcore.inmemory.7.0.18.nupkg.sha512",
     "C:\\Users\\Elias\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\7.0.18\\microsoft.entityframeworkcore.relational.7.0.18.nupkg.sha512",
     "C:\\Users\\Elias\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\7.0.0\\microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\Elias\\.nuget\\packages\\microsoft.extensions.caching.memory\\7.0.0\\microsoft.extensions.caching.memory.7.0.0.nupkg.sha512",

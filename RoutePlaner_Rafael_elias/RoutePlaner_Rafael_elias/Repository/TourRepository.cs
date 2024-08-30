@@ -1,173 +1,129 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Windows;
-using Npgsql;
+using Microsoft.EntityFrameworkCore;
 using RoutePlaner_Rafael_elias.Database;
 using RoutePlaner_Rafael_elias.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace RoutePlaner_Rafael_elias.Repository
 {
     public class TourRepository
-    { 
+    {
+        private readonly ApplicationDbContext _context;
+
+        public TourRepository(ApplicationDbContext context)
+        {
+            _context = context;
+        }
         
+        // Parameterloser Konstruktor
+        public TourRepository()
+        {
+            var options = new DbContextOptionsBuilder<ApplicationDbContext>()
+                .UseNpgsql(DbManager.ConnectionString)
+                .Options;
+
+            _context = new ApplicationDbContext(options);
+        }
+
         public ObservableCollection<Tour> GetAllTours()
         {
-            using (var context = new ApplicationDbContext())
-            {
-                return new ObservableCollection<Tour>(context.Tours.Include(t => t.Logs).ToList());
-            }
+            return new ObservableCollection<Tour>(_context.Tours.Include(t => t.Logs).ToList());
         }
 
         public void AddTour(Tour tour)
         {
-            using (var context = new ApplicationDbContext())
+            try
             {
-                try
-                {
-                    context.Tours.Add(tour);
-                    context.SaveChanges();
-                }
-                catch (DbUpdateException ex)
-                {
-                    Debug.WriteLine($"An error occurred while saving the tour: {ex.InnerException?.Message ?? ex.Message}");
-                    MessageBox.Show($"An error occurred while saving the tour: {ex.InnerException?.Message ?? ex.Message}");
-                    throw;
-                }
+                _context.Tours.Add(tour);
+                _context.SaveChanges();
+            }
+            catch (DbUpdateException ex)
+            {
+                Debug.WriteLine($"An error occurred while saving the tour: {ex.InnerException?.Message ?? ex.Message}");
+                MessageBox.Show($"An error occurred while saving the tour: {ex.InnerException?.Message ?? ex.Message}");
+                throw;
             }
         }
-
-
-
-
-        
 
         public void UpdateTour(Tour tour)
         {
-            using (var context = new ApplicationDbContext())
-            {
-                context.Tours.Update(tour);
-                context.SaveChanges();  // Speichert die Änderungen in der Datenbank
-            }
+            _context.Tours.Update(tour);
+            _context.SaveChanges();  // Speichert die Änderungen in der Datenbank
         }
 
-        
+        public void DeleteTour(Tour tour)
+        {
+            _context.Tours.Remove(tour);
+            _context.SaveChanges();  // Speichert die Änderungen in der Datenbank
+        }
+
         public ObservableCollection<Tour> SearchTours(string searchQuery)
         {
-            using (var context = new ApplicationDbContext())
-            {
-                var tours = context.Tours
-                    .Include(t => t.Logs)
-                    .Where(t => 
-                        EF.Functions.ILike(t.Name, $"%{searchQuery}%") || 
-                        EF.Functions.ILike(t.Description, $"%{searchQuery}%") || 
-                        t.Logs.Any(l => 
-                            EF.Functions.ILike(l.Comment, $"%{searchQuery}%") || 
-                            EF.Functions.ILike(l.Weather, $"%{searchQuery}%") ||
-                            EF.Functions.ILike(l.Distance.ToString(), $"%{searchQuery}%") ||
-                            EF.Functions.ILike(l.Duration.ToString(), $"%{searchQuery}%")
-                        ))
-                    .ToList();
+            var tours = _context.Tours
+                .Include(t => t.Logs)
+                .Where(t => 
+                    EF.Functions.ILike(t.Name, $"%{searchQuery}%") || 
+                    EF.Functions.ILike(t.Description, $"%{searchQuery}%") || 
+                    t.Logs.Any(l => 
+                        EF.Functions.ILike(l.Comment, $"%{searchQuery}%") || 
+                        EF.Functions.ILike(l.Weather, $"%{searchQuery}%") ||
+                        EF.Functions.ILike(l.Distance.ToString(), $"%{searchQuery}%") ||
+                        EF.Functions.ILike(l.Duration.ToString(), $"%{searchQuery}%")
+                    ))
+                .ToList();
 
-                return new ObservableCollection<Tour>(tours);
-            }
+            return new ObservableCollection<Tour>(tours);
         }
 
-
-
-        
         public int AddTourAndGetId(Tour tour)
         {
-            using (var context = new ApplicationDbContext())
-            {
-                context.Tours.Add(tour);
-                context.SaveChanges();
-                return tour.Id; // Hier wird die generierte ID zurückgegeben.
-            }
+            _context.Tours.Add(tour);
+            _context.SaveChanges();
+            return tour.Id; // Hier wird die generierte ID zurückgegeben.
         }
 
-        
         public List<Tour> GetAllToursWithLogs()
         {
-            using (var context = new ApplicationDbContext())
-            {
-                return context.Tours.Include(t => t.Logs).ToList();
-            }
+            return _context.Tours.Include(t => t.Logs).ToList();
         }
 
-
-
-
-public void DeleteTour(Tour tour)
-{
-    using (var context = new ApplicationDbContext())
-    {
-        context.Tours.Remove(tour);
-        context.SaveChanges();  // Speichert die Änderungen in der Datenbank
-    }
-}
-
-
-
-public string GetRouteTypeForTour(int tourId)
-{
-    using (var context = new ApplicationDbContext())
-    {
-        return context.Tours
-            .Where(t => t.Id == tourId)
-            .Select(t => t.RouteType)
-            .FirstOrDefault();
-    }
-}
+        public string GetRouteTypeForTour(int tourId)
+        {
+            return _context.Tours
+                .Where(t => t.Id == tourId)
+                .Select(t => t.RouteType)
+                .FirstOrDefault();
+        }
 
         public Tour GetTourById(int tourId)
         {
-            using (var context = new ApplicationDbContext())
-            {
-                return context.Tours.Include(t => t.Logs).FirstOrDefault(t => t.Id == tourId);
-            }
+            return _context.Tours.Include(t => t.Logs).FirstOrDefault(t => t.Id == tourId);
         }
 
         public IEnumerable<Log> GetLogsForTour(Tour tour)
         {
-            using (var context = new ApplicationDbContext())
-            {
-                return context.Logs.Where(l => l.TourId == tour.Id).ToList();
-            }
+            return _context.Logs.Where(l => l.TourId == tour.Id).ToList();
         }
-
 
         public void AddLog(Log log)
         {
-            using (var context = new ApplicationDbContext())
-            {
-                context.Logs.Add(log);
-                context.SaveChanges();
-            }
+            _context.Logs.Add(log);
+            _context.SaveChanges();
         }
-
 
         public void UpdateLog(Log log)
         {
-            using (var context = new ApplicationDbContext())
-            {
-                context.Logs.Update(log);
-                context.SaveChanges();
-            }
+            _context.Logs.Update(log);
+            _context.SaveChanges();
         }
-
 
         public void DeleteLog(Log log)
         {
-            using (var context = new ApplicationDbContext())
-            {
-                context.Logs.Remove(log);
-                context.SaveChanges();
-            }
+            _context.Logs.Remove(log);
+            _context.SaveChanges();
         }
-
     }
 }
-

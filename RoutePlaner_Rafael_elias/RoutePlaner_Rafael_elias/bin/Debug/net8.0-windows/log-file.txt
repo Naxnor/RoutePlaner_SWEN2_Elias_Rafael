@@ -1268,3 +1268,15 @@ System.TypeLoadException: Could not load type 'Npgsql.Internal.TypeMapping.IUser
 2024-08-30 21:39:56,183 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Big.
 2024-08-30 21:39:56,995 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Big.
 2024-08-30 21:39:57,615 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Big.
+2024-08-30 21:59:26,369 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 21:59:28,361 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Big.
+2024-08-30 21:59:48,160 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Big.
+2024-08-30 21:59:48,162 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Big.
+2024-08-30 21:59:55,200 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Big.
+2024-08-30 21:59:55,200 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Search executed successfully.
+2024-08-30 21:59:57,191 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Big.
+2024-08-30 21:59:57,805 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Big.
+2024-08-30 21:59:58,366 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Big.
+2024-08-30 22:06:17,477 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 22:06:19,753 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Big.
+2024-08-30 22:06:20,145 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Mountain Big.

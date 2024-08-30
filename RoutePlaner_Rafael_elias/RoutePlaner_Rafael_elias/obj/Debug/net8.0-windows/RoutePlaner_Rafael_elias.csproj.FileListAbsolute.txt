@@ -345,3 +345,4 @@ C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafae
 C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\bin\Debug\net8.0-windows\Humanizer.dll
 C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\bin\Debug\net8.0-windows\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\bin\Debug\net8.0-windows\Mono.TextTemplating.dll
+C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\bin\Debug\net8.0-windows\Microsoft.EntityFrameworkCore.InMemory.dll

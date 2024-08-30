@@ -1,50 +1,77 @@
 ﻿using System;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using RoutePlaner_Rafael_elias.Database;
 using RoutePlaner_Rafael_elias.Models;
 using RoutePlaner_Rafael_elias.Repository;
-using System.Collections.ObjectModel;
-using System.Linq;
 using Xunit;
 
 public class TourRepositoryTests
 {
     private readonly TourRepository _tourRepository;
+    private readonly ApplicationDbContext _context;
 
     public TourRepositoryTests()
     {
-        _tourRepository = new TourRepository();
+        // Arrange
+        var options = new DbContextOptionsBuilder<ApplicationDbContext>()
+            .UseInMemoryDatabase(databaseName: "RoutePlanerTestDb")
+            .Options;
+
+        _context = new ApplicationDbContext(options);
+        _tourRepository = new TourRepository(_context);
+    }
+
+    private Tour CreateValidTour(string name = "Default Tour")
+    {
+        return new Tour
+        {
+            Name = name,
+            From = "Start",
+            To = "End",
+            RouteType = "walking",
+            Description = "A valid test tour",
+            Distance = 10.0,
+            EstimatedTime = new TimeSpan(2, 0, 0)
+        };
     }
 
     [Fact]
     public void GetAllTours_ReturnsAllTours()
     {
+        // Arrange
+        var tour1 = CreateValidTour("Tour1");
+        var tour2 = CreateValidTour("Tour2");
+        _context.Tours.AddRange(tour1, tour2);
+        _context.SaveChanges();
+
         // Act
-        ObservableCollection<Tour> tours = _tourRepository.GetAllTours();
+        var tours = _tourRepository.GetAllTours();
 
         // Assert
         Assert.NotNull(tours);
-        Assert.NotEmpty(tours);
+        Assert.Equal(2, tours.Count);
     }
 
     [Fact]
     public void AddTour_ValidTour_AddsTourToDatabase()
     {
         // Arrange
-        var tour = new Tour { Name = "Test Tour", From = "Start", To = "End", RouteType = "walking" };
+        var tour = CreateValidTour("Test Tour");
 
         // Act
         _tourRepository.AddTour(tour);
 
         // Assert
-        // Fetch the tour again or check for its existence
         var fetchedTours = _tourRepository.GetAllTours();
         Assert.Contains(fetchedTours, t => t.Name == "Test Tour" && t.From == "Start" && t.To == "End");
     }
-    
+
     [Fact]
     public void UpdateTour_ValidTour_UpdatesTourInDatabase()
     {
         // Arrange
-        var tour = new Tour { Name = "Old Tour", From = "Old Start", To = "Old End", RouteType = "walking" };
+        var tour = CreateValidTour("Old Tour");
         _tourRepository.AddTour(tour);
         tour.Name = "Updated Tour";
         tour.From = "Updated Start";
@@ -62,7 +89,7 @@ public class TourRepositoryTests
     public void DeleteTour_ValidTour_RemovesTourFromDatabase()
     {
         // Arrange
-        var tour = new Tour { Name = "Tour to Delete", From = "Start", To = "End", RouteType = "walking" };
+        var tour = CreateValidTour("Tour to Delete");
         _tourRepository.AddTour(tour);
 
         // Act
@@ -76,19 +103,26 @@ public class TourRepositoryTests
     [Fact]
     public void GetAllToursWithLogs_ReturnsToursWithLogs()
     {
+        // Arrange
+        var tour = CreateValidTour("TourWithLogs");
+        var log = new Log { Date = DateTime.Now, Distance = 5, Difficulty = 3, Duration = 60, Tour = tour };
+        tour.Logs = new[] { log };
+        _context.Tours.Add(tour);
+        _context.SaveChanges();
+
         // Act
         var toursWithLogs = _tourRepository.GetAllToursWithLogs();
 
         // Assert
         Assert.NotNull(toursWithLogs);
-        Assert.All(toursWithLogs, tour => Assert.NotNull(tour.Logs));
+        Assert.All(toursWithLogs, t => Assert.NotNull(t.Logs));
     }
 
     [Fact]
     public void GetTourById_ValidId_ReturnsCorrectTour()
     {
         // Arrange
-        var tour = new Tour { Name = "Specific Tour", From = "Start", To = "End", RouteType = "walking" };
+        var tour = CreateValidTour("Specific Tour");
         _tourRepository.AddTour(tour);
 
         // Act
@@ -105,9 +139,9 @@ public class TourRepositoryTests
     public void SearchTours_ValidQuery_ReturnsMatchingTours()
     {
         // Arrange
-        var tour = new Tour { Name = "TourWithLogs", From = "Start", To = "End", RouteType = "walking" };
+        var tour = CreateValidTour("TourWithLogs");
         _tourRepository.AddTour(tour);
-    
+
         // Act
         var results = _tourRepository.SearchTours("TourWithLogs");
 
@@ -116,7 +150,6 @@ public class TourRepositoryTests
         Assert.Contains(results, t => t.Name == "TourWithLogs");
     }
 
-    
     [Fact]
     public void SearchTours_NoMatchingResults_ReturnsEmptyCollection()
     {
@@ -132,7 +165,8 @@ public class TourRepositoryTests
     public void GetRouteTypeForTour_ValidTourId_ReturnsRouteType()
     {
         // Arrange
-        var tour = new Tour { Name = "TourWithRouteType", From = "Start", To = "End", RouteType = "driving-car" };
+        var tour = CreateValidTour("TourWithRouteType");
+        tour.RouteType = "driving-car";
         _tourRepository.AddTour(tour);
 
         // Act
@@ -146,7 +180,7 @@ public class TourRepositoryTests
     public void GetAllToursWithLogs_NoLogs_ReturnsToursWithEmptyLogs()
     {
         // Arrange
-        var tour = new Tour { Name = "TourWithoutLogs", From = "Start", To = "End", RouteType = "walking" };
+        var tour = CreateValidTour("TourWithoutLogs");
         _tourRepository.AddTour(tour);
 
         // Act
@@ -159,12 +193,11 @@ public class TourRepositoryTests
         Assert.Empty(tourWithoutLogs.Logs);
     }
 
-    
     [Fact]
     public void UpdateLog_ValidLog_UpdatesLogInDatabase()
     {
         // Arrange
-        var tour = new Tour { Name = "TourWithLog", From = "Start", To = "End", RouteType = "walking" };
+        var tour = CreateValidTour("TourWithLog");
         _tourRepository.AddTour(tour);
 
         var log = new Log { TourId = tour.Id, Date = DateTime.Now, Distance = 10, Difficulty = 5, Duration = 2, Steps = 5000, Weather = "Sunny", TotalTime = 2.5m, Comment = "Initial comment", Rating = 4 };
@@ -184,7 +217,7 @@ public class TourRepositoryTests
     public void DeleteLog_ValidLog_RemovesLogFromDatabase()
     {
         // Arrange
-        var tour = new Tour { Name = "TourWithLogToDelete", From = "Start", To = "End", RouteType = "walking" };
+        var tour = CreateValidTour("TourWithLogToDelete");
         _tourRepository.AddTour(tour);
 
         var log = new Log { TourId = tour.Id, Date = DateTime.Now, Distance = 10, Difficulty = 5, Duration = 2, Steps = 5000, Weather = "Sunny", TotalTime = 2.5m, Comment = "To be deleted", Rating = 4 };

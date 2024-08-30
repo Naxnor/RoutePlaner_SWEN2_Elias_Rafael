@@ -8,11 +8,22 @@ namespace RoutePlaner_Rafael_elias.Database
         public DbSet<Tour> Tours { get; set; }
         public DbSet<Log> Logs { get; set; }
 
+        // Parameterloser Konstruktor (falls benötigt)
+        public ApplicationDbContext()
+        {
+        }
+
+        // Konstruktor mit DbContextOptions
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+            : base(options)
+        {
+        }
+        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseNpgsql("Host=127.0.0.1;Port=5432;Username=postgres;Password=postgres;Database=postgres");
+                optionsBuilder.UseNpgsql(DbManager.ConnectionString);
             }
         }
 
