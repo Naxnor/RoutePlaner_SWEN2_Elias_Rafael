@@ -24,6 +24,7 @@ using iText.Kernel.Pdf;
 using iText.Layout;
 using iText.Layout.Element;
 using System.Linq;
+using GMap.NET.WindowsPresentation;
 using Microsoft.Win32;
 using Newtonsoft.Json;
 
@@ -36,6 +37,8 @@ namespace RoutePlaner_Rafael_elias.ViewModels
         private readonly TourRepository _repository;
         private readonly RouteService _routeService;
         public ICommand ExportTourDataCommand { get; }
+        public event EventHandler RouteDataFetched;
+
         public ICommand ImportTourDataCommand { get; }
         public ICommand GenerateSummarizedReportCommand { get; }
         public ICommand GenerateTourReportCommand { get; }
@@ -46,8 +49,7 @@ namespace RoutePlaner_Rafael_elias.ViewModels
         private string _selectedTourDescription;
         private string _imagePath = @"F:\GIT\SWEN\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\Data\Images\image.png";
 
-        public ICommand FetchRouteCommand { get; }
-        public ICommand ShowMapCommand { get; }
+        
         public ICommand OpenAddTourWindowCommand { get; private set; }
         public ICommand OpenUpdateTourWindowCommand { get; private set; }
         public ICommand DeleteTourCommand { get; private set; }
@@ -64,7 +66,6 @@ namespace RoutePlaner_Rafael_elias.ViewModels
             GenerateTourReportCommand = new RelayCommand<Tour>(GenerateSingleTourReport);
             GenerateSummarizedReportCommand = new RelayCommand(GenerateSummarizedReport);
             FetchRouteCommand = new AsyncRelayCommand(FetchRouteData);
-            ShowMapCommand = new RelayCommand(ShowMap);
             GenerateReportCommand = new RelayCommand(GenerateTourReport);
             GenerateLogReportCommand = new RelayCommand(GenerateLogReport);
             ExportTourDataCommand = new RelayCommand(ExportTourData);
@@ -80,6 +81,8 @@ namespace RoutePlaner_Rafael_elias.ViewModels
                 LoadLogs();
             });
         }
+        
+        public ICommand FetchRouteCommand { get; }
 
         public ObservableCollection<Tour> Tours { get; private set; }
 
@@ -224,12 +227,12 @@ public void GenerateSingleTourReport(Tour tour)
             get => _imagePath;
             set => SetProperty(ref _imagePath, value);
         }
-
+            /*
         public WebBrowser MapBrowser
         {
             get => _mapBrowser;
             set => SetProperty(ref _mapBrowser, value);
-        }
+        }*/
 
         public string SelectedTourDescription
         {
@@ -250,6 +253,8 @@ public void GenerateSingleTourReport(Tour tour)
             }
         }
 
+        public Tour SelectedTour { get; set; }
+        /*
         public Tour SelectedTour
         {
             get => _selectedTour;
@@ -264,116 +269,58 @@ public void GenerateSingleTourReport(Tour tour)
                     ((RelayCommand)DeleteTourCommand).NotifyCanExecuteChanged();
                 }
             }
-        }
+        }*/
 
       private async Task FetchRouteData()
-{
-    try
-    {
-        if (SelectedTour == null)
-        {
-            MessageBox.Show("Please select a tour first.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-            return;
-        }
-
-        // Fetch route data using the route service
-        var routeData = await _routeService.GetDirectionsAsync(
-            SelectedTour.StartLatitude,
-            SelectedTour.StartLongitude,
-            SelectedTour.EndLatitude,
-            SelectedTour.EndLongitude,
-            SelectedTour.RouteType
-        );
-
-        if (routeData == null)
-        {
-            MessageBox.Show("Failed to fetch route data. Please try again.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            log.Error("Failed to fetch route data: routeData is null.");
-            return;
-        }
-
-        Debug.WriteLine($"Received route data: Distance = {routeData.Distance}, Duration = {routeData.Duration}, EncodedPolyline = {routeData.EncodedPolyline}");
-
-        // Convert distance from meters to kilometers and round to 3 decimal places
-        SelectedTour.Distance = Math.Round(routeData.Distance / 1000.0, 3);
-
-        // Convert duration from seconds to TimeSpan
-        SelectedTour.EstimatedTime = TimeSpan.FromSeconds(routeData.Duration);
-
-        // Store encoded route
-        SelectedTour.EncodedRoute = routeData.EncodedPolyline;
-
-        Debug.WriteLine($"Encoded Route: {SelectedTour.EncodedRoute}");
-
-        // Update the tour in the database
-        try
-        {
-            _repository.UpdateTour(SelectedTour);  // Ensure your repository method correctly updates the Tour
-            log.Info("Tour updated successfully in the database.");
-        }
-        catch (Exception ex)
-        {
-            log.Error($"Error updating tour in database: {ex.Message}", ex);
-            MessageBox.Show($"Error updating tour in database: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            return;
-        }
-
-        ShowMap(); // Attempt to display the map
-        log.Info("Route data fetched and tour updated successfully.");
-        MessageBox.Show("Route data fetched and updated successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-    }
-    catch (Exception ex)
-    {
-        log.Error($"Error fetching route data: {ex.Message}", ex);
-        MessageBox.Show($"Error fetching route data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-    }
-}
-
-
-
-        public void ShowMap()
-        {
-            if (MapBrowser == null || string.IsNullOrEmpty(SelectedTour?.EncodedRoute))
-            {
-                MessageBox.Show("MapBrowser control is not set or route is not available.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
-            // Decode the encoded route
-            var decodedCoordinates = PolylineDecoder.DecodePolyline(SelectedTour.EncodedRoute);
-            if (decodedCoordinates.Count == 0)
-            {
-                MessageBox.Show("No route coordinates available to display.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
-            // Extract the start and end coordinates
-            var startCoordinate = decodedCoordinates.First();
-            var endCoordinate = decodedCoordinates.Last();
-
-            // Calculate the center and zoom level (simple example, you might want a more accurate calculation)
-            var centerLat = (startCoordinate.Latitude + endCoordinate.Latitude) / 2;
-            var centerLon = (startCoordinate.Longitude + endCoordinate.Longitude) / 2;
-
-            // Construct the OpenStreetMap URL
-            string url = $"https://www.openstreetmap.org/directions?engine=fossgis_osrm_bike&route={startCoordinate.Latitude}%2C{startCoordinate.Longitude}%3B{endCoordinate.Latitude}%2C{endCoordinate.Longitude}#map=12/{centerLat}/{centerLon}";
-
-            // Log the URL for debugging
-            Debug.WriteLine($"Generated OpenStreetMap URL: {url}");
-
-            // Navigate the WebBrowser control to the OpenStreetMap URL
-            try
-            {
-                MapBrowser.Navigate(url);
-                log.Info("Map displayed successfully.");
-            }
-            catch (Exception ex)
-            {
-                log.Error($"Error navigating to URL: {ex.Message}", ex);
-                MessageBox.Show($"Error navigating to URL: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
+          {
+              try
+              {
+                  if (SelectedTour == null)
+                  {
+                      MessageBox.Show("Please select a tour first.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                      return;
+                  }
+      
+                  // Fetch route data using the route service
+                  var routeData = await _routeService.GetDirectionsAsync(
+                                      SelectedTour.StartLatitude,
+                                      SelectedTour.StartLongitude,
+                                      SelectedTour.EndLatitude,
+                                      SelectedTour.EndLongitude,
+                                      SelectedTour.RouteType
+                                  );
+      
+                  if (routeData == null)
+                  {
+                      MessageBox.Show("Failed to fetch route data. Please try again.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                      log.Error("Failed to fetch route data: routeData is null.");
+                      return;
+                  }
+      
+                  Debug.WriteLine($"Received route data: Distance = {routeData.Distance}, Duration = {routeData.Duration}, EncodedPolyline = {routeData.EncodedPolyline}");
+      
+                  // Konvertiere und speichere die Route-Daten
+                  SelectedTour.Distance = Math.Round(routeData.Distance / 1000.0, 3);
+                  SelectedTour.EstimatedTime = TimeSpan.FromSeconds(routeData.Duration);
+                  SelectedTour.EncodedRoute = routeData.EncodedPolyline;
+      
+                  // Update the tour in the database
+                  _repository.UpdateTour(SelectedTour);
+                  log.Info("Tour updated successfully in the database.");
+      
+                  // Benachrichtige die UI, dass die Route-Daten abgerufen wurden
+                  RouteDataFetched?.Invoke(this, EventArgs.Empty);
+      
+                  log.Info("Route data fetched and tour updated successfully.");
+                  MessageBox.Show("Route data fetched and updated successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+              }
+              catch (Exception ex)
+              {
+                  log.Error($"Error fetching route data: {ex.Message}", ex);
+                  MessageBox.Show($"Error fetching route data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+              }
+          }
+      
         private void InitializeCommands()
         {
             OpenAddTourWindowCommand = new RelayCommand(OpenAddTourWindow);

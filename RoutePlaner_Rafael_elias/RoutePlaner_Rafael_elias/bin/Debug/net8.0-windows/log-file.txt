@@ -617,3 +617,44 @@ System.NullReferenceException: Object reference not set to an instance of an obj
 2024-08-29 20:17:46,702 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour City Bike Tour.
 2024-08-29 20:17:47,748 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tour updated successfully in the database.
 2024-08-29 20:17:48,793 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched and tour updated successfully.
+2024-08-30 09:30:44,881 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 09:49:37,770 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Quer.
+2024-08-30 09:49:44,913 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tour updated successfully in the database.
+2024-08-30 09:52:09,859 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched and tour updated successfully.
+2024-08-30 09:54:02,272 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 09:54:05,051 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Quer.
+2024-08-30 09:54:06,895 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tour updated successfully in the database.
+2024-08-30 09:54:08,806 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched and tour updated successfully.
+2024-08-30 09:54:30,960 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tour updated successfully in the database.
+2024-08-30 09:54:32,572 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched and tour updated successfully.
+2024-08-30 09:55:38,928 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 09:55:42,749 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Quer.
+2024-08-30 09:55:45,086 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tour updated successfully in the database.
+2024-08-30 09:55:48,987 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched and tour updated successfully.
+2024-08-30 09:55:51,762 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour Test Tour.
+2024-08-30 09:55:53,296 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Error fetching route data: Error fetching route data: Not Found. Response: {"error":{"code":2010,"message":"Could not find routable point within a radius of 350.0 meters of specified coordinate 0: 0.0000000 0.0000000.; Could not find routable point within a radius of 350.0 meters of specified coordinate 1: 0.0000000 0.0000000."},"info":{"engine":{"build_date":"2024-08-13T07:37:07Z","version":"8.1.2"},"timestamp":1725004552733}}
+System.Exception: Error fetching route data: Not Found. Response: {"error":{"code":2010,"message":"Could not find routable point within a radius of 350.0 meters of specified coordinate 0: 0.0000000 0.0000000.; Could not find routable point within a radius of 350.0 meters of specified coordinate 1: 0.0000000 0.0000000."},"info":{"engine":{"build_date":"2024-08-13T07:37:07Z","version":"8.1.2"},"timestamp":1725004552733}}
+   at RoutePlaner_Rafael_elias.Services.RouteService.GetDirectionsAsync(Double startLat, Double startLng, Double endLat, Double endLng, String routeType) in C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\Services\RouteService.cs:line 55
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.FetchRouteData() in C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 280
+2024-08-30 09:56:02,502 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Logs loaded for tour City Bike Tour.
+2024-08-30 09:56:05,587 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tour updated successfully in the database.
+2024-08-30 09:56:07,056 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched and tour updated successfully.
+2024-08-30 10:57:21,004 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 10:57:27,466 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tour updated successfully in the database.
+2024-08-30 10:57:27,470 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Error fetching route data: Index was outside the bounds of the array.
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at System.String.get_Chars(Int32 index)
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.PolylineDecoder.DecodeNextValue(String encodedPolyline, Int32& index) in C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 678
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.PolylineDecoder.DecodePolyline(String encodedPolyline) in C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 660
+   at RoutePlaner_Rafael_elias.MainWindow.ShowMap(Tour selectedTour) in C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\MainWindow.xaml.cs:line 46
+   at RoutePlaner_Rafael_elias.MainWindow.OnRouteDataFetched(Object sender, EventArgs e) in C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\MainWindow.xaml.cs:line 34
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.FetchRouteData() in C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 312
+2024-08-30 10:57:38,118 ERROR RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Error fetching route data: Error fetching route data: Not Found. Response: {"error":{"code":2010,"message":"Could not find routable point within a radius of 350.0 meters of specified coordinate 0: 0.0000000 0.0000000.; Could not find routable point within a radius of 350.0 meters of specified coordinate 1: 0.0000000 0.0000000."},"info":{"engine":{"build_date":"2024-08-13T07:37:07Z","version":"8.1.2"},"timestamp":1725008257646}}
+System.Exception: Error fetching route data: Not Found. Response: {"error":{"code":2010,"message":"Could not find routable point within a radius of 350.0 meters of specified coordinate 0: 0.0000000 0.0000000.; Could not find routable point within a radius of 350.0 meters of specified coordinate 1: 0.0000000 0.0000000."},"info":{"engine":{"build_date":"2024-08-13T07:37:07Z","version":"8.1.2"},"timestamp":1725008257646}}
+   at RoutePlaner_Rafael_elias.Services.RouteService.GetDirectionsAsync(Double startLat, Double startLng, Double endLat, Double endLng, String routeType) in C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\Services\RouteService.cs:line 55
+   at RoutePlaner_Rafael_elias.ViewModels.MainViewModel.FetchRouteData() in C:\Users\Elias\Documents\GitHub\RoutePlaner_SWEN2_Elias_Rafael\RoutePlaner_Rafael_elias\RoutePlaner_Rafael_elias\ViewModels\MainViewModel.cs:line 285
+2024-08-30 10:57:43,712 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tour updated successfully in the database.
+2024-08-30 10:57:43,718 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched and tour updated successfully.
+2024-08-30 10:58:41,562 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tours loaded successfully.
+2024-08-30 10:58:45,123 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Tour updated successfully in the database.
+2024-08-30 10:58:45,128 INFO  RoutePlaner_Rafael_elias.ViewModels.MainViewModel - Route data fetched and tour updated successfully.

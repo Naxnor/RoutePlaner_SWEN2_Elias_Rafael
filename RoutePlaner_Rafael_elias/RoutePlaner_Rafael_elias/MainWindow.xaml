@@ -15,10 +15,6 @@
         <viewModels:MainViewModel/>
     </Window.DataContext>
 
-    <Window.Resources>
-        <!-- Your styles here -->
-    </Window.Resources>
-    
     <Grid RenderTransformOrigin="0.0,0.0">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
