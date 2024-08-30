@@ -65,18 +65,19 @@ namespace RoutePlaner_Rafael_elias.Repository
             var tours = _context.Tours
                 .Include(t => t.Logs)
                 .Where(t => 
-                    EF.Functions.ILike(t.Name, $"%{searchQuery}%") || 
-                    EF.Functions.ILike(t.Description, $"%{searchQuery}%") || 
+                    t.Name.ToLower().Contains(searchQuery.ToLower()) || 
+                    t.Description.ToLower().Contains(searchQuery.ToLower()) || 
                     t.Logs.Any(l => 
-                        EF.Functions.ILike(l.Comment, $"%{searchQuery}%") || 
-                        EF.Functions.ILike(l.Weather, $"%{searchQuery}%") ||
-                        EF.Functions.ILike(l.Distance.ToString(), $"%{searchQuery}%") ||
-                        EF.Functions.ILike(l.Duration.ToString(), $"%{searchQuery}%")
+                        l.Comment.ToLower().Contains(searchQuery.ToLower()) || 
+                        l.Weather.ToLower().Contains(searchQuery.ToLower()) ||
+                        l.Distance.ToString().Contains(searchQuery) ||
+                        l.Duration.ToString().Contains(searchQuery)
                     ))
                 .ToList();
 
             return new ObservableCollection<Tour>(tours);
         }
+
 
         public int AddTourAndGetId(Tour tour)
         {

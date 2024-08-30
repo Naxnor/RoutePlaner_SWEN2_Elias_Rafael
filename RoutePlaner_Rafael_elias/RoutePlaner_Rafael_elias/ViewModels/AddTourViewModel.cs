@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
@@ -112,11 +113,21 @@ namespace RoutePlaner_Rafael_elias.ViewModels
             {
                 _repository.AddTour(tour);
                 MessageBox.Show("Tour added successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                CloseCurrentWindow(); // Fenster schließen nach dem Hinzufügen der Tour
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"An error occurred while adding the tour: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void CloseCurrentWindow()
+        {
+            Application.Current.Windows
+                .OfType<Window>()
+                .FirstOrDefault(window => window.DataContext == this)
+                ?.Close();
         }
     }
 }

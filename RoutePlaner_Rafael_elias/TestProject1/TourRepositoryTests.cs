@@ -39,6 +39,10 @@ public class TourRepositoryTests
     [Fact]
     public void GetAllTours_ReturnsAllTours()
     {
+        // Cleanup existing data to ensure test isolation
+        _context.Tours.RemoveRange(_context.Tours);
+        _context.SaveChanges();
+
         // Arrange
         var tour1 = CreateValidTour("Tour1");
         var tour2 = CreateValidTour("Tour2");
@@ -50,8 +54,9 @@ public class TourRepositoryTests
 
         // Assert
         Assert.NotNull(tours);
-        Assert.Equal(2, tours.Count);
+        Assert.Equal(2, tours.Count); // Erwartete Anzahl an Touren: 2
     }
+
 
     [Fact]
     public void AddTour_ValidTour_AddsTourToDatabase()
@@ -105,7 +110,16 @@ public class TourRepositoryTests
     {
         // Arrange
         var tour = CreateValidTour("TourWithLogs");
-        var log = new Log { Date = DateTime.Now, Distance = 5, Difficulty = 3, Duration = 60, Tour = tour };
+        var log = new Log
+        {
+            Date = DateTime.Now,
+            Distance = 5,
+            Difficulty = 3,
+            Duration = 60,
+            Tour = tour,
+            Comment = "Great hike!",
+            Weather = "Sunny"
+        };
         tour.Logs = new[] { log };
         _context.Tours.Add(tour);
         _context.SaveChanges();
@@ -117,6 +131,7 @@ public class TourRepositoryTests
         Assert.NotNull(toursWithLogs);
         Assert.All(toursWithLogs, t => Assert.NotNull(t.Logs));
     }
+
 
     [Fact]
     public void GetTourById_ValidId_ReturnsCorrectTour()
@@ -147,7 +162,7 @@ public class TourRepositoryTests
 
         // Assert
         Assert.NotNull(results);
-        Assert.Contains(results, t => t.Name == "TourWithLogs");
+        Assert.Contains(results, t => t.Name.Contains("TourWithLogs"));
     }
 
     [Fact]

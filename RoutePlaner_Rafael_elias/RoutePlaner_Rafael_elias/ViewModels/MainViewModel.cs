@@ -263,6 +263,8 @@ public void GenerateSingleTourReport(Tour tour)
                 {
                     SelectedTourDescription = value?.Description;
                     LoadLogs();
+
+                    ((RelayCommand<Tour>)GenerateTourReportCommand).NotifyCanExecuteChanged(); 
                     ((RelayCommand)AddLogCommand).NotifyCanExecuteChanged();
                     ((RelayCommand)OpenUpdateTourWindowCommand).NotifyCanExecuteChanged();
                     ((RelayCommand)DeleteTourCommand).NotifyCanExecuteChanged();
@@ -339,7 +341,8 @@ public void GenerateSingleTourReport(Tour tour)
         {
             if (MapBrowser == null || string.IsNullOrEmpty(SelectedTour?.EncodedRoute))
             {
-                MessageBox.Show("MapBrowser control is not set or route is not available.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                //FEHLER
+                //MessageBox.Show("MapBrowser control is not set or route is not available.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
